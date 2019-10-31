@@ -1,6 +1,6 @@
 <?php
 
-namespace Baril\Smoothie;
+namespace Baril\Orderable;
 
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Baril\Smoothie\Tests;
+namespace Baril\Orderable\Tests;
 
-use Baril\Smoothie\PositionException;
-use Baril\Smoothie\Tests\Models\Article;
-use Baril\Smoothie\Tests\Models\Tag as Model;
+use Baril\Orderable\PositionException;
+use Baril\Orderable\Tests\Models\Article;
+use Baril\Orderable\Tests\Models\Tag as Model;
 
 class BelongsToManyOrderedTest extends TestCase
 {

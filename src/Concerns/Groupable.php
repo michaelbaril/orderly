@@ -1,8 +1,8 @@
 <?php
 
-namespace Baril\Smoothie\Concerns;
+namespace Baril\Orderable\Concerns;
 
-use Baril\Smoothie\GroupException;
+use Baril\Orderable\GroupException;
 
 /**
  * @traitUses \Illuminate\Database\Eloquent\Model

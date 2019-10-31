@@ -1,9 +1,9 @@
 <?php
 
-namespace Baril\Smoothie\Tests;
+namespace Baril\Orderable\Tests;
 
-use Baril\Smoothie\PositionException;
-use Baril\Smoothie\Tests\Models\Status as Model;
+use Baril\Orderable\PositionException;
+use Baril\Orderable\Tests\Models\Status as Model;
 
 class OrderableTest extends TestCase
 {

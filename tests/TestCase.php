@@ -1,8 +1,8 @@
 <?php
 
-namespace Baril\Smoothie\Tests;
+namespace Baril\Orderable\Tests;
 
-use Baril\Smoothie\SmoothieServiceProvider;
+use Baril\Orderable\OrderableServiceProvider;
 use Dotenv\Dotenv;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
@@ -31,7 +31,7 @@ class TestCase extends OrchestraTestCase
 
     protected function getPackageProviders($app)
     {
-        return [ SmoothieServiceProvider::class ];
+        return [ OrderableServiceProvider::class ];
     }
 
     protected function setUp() : void

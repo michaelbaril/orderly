@@ -1,6 +1,6 @@
 <?php
 
-namespace Baril\Smoothie\Relations;
+namespace Baril\Orderable\Relations;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

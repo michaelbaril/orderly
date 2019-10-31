@@ -1,12 +1,12 @@
 <?php
 
-namespace Baril\Smoothie\Tests\Models;
+namespace Baril\Orderable\Tests\Models;
 
-use Baril\Smoothie\Model;
+use Illuminate\Database\Eloquent\Model;
 
 class Status extends Model
 {
-    use \Baril\Smoothie\Concerns\Orderable;
+    use \Baril\Orderable\Concerns\Orderable;
 
     protected $fillable = ['name'];
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Baril\Smoothie\Console;
+namespace Baril\Orderable\Console;
 
-use Baril\Smoothie\Relations\BelongsToManyOrdered;
+use Baril\Orderable\Relations\BelongsToManyOrdered;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Baril\Smoothie\Concerns;
+namespace Baril\Orderable\Concerns;
 
-use Baril\Smoothie\GroupException;
-use Baril\Smoothie\OrderableCollection;
-use Baril\Smoothie\PositionException;
+use Baril\Orderable\GroupException;
+use Baril\Orderable\OrderableCollection;
+use Baril\Orderable\PositionException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 

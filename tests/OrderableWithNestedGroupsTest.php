@@ -1,10 +1,10 @@
 <?php
 
-namespace Baril\Smoothie\Tests;
+namespace Baril\Orderable\Tests;
 
-use Baril\Smoothie\PositionException;
-use Baril\Smoothie\Tests\Models\Article;
-use Baril\Smoothie\Tests\Models\Paragraph as Model;
+use Baril\Orderable\PositionException;
+use Baril\Orderable\Tests\Models\Article;
+use Baril\Orderable\Tests\Models\Paragraph as Model;
 
 class OrderableWithNestedGroupsTest extends TestCase
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Baril\Smoothie\Tests\Models;
+namespace Baril\Orderable\Tests\Models;
 
-use Baril\Smoothie\Model;
-use Baril\Smoothie\Tests\Models\Article;
+use Baril\Orderable\Tests\Models\Article;
+use Illuminate\Database\Eloquent\Model;
 
 class Paragraph extends Model
 {
-    use \Baril\Smoothie\Concerns\Orderable;
+    use \Baril\Orderable\Concerns\Orderable;
 
     protected $groupColumn = ['article_id', 'section'];
 

@@ -1,19 +1,14 @@
 <?php
 
-namespace Baril\Smoothie\Tests\Models;
+namespace Baril\Orderable\Tests\Models;
 
-use Baril\Smoothie\Model;
+use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    use \Baril\Smoothie\Concerns\Orderable;
+    use \Baril\Orderable\Concerns\Orderable;
 
     protected $fillable = ['name'];
-
-    public function related()
-    {
-        return $this->mutuallyBelongsToManySelves('tag_relations', 'tag_id', 'other_tag_id');
-    }
 
     public function articles()
     {

@@ -1,11 +1,14 @@
 <?php
 
-namespace Baril\Smoothie\Tests\Models;
+namespace Baril\Orderable\Tests\Models;
 
-use Baril\Smoothie\Model;
+use Baril\Orderable\Concerns\HasOrderedRelationships;
+use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    use HasOrderedRelationships;
+
     public function tags()
     {
         return $this->morphToManyOrdered(Tag::class, 'taggable', 'order');

@@ -1,9 +1,9 @@
 <?php
 
-namespace Baril\Smoothie\Concerns;
+namespace Baril\Orderable\Concerns;
 
-use Baril\Smoothie\Relations\BelongsToManyOrdered;
-use Baril\Smoothie\Relations\MorphToManyOrdered;
+use Baril\Orderable\Relations\BelongsToManyOrdered;
+use Baril\Orderable\Relations\MorphToManyOrdered;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
@@ -90,7 +90,7 @@ trait HasOrderedRelationships
      * @param  string  $parentKey
      * @param  string  $relatedKey
      * @param  bool  $inverse
-     * @return \Baril\Smoothie\Relations\MorphToManyOrdered
+     * @return \Baril\Orderable\Relations\MorphToManyOrdered
      */
     public function morphToManyOrdered($related, $name, $orderColumn = 'position', $table = null, $foreignPivotKey = null,
                                 $relatedPivotKey = null, $parentKey = null,
@@ -132,7 +132,7 @@ trait HasOrderedRelationships
      * @param string $relatedPivotKey
      * @param string $parentKey
      * @param string $relatedKey
-     * @return \Baril\Smoothie\Relations\MorphToManyOrdered
+     * @return \Baril\Orderable\Relations\MorphToManyOrdered
      */
     public function morphedByManyOrdered($related, $name, $orderColumn = 'position', $table = null, $foreignPivotKey = null,
                                   $relatedPivotKey = null, $parentKey = null, $relatedKey = null)

@@ -1,15 +1,15 @@
 <?php
 
-namespace Baril\Smoothie\Tests\Models;
+namespace Baril\Orderable\Tests\Models;
 
-use Baril\Smoothie\Model;
-use Baril\Smoothie\Tests\Models\Status;
-use Baril\Smoothie\Tests\Models\Tag;
-use Baril\Smoothie\Concerns\HasDynamicRelations;
+use Baril\Orderable\Concerns\HasOrderedRelationships;
+use Baril\Orderable\Tests\Models\Status;
+use Baril\Orderable\Tests\Models\Tag;
+use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    use HasDynamicRelations;
+    use HasOrderedRelationships;
 
     protected $fillable = ['title', 'body', 'status_id', 'publication_date'];
 
@@ -21,15 +21,5 @@ class Article extends Model
     public function status()
     {
         return $this->belongsTo(Status::class);
-    }
-
-    public function getPublicationDateAttribute()
-    {
-        return $this->mergeDate('publication_date');
-    }
-
-    public function setPublicationDateAttribute($value)
-    {
-        $this->splitDate($value, 'publication_date');
     }
 }
