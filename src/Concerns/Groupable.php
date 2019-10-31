@@ -5,8 +5,6 @@ namespace Baril\Orderable\Concerns;
 use Baril\Orderable\GroupException;
 
 /**
- * @traitUses \Illuminate\Database\Eloquent\Model
- *
  * @property string $groupColumn Name of the "group" column
  */
 trait Groupable
@@ -18,20 +16,27 @@ trait Groupable
      */
     public function getGroupColumn()
     {
-        return $this->groupColumn ?? null;
+        return property_exists($this, 'groupColumn') ? $this->groupColumn : null;
     }
 
+    /**
+     * Return the group for $this.
+     *
+     * @param bool $original If set to true, the method will return the "original" value.
+     * @return mixed
+     */
     public function getGroup($original = false)
     {
-        if (is_null($this->groupColumn)) {
+        $groupColumn = $this->getGroupColumn();
+        if (is_null($groupColumn)) {
             return null;
         }
-        if (!is_array($this->groupColumn)) {
-            return $original ? $this->getOriginal($this->groupColumn) : $this->{$this->groupColumn};
+        if (!is_array($groupColumn)) {
+            return $original ? $this->getOriginal($groupColumn) : $this->{$groupColumn};
         }
 
         $group = [];
-        foreach ($this->groupColumn as $column) {
+        foreach ($groupColumn as $column) {
             $group[] = $original ? $this->getOriginal($column) : $this->$column;
         }
         return $group;
@@ -43,7 +48,7 @@ trait Groupable
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @param mixed $group
      */
-    public function scopeInGroup($query, $group)
+    public function scopeWhereGroup($query, $group)
     {
         $groupColumn = (array) $this->getGroupColumn();
         $group = is_null($group) ? [ null ] : array_values((array) $group);
@@ -53,17 +58,17 @@ trait Groupable
     }
 
     /**
-     * Restrict the query to the provided group.
+     * Restrict the query to the provided groups.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @param array $groups
      */
-    public function scopeInGroups($query, $groups)
+    public function scopeWhereGroupIn($query, $groups)
     {
         $query->where(function ($query) use ($groups) {
             foreach ($groups as $group) {
                 $query->orWhere(function ($query) use ($group) {
-                    $this->scopeInGroup($query, $group);
+                    $this->scopeWhereGroup($query, $group);
                 });
             }
         });
@@ -84,7 +89,7 @@ trait Groupable
             foreach ($groupColumn as $column) {
                 $group[] = $this->$column;
             }
-            $query->inGroup($group);
+            $query->whereGroup($group);
         }
         if ($excludeThis) {
             $query->whereKeyNot($this->getKey());
@@ -112,14 +117,5 @@ trait Groupable
             }
         }
         return true;
-    }
-
-    /**
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function others()
-    {
-        return $this->newQueryInSameGroup(true);
     }
 }

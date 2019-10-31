@@ -38,7 +38,7 @@ class OrderableWithNestedGroupsTest extends TestCase
             $section
         ];
 
-        $actual = Model::inGroup($group)->orderBy('id')->pluck('position')->toArray();
+        $actual = Model::whereGroup($group)->orderBy('id')->pluck('position')->toArray();
         $this->assertEquals($expected, $actual);
     }
 

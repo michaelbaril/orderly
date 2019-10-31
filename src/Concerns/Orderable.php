@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 
 /**
- * @traitUses \Illuminate\Database\Eloquent\Model
- *
  * @property string $orderColumn
  */
 trait Orderable
@@ -53,7 +51,7 @@ trait Orderable
                 $connection = $model->getConnection();
                 $group = $model->getGroup(true);
                 $connection->statement('set @rownum := 0');
-                static::inGroup($group)->ordered()->update([$model->getOrderColumn() => $connection->raw('(@rownum := @rownum + 1)')]);
+                static::whereGroup($group)->ordered()->update([$model->getOrderColumn() => $connection->raw('(@rownum := @rownum + 1)')]);
             }
         });
 
@@ -78,18 +76,24 @@ trait Orderable
      */
     public function getOrderColumn()
     {
-        return $this->orderColumn ?? 'position';
+        return property_exists($this, 'orderColumn') ? $this->orderColumn : 'position';
     }
 
     /**
      * Returns the maximum possible position for the current model.
      *
+     * @return int
      */
     public function getMaxPosition()
     {
         return $this->newQueryInSameGroup()->max($this->getOrderColumn());
     }
 
+    /**
+     * Returns the position for a newly inserted model.
+     *
+     * @return int
+     */
     public function getNextPosition()
     {
         return $this->getMaxPosition() + 1;
