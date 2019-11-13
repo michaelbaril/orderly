@@ -2,6 +2,7 @@
 
 namespace Baril\Orderable\Tests;
 
+use Baril\Orderable\GroupException;
 use Baril\Orderable\PositionException;
 use Baril\Orderable\Tests\Models\Article;
 use Baril\Orderable\Tests\Models\Paragraph as Model;
@@ -97,5 +98,24 @@ class OrderableWithNestedGroupsTest extends TestCase
         $this->setGroup([0, 1, 2, 3, 4], 1, 1);
         $this->expectException(PositionException::class);
         $this->items[0]->moveToPosition(7);
+    }
+
+    public function test_mass_reordering_exception()
+    {
+        $this->setGroup([0], 1, 1);
+        $this->expectException(GroupException::class);
+        Model::setOrder([$this->items[0]->id]);
+    }
+
+    public function test_mass_reordering()
+    {
+        $this->setGroup([0], 1, 1);
+        $affected = Model::whereGroup([$this->articles[0]->id, 1])->setOrder([$this->items[7]->id, $this->items[4]->id]);
+        $positions = Model::orderBy('id')->pluck('position')->all();
+        $this->assertEquals([
+            1,
+            3, 4, 5, 2, 6, 7, 1,
+        ], $positions);
+        $this->assertEquals(7, $affected);
     }
 }

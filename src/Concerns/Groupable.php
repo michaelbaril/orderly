@@ -5,7 +5,7 @@ namespace Baril\Orderable\Concerns;
 use Baril\Orderable\GroupException;
 
 /**
- * @property string $groupColumn Name of the "group" column
+ * @property string|array $groupColumn Name of the "group" column
  */
 trait Groupable
 {

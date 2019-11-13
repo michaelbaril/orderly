@@ -424,7 +424,13 @@ trait InteractsWithOrderedPivotTable
      */
     public function setOrder($ids)
     {
-        $models = $this->get()->sortByKeys($this->parseIds($ids));
+        $ids = array_flip($ids);
+        $models = $this->get();
+        $i = $models->count();
+        $models = $models->sortBy(function ($model) use ($ids, &$i) {
+            return $ids[$model->getKey()] ?? ++$i;
+        });
+
 
         $ids = $models->modelKeys();
         $positions = $models->pluck($this->accessor . '.' . $this->getOrderColumn())->sort()->values()->all();

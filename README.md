@@ -144,15 +144,39 @@ $collection->saveOrder();
 
 That's it! Now the items' order in the collection has been applied to the
 `position` column of the database.
-
-To define the order explicitely, you can do something like this:
-```php
-$collection = Status::all();
-$collection->sortByKeys([2, 1, 5, 3, 4])->saveOrder();
 ```
+
+You can also order a collection explicitely with the `setOrder` method.
+It takes an array of ids as a parameter:
+
+```php
+$ordered = $collection->setOrder([4, 5, 2]);
+```
+
+The returned collection is ordered so that the items with ids 4, 5 and 2
+are at the beginning of the collection. Also, the new order is saved to the
+database automatically (you don't need to call `saveOrder`).
 
 > Note: Only the models within the collection are reordered / swapped between
 > one another. The other rows in the table remain untouched.
+
+You can also use the `setOrder` method, either statically on the model, or on
+a query builder.
+
+```php
+// This will reorder all statuses (assuming there are 5 statuses in the table):
+Status::setOrder([2, 1, 5, 3, 4]);
+
+// This will put the status with id 4 at the beginning, and move the other
+// statuses' positions accordingly:
+Status::setOrder([4]);
+
+// This will only swap the statuses 3, 4 and 5, and won't change the position
+// of the other statuses:
+Status::whereKey([3, 4, 5])->setOrder([4, 5, 3]);
+```
+
+When used like this, the `setOrder` method returns the number of affected rows.
 
 ## Orderable groups / one-to-many relationships
 

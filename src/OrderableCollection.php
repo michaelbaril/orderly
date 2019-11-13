@@ -18,8 +18,10 @@ class OrderableCollection extends EloquentCollection
 
         // Check that all items are in the same group:
         if ($groupColumn) {
-            if ($this->pluck($groupColumn)->unique()->count() > 1) {
-                throw new GroupException('All models must be in same group!');
+            foreach ((array) $groupColumn as $column) {
+                if ($this->pluck($column)->unique()->count() > 1) {
+                    throw new GroupException('All models must be in same group!');
+                }
             }
         }
 
@@ -38,5 +40,15 @@ class OrderableCollection extends EloquentCollection
         });
 
         return $this;
+    }
+
+    public function setOrder($ids)
+    {
+        $count = $this->count();
+        ordered = $this->sortBy(function ($item) use ($ids, $count) {
+            $index = array_search($item->getKey(), $ids);
+            return ($index === false) ? $count + $item->getPosition() : $index;
+        });
+        return ordered->saveOrder();
     }
 }

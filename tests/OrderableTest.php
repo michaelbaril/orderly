@@ -121,4 +121,48 @@ class OrderableTest extends TestCase
             }
         });
     }
+
+    /**
+     * @dataProvider reorderProvider
+     */
+    public function test_reorder($pick, $expectedNewOrder, $expectedAffected)
+    {
+        $ids = [];
+        foreach ($pick as $pos) {
+            $ids[] = $this->items[$pos - 1]->id;
+        }
+
+        $affected = Model::setOrder($ids);
+        $this->assertEquals($expectedAffected, $affected);
+
+        $ids = Model::ordered()->pluck('id')->all();
+        $items = $this->items->pluck('id')->flip();
+        $newOrder = [];
+        foreach ($ids as $id) {
+            $newOrder[] = $items[$id] + 1;
+        }
+
+        $this->assertEquals($expectedNewOrder, $newOrder);
+    }
+
+    public function reorderProvider()
+    {
+        return [
+            'all' => [
+                [5, 2, 1, 3, 4],
+                [5, 2, 1, 3, 4],
+                4,
+            ],
+            'subset1' => [
+                [2, 5, 3],
+                [2, 5, 3, 1, 4],
+                4,
+            ],
+            'subset2' => [
+                [5, 4],
+                [5, 4, 1, 2, 3],
+                5,
+            ],
+        ];
+    }
 }

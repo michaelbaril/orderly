@@ -6,7 +6,7 @@ use Baril\Orderable\GroupException;
 use Baril\Orderable\OrderableCollection;
 use Baril\Orderable\PositionException;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Query\Builder as QueryBuilder;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * @property string $orderColumn
@@ -79,6 +79,11 @@ trait Orderable
         return property_exists($this, 'orderColumn') ? $this->orderColumn : 'position';
     }
 
+    public function getPosition()
+    {
+        return $this->{$this->getOrderColumn()};
+    }
+
     /**
      * Returns the maximum possible position for the current model.
      *
@@ -100,10 +105,10 @@ trait Orderable
     }
 
     /**
-     * @param QueryBuilder $query
+     * @param Builder $query
      * @param string $direction
      *
-     * @return QueryBuilder
+     * @return Builder
      */
     public function scopeOrdered($query, $direction = 'asc')
     {
@@ -111,6 +116,10 @@ trait Orderable
         $query->orderBy($this->getOrderColumn(), $direction);
     }
 
+    /**
+     *
+     * @param Builder $query
+     */
     public function scopeUnordered($query)
     {
         $query->getQuery()->orders = collect($query->getQuery()->orders)
@@ -326,7 +335,7 @@ trait Orderable
      * @param $leftPosition
      * @param $rightPosition
      *
-     * @return QueryBuilder
+     * @return Builder
      */
     protected function newQueryBetween($leftPosition, $rightPosition)
     {
@@ -345,7 +354,7 @@ trait Orderable
     /**
      * @param int $limit
      *
-     * @return QueryBuilder
+     * @return Builder
      */
     public function previous($limit = null)
     {
@@ -360,7 +369,7 @@ trait Orderable
     /**
      * @param int $limit
      *
-     * @return QueryBuilder
+     * @return Builder
      */
     public function next($limit = null)
     {
@@ -370,5 +379,51 @@ trait Orderable
             $query->limit($limit);
         }
         return $query;
+    }
+
+    /**
+     * Reorders the elements based on their ids.
+     *
+     * @param Builder $query
+     * @param array $ids
+     * @return int
+     */
+    public function scopeSetOrder($query, $ids)
+    {
+        $query = clone $query;
+        $query->setQuery($query->getQuery()->cloneWithout(['orders'])->cloneWithoutBindings(['order']));
+
+        $instance = $query->getModel();
+        $pdo = $instance->getConnection()->getPdo();
+
+        // We're reversing the array and then ordering by desc, because the field()
+        // function will return 0 for ids that are not listed, and we want them at the end:
+        $reversedIds = collect($ids)->reverse()->map(function ($id) use ($pdo) {
+            return $pdo->quote($id);
+        })->implode(',');
+
+        // We're selecting only the necessary columns:
+        $orderColumn = $instance->getOrderColumn();
+        $groupColumn = $instance->getGroupColumn();
+        $columns = [
+            $instance->getKeyName(),
+            $orderColumn,
+        ];
+        if ($groupColumn) {
+            $columns = array_merge($columns, (array) $groupColumn);
+        }
+
+        $collection = $query->orderByRaw("field({$instance->getKeyName()}, {$reversedIds}) desc")
+                ->ordered()
+                ->select($columns)
+                ->get();
+
+        $oldPositions = $collection->pluck($orderColumn);
+        $collection->saveOrder();
+        $newPositions = $collection->pluck($orderColumn);
+
+        return $oldPositions->combine($newPositions)->map(function($new, $old) {
+            return (int) ($old != $new);
+        })->sum();
     }
 }
