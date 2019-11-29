@@ -6,7 +6,7 @@ use Baril\Orderable\GroupException;
 use Baril\Orderable\PositionException;
 use Illuminate\Database\Eloquent\Model;
 
-trait InteractsWithOrderedPivotTable
+trait InteractsWithOrderablePivotTable
 {
     protected $orderColumn;
 
@@ -17,7 +17,7 @@ trait InteractsWithOrderedPivotTable
     protected function setOrderColumn($orderColumn)
     {
         $this->orderColumn = $orderColumn;
-        return $this->withPivot($orderColumn)->ordered();
+        return $this->withPivot($orderColumn);
     }
 
     /**

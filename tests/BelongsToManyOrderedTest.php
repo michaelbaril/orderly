@@ -30,7 +30,7 @@ class BelongsToManyOrderedTest extends TestCase
     protected function assertTagsForArticle($expected, $article)
     {
         $orderColumn = $this->articles[$article]->tags()->getOrderColumn();
-        $actual = $this->articles[$article]->tags()->get();
+        $actual = $this->articles[$article]->tags()->ordered()->get();
         foreach ($expected as $i => $e) {
             $this->assertEquals($this->items[$e]->id, $actual[$i]->id);
             $this->assertEquals($i + 1, $actual[$i]->pivot->$orderColumn);
@@ -136,7 +136,8 @@ class BelongsToManyOrderedTest extends TestCase
         $actual = $article->tags()->ordered('desc')->pluck('id')->toArray();
         $this->assertEquals($expected, $actual);
 
-        sort($expected);$actual = $article->tags()->unordered()->orderBy('id')->pluck('id')->toArray();
+        sort($expected);
+        $actual = $article->tags()->unordered()->orderBy('id')->pluck('id')->toArray();
         $this->assertEquals($expected, $actual);
     }
 

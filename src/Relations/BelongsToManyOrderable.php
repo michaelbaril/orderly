@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 /**
  * Many to many relation with ordering support.
  */
-class BelongsToManyOrdered extends BelongsToMany
+class BelongsToManyOrderable extends BelongsToMany
 {
-    use Concerns\InteractsWithOrderedPivotTable;
+    use Concerns\InteractsWithOrderablePivotTable;
 
     /**
      * Create a new belongs to many relationship instance.

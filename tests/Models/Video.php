@@ -2,15 +2,15 @@
 
 namespace Baril\Orderable\Tests\Models;
 
-use Baril\Orderable\Concerns\HasOrderedRelationships;
+use Baril\Orderable\Concerns\HasOrderableRelationships;
 use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
 {
-    use HasOrderedRelationships;
+    use HasOrderableRelationships;
 
     public function tags()
     {
-        return $this->morphToManyOrdered(Tag::class, 'taggable', 'order');
+        return $this->morphToManyOrderable(Tag::class, 'taggable', 'order');
     }
 }

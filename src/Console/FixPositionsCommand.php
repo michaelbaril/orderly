@@ -2,7 +2,7 @@
 
 namespace Baril\Orderable\Console;
 
-use Baril\Orderable\Relations\BelongsToManyOrdered;
+use Baril\Orderable\Relations\BelongsToManyOrderable;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Model;
 
@@ -76,7 +76,7 @@ class FixPositionsCommand extends Command
     {
         try {
             $relation = $instance->$relationName();
-            if (!$relation instanceof BelongsToManyOrdered) {
+            if (!$relation instanceof BelongsToManyOrderable) {
                 $this->error($relationName . ' is not a valid belongs-to-many-ordered relationship!');
                 return;
             }

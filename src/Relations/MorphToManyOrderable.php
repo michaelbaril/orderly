@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 /**
  * Many to many relation with ordering support.
  */
-class MorphToManyOrdered extends MorphToMany
+class MorphToManyOrderable extends MorphToMany
 {
-    use Concerns\InteractsWithOrderedPivotTable {
+    use Concerns\InteractsWithOrderablePivotTable {
         newPivotQuery as _newPivotQuery;
     }
 

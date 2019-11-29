@@ -212,31 +212,31 @@ class Section extends Model
 }
 ```
 
-## Ordered many-to-many relationships
+## Orderable many-to-many relationships
 
 If you need to order a many-to-many relationship, you will need a `position`
 column (or some other name) in the pivot table.
 
-Have your model use the `\Baril\Orderable\Concerns\HasOrderedRelationships` trait
+Have your model use the `\Baril\Orderable\Concerns\HasOrderableRelationships` trait
 (or extend the `Baril\Orderable\Model` class):
 
 ```php
 class Post extends Model
 {
-    use \Baril\Orderable\Concerns\HasOrderedRelationships;
+    use \Baril\Orderable\Concerns\HasOrderableRelationships;
 
     public function tags()
     {
-        return $this->belongsToManyOrdered(Tag::class);
+        return $this->belongsToManyOrderable(Tag::class);
     }
 }
 ```
 
-The prototype of the `belongsToManyOrdered` method is similar as `belongsToMany`
-with an added 2nd parameter `$orderColumn`:
+The prototype of the `belongsToManyOrderable` method is similar as
+`belongsToMany` with an added 2nd parameter `$orderColumn`:
 
 ```php
-public function belongsToManyOrdered(
+public function belongsToManyOrderable(
         $related,
         $orderColumn = 'position',
         $table = null,
@@ -256,12 +256,33 @@ $post->tags()->sync([$tag1->id, $tag2->id, $tag3->id]) // will keep the provided
 $post->tags()->detach($tag->id); // will decrement the position of subsequent $tags
 ```
 
-When queried, the relation is sorted by default. If you want to order the
-related models by some other field, you will need to use the `unordered` scope
-first:
+You can order the results of the relation by chaining the `ordered` method:
 
 ```php
-$post->tags; // ordered by position
+$orderedTags = $post->tags()->ordered()->get();
+$tagsInReverseOrder = $post->tags()->ordered('desc')->get();
+```
+
+You could also call this method in the relation definition, so that it's
+ordered by default:
+
+```php
+class Post extends Model
+{
+    use \Baril\Orderable\Concerns\HasOrderableRelationships;
+
+    public function tags()
+    {
+        return $this->belongsToManyOrderable(Tag::class)->ordered();
+    }
+}
+```
+
+In this case, if you occasionally want to order the related models by some other
+field, you will need to use the `unordered` scope first:
+
+```php
+$post->tags; // ordered by position, because of the definition above
 $post->tags()->ordered('desc')->get(); // reverse order
 $post->tags()->unordered()->get(); // unordered
 
@@ -272,25 +293,7 @@ $post->tags()->orderBy('id')->get();
 $post->tags()->unordered()->orderBy('id')->get();
 ```
 
-Of course, you can also define the relation like this if you don't want it
-ordered by default:
-
-```php
-class Post extends Model
-{
-    use \Baril\Orderable\Concerns\HasOrderedRelationships;
-
-    public function tags()
-    {
-        return $this->belongsToManyOrdered(Tag::class)->unordered();
-    }
-}
-
-$article->tags; // unordered
-$article->tags()->ordered()->get(); // ordered
-```
-
-The `BelongsToManyOrdered` class has all the same methods as the `Orderable`
+The `BelongsToManyOrderable` class has all the same methods as the `Orderable`
 trait, except that you will need to pass them a related $model to work with:
 
 * `moveToOffset($model, $offset)`,
@@ -308,8 +311,8 @@ trait, except that you will need to pass them a related $model to work with:
 * `after($model)` (similar as `next`).
 
 ```php
-$tag1 = $article->tags()->first();
-$tag2 = $article->tags()->last();
+$tag1 = $article->tags()->ordered()->first();
+$tag2 = $article->tags()->ordered()->last();
 $article->tags()->moveBefore($tag1, $tag2);
 // now $tag1 is at the second to last position
 ```
@@ -327,39 +330,39 @@ In the example above, tags with ids `$id1`, `$id2`, `$id3` will now be at the
 beginning of the article's `tags` collection. Any other tags attached to the
 article will come after, in the same order as before calling `setOrder`.
 
-## Ordered morph-to-many relationships
+## Orderable morph-to-many relationships
 
-Similarly, the package defines a `MorphToManyOrdered` type of relationship.
-The 3rd parameter of the `morphToManyOrdered` method is the name of the order
+Similarly, the package defines a `MorphToManyOrderable` type of relationship.
+The 3rd parameter of the `morphToManyOrderable` method is the name of the order
 column (defaults to `position`):
 
 ```php
 class Post extends Model
 {
-    use \Baril\Orderable\Concerns\HasOrderedRelationships;
+    use \Baril\Orderable\Concerns\HasOrderableRelationships;
 
     public function tags()
     {
-        return $this->morphToManyOrdered('App\Tag', 'taggable', 'tag_order');
+        return $this->morphToManyOrderable('App\Tag', 'taggable', 'tag_order');
     }
 }
 ```
 
-Same thing with the `morphedByManyOrdered` method:
+Same thing with the `morphedByManyOrderable` method:
 
 ```php
 class Tag extends Model
 {
-    use \Baril\Orderable\Concerns\HasOrderedRelationships;
+    use \Baril\Orderable\Concerns\HasOrderableRelationships;
 
     public function posts()
     {
-        return $this->morphedByManyOrdered('App\Post', 'taggable', 'order');
+        return $this->morphedByManyOrderable('App\Post', 'taggable', 'order');
     }
 
     public function videos()
     {
-        return $this->morphedByManyOrdered('App\Video', 'taggable', 'order');
+        return $this->morphedByManyOrderable('App\Video', 'taggable', 'order');
     }
 }
 ```
