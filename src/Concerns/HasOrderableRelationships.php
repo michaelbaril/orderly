@@ -9,27 +9,16 @@ use Illuminate\Support\Str;
 
 trait HasOrderableRelationships
 {
-    /**
-     * Get the relationship name of the belongs to many.
-     *
-     * @return string
-     */
-    protected function guessOrderableRelation()
+    public static function bootHasOrderableRelationships()
     {
-        $methods = [
-            'guessOrderableRelation',
+        static::$manyMethods = array_merge(static::$manyMethods, [
             'belongsToManyOrderable',
             'morphToManyOrderable',
             'morphedByManyOrderable',
             'belongsToManyOrdered',
             'morphToManyOrdered',
             'morphedByManyOrdered',
-        ];
-        $caller = Arr::first(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS), function ($trace) use ($methods) {
-            return ! in_array($trace['function'], $methods);
-        });
-
-        return ! is_null($caller) ? $caller['function'] : null;
+        ]);
     }
 
     /**
@@ -55,7 +44,7 @@ trait HasOrderableRelationships
         // name of the calling function. We will use that function name as the
         // title of this relation since that is a great convention to apply.
         if (is_null($relation)) {
-            $relation = $this->guessOrderableRelation();
+            $relation = $this->guessBelongsToManyRelation();
         }
 
         // First, we'll need to determine the foreign key and "other key" for the
@@ -119,7 +108,7 @@ trait HasOrderableRelationships
                                 $relatedPivotKey = null, $parentKey = null,
                                 $relatedKey = null, $inverse = false)
     {
-        $caller = $this->guessOrderableRelation();
+        $caller = $this->guessBelongsToManyRelation();
 
         // First, we will need to determine the foreign key and "other key" for the
         // relationship. Once we have determined the keys we will make the query
