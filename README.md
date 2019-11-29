@@ -1,9 +1,20 @@
 # Orderable behavior
 
+This package adds a orderable/sortable behavior to Eloquent models. It is
+inspired by <https://github.com/boxfrommars/rutorika-sortable>.
+It was originally a part of the
+[Smoothie](https://github.com/michaelbaril/smoothie) package. If you're using
+Laravel 5.x, you should install
+[Smoothie](https://github.com/michaelbaril/smoothie) instead of this package.
+If you're migrating from Laravel 5.x to Laravel 6.x, and thus from Smoothie to
+this package, please refer to [this section](#migrating-from-smoothie).
+
 Adds orderable behavior to Eloquent models (forked from
 <https://github.com/boxfrommars/rutorika-sortable>).
 
 ## Setup
+
+### New install
 
 First, add a `position` field to your model (see below how to change this name):
 
@@ -40,6 +51,40 @@ class Article extends Model
     protected $orderColumn = 'order';
     protected $guarded = ['order'];
 }
+```
+
+### Migrating from Smoothie
+
+Remove `baril/smoothie` and require `baril/orderable` instead:
+
+```bash
+composer remove baril/smoothie
+composer require baril/orderable
+```
+
+In your models, replace the `Baril\Smoothie\Concerns\Orderable` trait with
+`Baril\Orderable\Concerns\Orderable`, and
+`Baril\Smoothie\Concerns\HasOrderedRelationships` with
+`Baril\Orderable\Concerns\HasOrderableRelationships`.
+
+If you were using stuff like this for mass reorder:
+
+```php
+$collection = Status::all();
+$collection->sortByKeys([2, 1, 5, 3, 4])->saveOrder();
+```
+
+you need to be aware that the `sortByKeys` method is part of the Smoothie
+package, not the Orderable package. If you don't want to require both packages,
+you can use the `setOrder` method instead:
+
+```php
+$collection = Status::all();
+$collection->setOrder([2, 1, 5, 3, 4]);
+
+// or:
+
+Status::setOrder([2, 1, 5, 3, 4]);
 ```
 
 ## Basic usage
@@ -263,8 +308,9 @@ $orderedTags = $post->tags()->ordered()->get();
 $tagsInReverseOrder = $post->tags()->ordered('desc')->get();
 ```
 
-You could also call this method in the relation definition, so that it's
-ordered by default:
+If you want the relation ordered by default, you can use the
+`belongsToManyOrdered` method in the relation definition, instead of
+`belongsToManyOrderable`.
 
 ```php
 class Post extends Model
@@ -273,7 +319,7 @@ class Post extends Model
 
     public function tags()
     {
-        return $this->belongsToManyOrderable(Tag::class)->ordered();
+        return $this->belongsToManyOrdered(Tag::class);
     }
 }
 ```
