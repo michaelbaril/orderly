@@ -1,22 +1,35 @@
 # Orderable behavior
 
-This package adds a orderable/sortable behavior to Eloquent models. It is
-inspired by <https://github.com/boxfrommars/rutorika-sortable>.
-It was originally a part of the
-[Smoothie](https://github.com/michaelbaril/smoothie) package. If you're using
+This package adds an orderable/sortable behavior to Eloquent models. It is
+inspired by the [`rutorika/sortable` package](https://github.com/boxfrommars/rutorika-sortable).
+It was originally part of the
+[Smoothie](https://github.com/michaelbaril/smoothie) package.
+
+:warning: If you're using
 Laravel 5.x, you should install
 [Smoothie](https://github.com/michaelbaril/smoothie) instead of this package.
-If you're migrating from Laravel 5.x to Laravel 6.x, and thus from Smoothie to
-this package, please refer to [this section](#migrating-from-smoothie).
-
-Adds orderable behavior to Eloquent models (forked from
-<https://github.com/boxfrommars/rutorika-sortable>).
+If you were a Smoothie user and are migrating from Laravel 5.x to Laravel 6.x,
+please refer to [this section](#migrating-from-smoothie).
 
 ## Setup
 
 ### New install
 
-First, add a `position` field to your model (see below how to change this name):
+If you're not using package discovery, register the service provider in your
+`config/app.php` file:
+
+```php
+return [
+    // ...
+    'providers' => [
+        Baril\Orderable\OrderableServiceProvider::class,
+        // ...
+    ],
+];
+```
+
+Add a column to your table to store the position. The default name for
+this column is `position` but you can use another name if you want (see below).
 
 ```php
 public function up()
@@ -40,8 +53,8 @@ class Article extends Model
 }
 ```
 
-You need to set the `$orderColumn` property if you want another name than
-`position`:
+You also need to set the `$orderColumn` property if you want to use another
+name than `position`:
 
 ```php
 class Article extends Model
@@ -55,12 +68,16 @@ class Article extends Model
 
 ### Migrating from Smoothie
 
-Remove `baril/smoothie` and require `baril/orderable` instead:
+If you were a Smoothie user and are migrating from Laravel 5.x to Laravel 6.x,
+you need to install this package instead of (or in addition to) Smoothie.
 
 ```bash
 composer remove baril/smoothie
 composer require baril/orderable
 ```
+
+If you're not using package discovery, replace Smoothie's service provider
+with `Baril\Orderable\OrderableServiceProvider`.
 
 In your models, replace the `Baril\Smoothie\Concerns\Orderable` trait with
 `Baril\Orderable\Concerns\Orderable`, and
@@ -189,7 +206,6 @@ $collection->saveOrder();
 
 That's it! Now the items' order in the collection has been applied to the
 `position` column of the database.
-```
 
 You can also order a collection explicitely with the `setOrder` method.
 It takes an array of ids as a parameter:
@@ -202,8 +218,8 @@ The returned collection is ordered so that the items with ids 4, 5 and 2
 are at the beginning of the collection. Also, the new order is saved to the
 database automatically (you don't need to call `saveOrder`).
 
-> Note: Only the models within the collection are reordered / swapped between
-> one another. The other rows in the table remain untouched.
+:warning: Note: Only the models within the collection are reordered / swapped
+between one another. The other rows in the table remain untouched.
 
 You can also use the `setOrder` method, either statically on the model, or on
 a query builder.
@@ -245,7 +261,7 @@ If the group is defined by multiple columns, you can use an array:
 protected $groupColumn = ['field_name1', 'field_name2'];
 ```
 
-Orderable groups can be used to handle ordered one-to-many relationships:
+Orderable groups can be used to handle orderable one-to-many relationships:
 
 ```php
 class Section extends Model
@@ -253,7 +269,14 @@ class Section extends Model
     public function articles()
     {
         return $this->hasMany(Article::class)->ordered();
+        // Chaining the ->ordered() method is optional here, but you can do
+        // it if you want the relation ordered by default.
     }
+}
+
+class Article extends Model
+{
+    protected $groupColumn = 'section_id';
 }
 ```
 
@@ -262,8 +285,8 @@ class Section extends Model
 If you need to order a many-to-many relationship, you will need a `position`
 column (or some other name) in the pivot table.
 
-Have your model use the `\Baril\Orderable\Concerns\HasOrderableRelationships` trait
-(or extend the `Baril\Orderable\Model` class):
+Have your model use the `\Baril\Orderable\Concerns\HasOrderableRelationships`
+trait:
 
 ```php
 class Post extends Model
@@ -320,6 +343,8 @@ class Post extends Model
     public function tags()
     {
         return $this->belongsToManyOrdered(Tag::class);
+        // the line above is actually just a shortcut to:
+        // return $this->belongsToManyOrderable(Tag::class)->ordered();
     }
 }
 ```
@@ -411,4 +436,21 @@ class Tag extends Model
         return $this->morphedByManyOrderable('App\Video', 'taggable', 'order');
     }
 }
+```
+
+## Artisan command
+
+The `orderable:fix-positions` command will recalculate the data in the
+`position` column (eg. in case you've manually deleted rows and have "gaps").
+
+For an orderable model:
+
+```bash
+php artisan orderable:fix-positions "App\\YourModel"
+```
+
+For an orderable many-to-many relation:
+
+```bash
+php artisan orderable:fix-positions "App\\YourModel" relationName
 ```
