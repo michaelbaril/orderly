@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class FixPositionsCommand extends Command
 {
-    protected $signature = 'smoothie:fix-positions {model : The model class.} {relationName? : The relationship to fix.}';
+    protected $signature = 'orderable:fix-positions {model : The model class.} {relationName? : The relationship to fix.}';
     protected $description = 'Rebuild the position column for a given orderable model or relation';
 
     protected $chunks = 200;
