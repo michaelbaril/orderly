@@ -64,7 +64,7 @@ class MorphToManyOrderable extends MorphToMany
      * @param boolean $ordered
      * @return \Illuminate\Database\Query\Builder
      */
-    protected function newPivotQuery($ordered = true)
+    public function newPivotQuery($ordered = true)
     {
         return $this->_newPivotQuery($ordered)->where($this->morphType, $this->morphClass);
     }

@@ -74,7 +74,7 @@ trait InteractsWithOrderablePivotTable
      *
      * @return \Illuminate\Database\Query\Builder
      */
-    protected function newPivotQuery($ordered = true)
+    public function newPivotQuery($ordered = true)
     {
         $query = parent::newPivotQuery();
         return $ordered ? $query->orderBy($this->getQualifiedOrderColumn()) : $query;
