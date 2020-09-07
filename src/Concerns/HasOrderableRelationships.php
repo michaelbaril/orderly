@@ -37,9 +37,17 @@ trait HasOrderableRelationships
      *
      * @return BelongsToSortedMany
      */
-    public function belongsToManyOrderable($related, $orderColumn = 'position', $table = null, $foreignPivotKey = null, $relatedPivotKey = null,
-                                  $parentKey = null, $relatedKey = null, $relation = null)
-    {
+    public function belongsToManyOrderable(
+        $related,
+        $orderColumn = 'position',
+        $table = null,
+        $foreignPivotKey = null,
+        $relatedPivotKey = null,
+        $parentKey = null,
+        $relatedKey = null,
+        $relation = null
+    ) {
+    
         // If no relationship name was passed, we will pull backtraces to get the
         // name of the calling function. We will use that function name as the
         // title of this relation since that is a great convention to apply.
@@ -76,9 +84,17 @@ trait HasOrderableRelationships
         );
     }
 
-    public function belongsToManyOrdered($related, $orderColumn = 'position', $table = null, $foreignPivotKey = null, $relatedPivotKey = null,
-                                  $parentKey = null, $relatedKey = null, $relation = null)
-    {
+    public function belongsToManyOrdered(
+        $related,
+        $orderColumn = 'position',
+        $table = null,
+        $foreignPivotKey = null,
+        $relatedPivotKey = null,
+        $parentKey = null,
+        $relatedKey = null,
+        $relation = null
+    ) {
+    
         return $this->belongsToManyOrderable(
             $related,
             $orderColumn,
@@ -104,10 +120,18 @@ trait HasOrderableRelationships
      * @param  bool  $inverse
      * @return \Baril\Orderable\Relations\MorphToManyOrderable
      */
-    public function morphToManyOrderable($related, $name, $orderColumn = 'position', $table = null, $foreignPivotKey = null,
-                                $relatedPivotKey = null, $parentKey = null,
-                                $relatedKey = null, $inverse = false)
-    {
+    public function morphToManyOrderable(
+        $related,
+        $name,
+        $orderColumn = 'position',
+        $table = null,
+        $foreignPivotKey = null,
+        $relatedPivotKey = null,
+        $parentKey = null,
+        $relatedKey = null,
+        $inverse = false
+    ) {
+    
         $caller = $this->guessBelongsToManyRelation();
 
         // First, we will need to determine the foreign key and "other key" for the
@@ -125,16 +149,32 @@ trait HasOrderableRelationships
         $table = $table ?: Str::plural($name);
 
         return new MorphToManyOrderable(
-            $instance->newQuery(), $this, $name, $orderColumn, $table,
-            $foreignPivotKey, $relatedPivotKey, $parentKey ?: $this->getKeyName(),
-            $relatedKey ?: $instance->getKeyName(), $caller, $inverse
+            $instance->newQuery(),
+            $this,
+            $name,
+            $orderColumn,
+            $table,
+            $foreignPivotKey,
+            $relatedPivotKey,
+            $parentKey ?: $this->getKeyName(),
+            $relatedKey ?: $instance->getKeyName(),
+            $caller,
+            $inverse
         );
     }
 
-    public function morphToManyOrdered($related, $name, $orderColumn = 'position', $table = null, $foreignPivotKey = null,
-                                $relatedPivotKey = null, $parentKey = null,
-                                $relatedKey = null, $inverse = false)
-    {
+    public function morphToManyOrdered(
+        $related,
+        $name,
+        $orderColumn = 'position',
+        $table = null,
+        $foreignPivotKey = null,
+        $relatedPivotKey = null,
+        $parentKey = null,
+        $relatedKey = null,
+        $inverse = false
+    ) {
+    
         return $this->morphToManyOrderable(
             $related,
             $name,
@@ -163,9 +203,17 @@ trait HasOrderableRelationships
      * @param string $relatedKey
      * @return \Baril\Orderable\Relations\MorphToManyOrderable
      */
-    public function morphedByManyOrderable($related, $name, $orderColumn = 'position', $table = null, $foreignPivotKey = null,
-                                  $relatedPivotKey = null, $parentKey = null, $relatedKey = null)
-    {
+    public function morphedByManyOrderable(
+        $related,
+        $name,
+        $orderColumn = 'position',
+        $table = null,
+        $foreignPivotKey = null,
+        $relatedPivotKey = null,
+        $parentKey = null,
+        $relatedKey = null
+    ) {
+    
         $foreignPivotKey = $foreignPivotKey ?: $this->getForeignKey();
 
         // For the inverse of the polymorphic many-to-many relations, we will change
@@ -174,14 +222,29 @@ trait HasOrderableRelationships
         $relatedPivotKey = $relatedPivotKey ?: $name . '_id';
 
         return $this->morphToManyOrderable(
-            $related, $name, $orderColumn, $table, $foreignPivotKey,
-            $relatedPivotKey, $parentKey, $relatedKey, true
+            $related,
+            $name,
+            $orderColumn,
+            $table,
+            $foreignPivotKey,
+            $relatedPivotKey,
+            $parentKey,
+            $relatedKey,
+            true
         );
     }
 
-    public function morphedByManyOrdered($related, $name, $orderColumn = 'position', $table = null, $foreignPivotKey = null,
-                                  $relatedPivotKey = null, $parentKey = null, $relatedKey = null)
-    {
+    public function morphedByManyOrdered(
+        $related,
+        $name,
+        $orderColumn = 'position',
+        $table = null,
+        $foreignPivotKey = null,
+        $relatedPivotKey = null,
+        $parentKey = null,
+        $relatedKey = null
+    ) {
+    
         return $this->morphedByManyOrderable(
             $related,
             $name,

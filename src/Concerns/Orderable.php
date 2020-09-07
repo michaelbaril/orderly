@@ -422,7 +422,7 @@ trait Orderable
         $collection->saveOrder();
         $newPositions = $collection->pluck($orderColumn);
 
-        return $oldPositions->combine($newPositions)->map(function($new, $old) {
+        return $oldPositions->combine($newPositions)->map(function ($new, $old) {
             return (int) ($old != $new);
         })->sum();
     }

@@ -93,7 +93,7 @@ class FixPositionsCommand extends Command
                 $relation = $item->$relationName();
                 $related = $relation->ordered()->get();
                 $rownum = 0;
-                $related->each(function($item) use ($relation, &$rownum) {
+                $related->each(function ($item) use ($relation, &$rownum) {
                     $id = $item->{$relation->getPivotAccessor()}->{$relation->getRelatedPivotKeyName()};
                     $relation->updateExistingPivot($id, [
                         $relation->getOrderColumn() => ++$rownum,

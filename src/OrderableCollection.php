@@ -31,7 +31,7 @@ class OrderableCollection extends EloquentCollection
 
         // Save the new order:
         $instance->getConnection()->transaction(function () use ($orderColumn, &$positions) {
-            $this->values()->each(function($model) use ($orderColumn, &$positions) {
+            $this->values()->each(function ($model) use ($orderColumn, &$positions) {
                 // Update the order field without triggering the listeners:
                 $model->newQuery()->whereKey($model->getKey())->update([$orderColumn => current($positions)]);
                 $model->setAttribute($orderColumn, current($positions));

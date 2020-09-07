@@ -363,20 +363,17 @@ trait InteractsWithOrderablePivotTable
         foreach ($records as $id => $attributes) {
             $attributes[$this->orderColumn] = ++$i;
 
-            // If the ID is not in the list of existing pivot IDs, we will insert a new pivot
-            // record, otherwise, we will just update this existing record on this joining
-            // table, so that the developers will easily update these records pain free.
             if (! in_array($id, $current)) {
+                // If the ID is not in the list of existing pivot IDs, we will insert a new pivot
+                // record, otherwise, we will just update this existing record on this joining
+                // table, so that the developers will easily update these records pain free.
                 parent::attach($id, $attributes, $touch);
-
                 $changes['attached'][] = $this->castKey($id);
-            }
-
-            // Now we'll try to update an existing pivot record with the attributes that were
-            // given to the method. If the model is actually updated we will add it to the
-            // list of updated pivot records so we return them back out to the consumer.
-            elseif (count($attributes) > 0 &&
+            } elseif (count($attributes) > 0 &&
                 $this->updateExistingPivot($id, $attributes, $touch)) {
+                // Now we'll try to update an existing pivot record with the attributes that were
+                // given to the method. If the model is actually updated we will add it to the
+                // list of updated pivot records so we return them back out to the consumer.
                 $changes['updated'][] = $this->castKey($id);
             }
         }
@@ -448,7 +445,7 @@ trait InteractsWithOrderablePivotTable
     public function refreshPositions()
     {
         $connection = $this->getConnection();
-        $connection->transaction(function() use ($connection) {
+        $connection->transaction(function () use ($connection) {
             $connection->statement('set @rownum := 0');
             $this->newPivotQuery()->orderBy($this->orderColumn)->update([$this->orderColumn => $connection->raw('(@rownum := @rownum + 1)')]);
         });
