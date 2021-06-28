@@ -5,11 +5,14 @@ inspired by the [`rutorika/sortable` package](https://github.com/boxfrommars/rut
 It was originally part of the
 [Smoothie](https://github.com/michaelbaril/smoothie) package.
 
-:warning: If you're using
-Laravel 5.x, you should install
-[Smoothie](https://github.com/michaelbaril/smoothie) instead of this package.
-If you were a Smoothie user and are migrating from Laravel 5.x to Laravel 6.x,
-please refer to [this section](#migrating-from-smoothie).
+## Version compatibility
+
+ Laravel  | Orderly
+:---------|:----------
+ 5.6+     | use Smoothie instead
+ 6.x      | 1.x
+ 7.x      | 1.x       
+ 8.x      | 2.x
 
 ## Setup
 
@@ -64,44 +67,6 @@ class Article extends Model
     protected $orderColumn = 'order';
     protected $guarded = ['order'];
 }
-```
-
-### Migrating from Smoothie
-
-If you were a Smoothie user and are migrating from Laravel 5.x to Laravel 6.x,
-you need to install this package instead of (or in addition to) Smoothie.
-
-```bash
-composer remove baril/smoothie
-composer require baril/orderly
-```
-
-If you're not using package discovery, replace Smoothie's service provider
-with `Baril\Orderly\OrderlyServiceProvider`.
-
-In your models, replace the `Baril\Smoothie\Concerns\Orderable` trait with
-`Baril\Orderly\Concerns\Orderable`, and
-`Baril\Smoothie\Concerns\HasOrderedRelationships` with
-`Baril\Orderly\Concerns\HasOrderableRelationships`.
-
-If you were using stuff like this for mass reorder:
-
-```php
-$collection = Status::all();
-$collection->sortByKeys([2, 1, 5, 3, 4])->saveOrder();
-```
-
-you need to be aware that the `sortByKeys` method is part of the Smoothie
-package, not the Orderly package. If you don't want to require both packages,
-you can use the `setOrder` method instead:
-
-```php
-$collection = Status::all();
-$collection->setOrder([2, 1, 5, 3, 4]);
-
-// or:
-
-Status::setOrder([2, 1, 5, 3, 4]);
 ```
 
 ## Basic usage
