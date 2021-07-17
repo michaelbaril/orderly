@@ -1,10 +1,10 @@
 <?php
 
-namespace Baril\Orderable\Tests\Models;
+namespace Baril\Orderly\Tests\Models;
 
-use Baril\Orderable\Concerns\HasOrderableRelationships;
-use Baril\Orderable\Tests\Models\Status;
-use Baril\Orderable\Tests\Models\Tag;
+use Baril\Orderly\Concerns\HasOrderableRelationships;
+use Baril\Orderly\Tests\Models\Status;
+use Baril\Orderly\Tests\Models\Tag;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model

@@ -1,9 +1,9 @@
 <?php
 
-namespace Baril\Orderable\Tests;
+namespace Baril\Orderly\Tests;
 
-use Baril\Orderable\PositionException;
-use Baril\Orderable\Tests\Models\Status as Model;
+use Baril\Orderly\PositionException;
+use Baril\Orderly\Tests\Models\Status as Model;
 
 class OrderableTest extends TestCase
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Baril\Orderable\Concerns;
+namespace Baril\Orderly\Concerns;
 
-use Baril\Orderable\Relations\BelongsToManyOrderable;
-use Baril\Orderable\Relations\MorphToManyOrderable;
+use Baril\Orderly\Relations\BelongsToManyOrderable;
+use Baril\Orderly\Relations\MorphToManyOrderable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
@@ -118,7 +118,7 @@ trait HasOrderableRelationships
      * @param  string  $parentKey
      * @param  string  $relatedKey
      * @param  bool  $inverse
-     * @return \Baril\Orderable\Relations\MorphToManyOrderable
+     * @return \Baril\Orderly\Relations\MorphToManyOrderable
      */
     public function morphToManyOrderable(
         $related,
@@ -201,7 +201,7 @@ trait HasOrderableRelationships
      * @param string $relatedPivotKey
      * @param string $parentKey
      * @param string $relatedKey
-     * @return \Baril\Orderable\Relations\MorphToManyOrderable
+     * @return \Baril\Orderly\Relations\MorphToManyOrderable
      */
     public function morphedByManyOrderable(
         $related,

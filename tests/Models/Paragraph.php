@@ -1,13 +1,13 @@
 <?php
 
-namespace Baril\Orderable\Tests\Models;
+namespace Baril\Orderly\Tests\Models;
 
-use Baril\Orderable\Tests\Models\Article;
+use Baril\Orderly\Tests\Models\Article;
 use Illuminate\Database\Eloquent\Model;
 
 class Paragraph extends Model
 {
-    use \Baril\Orderable\Concerns\Orderable;
+    use \Baril\Orderly\Concerns\Orderable;
 
     protected $groupColumn = ['article_id', 'section'];
 

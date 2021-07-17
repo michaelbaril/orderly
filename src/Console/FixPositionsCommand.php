@@ -1,14 +1,14 @@
 <?php
 
-namespace Baril\Orderable\Console;
+namespace Baril\Orderly\Console;
 
-use Baril\Orderable\Relations\BelongsToManyOrderable;
+use Baril\Orderly\Relations\BelongsToManyOrderable;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Model;
 
 class FixPositionsCommand extends Command
 {
-    protected $signature = 'orderable:fix-positions {model : The model class.} {relationName? : The relationship to fix.}';
+    protected $signature = 'orderly:fix-positions {model : The model class.} {relationName? : The relationship to fix.}';
     protected $description = 'Rebuild the position column for a given orderable model or relation';
 
     protected $chunks = 200;

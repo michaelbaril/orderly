@@ -1,11 +1,11 @@
 <?php
 
-namespace Baril\Orderable\Tests;
+namespace Baril\Orderly\Tests;
 
-use Baril\Orderable\GroupException;
-use Baril\Orderable\PositionException;
-use Baril\Orderable\Tests\Models\Article;
-use Baril\Orderable\Tests\Models\Paragraph as Model;
+use Baril\Orderly\GroupException;
+use Baril\Orderly\PositionException;
+use Baril\Orderly\Tests\Models\Article;
+use Baril\Orderly\Tests\Models\Paragraph as Model;
 
 class OrderableWithNestedGroupsTest extends TestCase
 {

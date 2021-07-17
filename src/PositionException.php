@@ -1,6 +1,6 @@
 <?php
 
-namespace Baril\Orderable;
+namespace Baril\Orderly;
 
 use RuntimeException;
 

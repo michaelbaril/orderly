@@ -1,5 +1,5 @@
 {
-    "name": "baril/orderable",
+    "name": "baril/orderly",
     "description": "Orderable/sortable behavior for Eloquent models.",
     "keywords": [
         "laravel", "eloquent", "database",
@@ -20,18 +20,18 @@
     },
     "autoload": {
         "psr-4": {
-            "Baril\\Orderable\\": "src/"
+            "Baril\\Orderly\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Baril\\Orderable\\Tests\\": "tests/"
+            "Baril\\Orderly\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Baril\\Orderable\\OrderableServiceProvider"
+                "Baril\\Orderly\\OrderlyServiceProvider"
             ]
         }
     },

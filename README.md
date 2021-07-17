@@ -1,4 +1,4 @@
-# Orderable behavior
+# Orderly
 
 This package adds an orderable/sortable behavior to Eloquent models. It is
 inspired by the [`rutorika/sortable` package](https://github.com/boxfrommars/rutorika-sortable).
@@ -22,7 +22,7 @@ If you're not using package discovery, register the service provider in your
 return [
     // ...
     'providers' => [
-        Baril\Orderable\OrderableServiceProvider::class,
+        Baril\Orderly\OrderlyServiceProvider::class,
         // ...
     ],
 ];
@@ -41,13 +41,13 @@ public function up()
 }
 ```
 
-Then, use the `\Baril\Orderable\Concerns\Orderable` trait in your model. The
+Then, use the `\Baril\Orderly\Concerns\Orderable` trait in your model. The
 `position` field should be guarded as it won't be filled manually.
 
 ```php
 class Article extends Model
 {
-    use \Baril\Orderable\Concerns\Orderable;
+    use \Baril\Orderly\Concerns\Orderable;
 
     protected $guarded = ['position'];
 }
@@ -59,7 +59,7 @@ name than `position`:
 ```php
 class Article extends Model
 {
-    use \Baril\Orderable\Concerns\Orderable;
+    use \Baril\Orderly\Concerns\Orderable;
 
     protected $orderColumn = 'order';
     protected $guarded = ['order'];
@@ -73,16 +73,16 @@ you need to install this package instead of (or in addition to) Smoothie.
 
 ```bash
 composer remove baril/smoothie
-composer require baril/orderable
+composer require baril/orderly
 ```
 
 If you're not using package discovery, replace Smoothie's service provider
-with `Baril\Orderable\OrderableServiceProvider`.
+with `Baril\Orderly\OrderlyServiceProvider`.
 
 In your models, replace the `Baril\Smoothie\Concerns\Orderable` trait with
-`Baril\Orderable\Concerns\Orderable`, and
+`Baril\Orderly\Concerns\Orderable`, and
 `Baril\Smoothie\Concerns\HasOrderedRelationships` with
-`Baril\Orderable\Concerns\HasOrderableRelationships`.
+`Baril\Orderly\Concerns\HasOrderableRelationships`.
 
 If you were using stuff like this for mass reorder:
 
@@ -92,7 +92,7 @@ $collection->sortByKeys([2, 1, 5, 3, 4])->saveOrder();
 ```
 
 you need to be aware that the `sortByKeys` method is part of the Smoothie
-package, not the Orderable package. If you don't want to require both packages,
+package, not the Orderly package. If you don't want to require both packages,
 you can use the `setOrder` method instead:
 
 ```php
@@ -248,7 +248,7 @@ just need to set the `$groupColumn` property:
 ```php
 class Article extends Model
 {
-    use \Baril\Orderable\Concerns\Orderable;
+    use \Baril\Orderly\Concerns\Orderable;
 
     protected $guarded = ['position'];
     protected $groupColumn = 'section_id';
@@ -285,13 +285,13 @@ class Article extends Model
 If you need to order a many-to-many relationship, you will need a `position`
 column (or some other name) in the pivot table.
 
-Have your model use the `\Baril\Orderable\Concerns\HasOrderableRelationships`
+Have your model use the `\Baril\Orderly\Concerns\HasOrderableRelationships`
 trait:
 
 ```php
 class Post extends Model
 {
-    use \Baril\Orderable\Concerns\HasOrderableRelationships;
+    use \Baril\Orderly\Concerns\HasOrderableRelationships;
 
     public function tags()
     {
@@ -338,7 +338,7 @@ If you want the relation ordered by default, you can use the
 ```php
 class Post extends Model
 {
-    use \Baril\Orderable\Concerns\HasOrderableRelationships;
+    use \Baril\Orderly\Concerns\HasOrderableRelationships;
 
     public function tags()
     {
@@ -389,7 +389,7 @@ $article->tags()->moveBefore($tag1, $tag2);
 ```
 
 Note that if `$model` doesn't belong to the relationship, any of these methods
-will throw a `Baril\Orderable\GroupException`.
+will throw a `Baril\Orderly\GroupException`.
 
 There's also a method for mass reordering:
 
@@ -410,7 +410,7 @@ column (defaults to `position`):
 ```php
 class Post extends Model
 {
-    use \Baril\Orderable\Concerns\HasOrderableRelationships;
+    use \Baril\Orderly\Concerns\HasOrderableRelationships;
 
     public function tags()
     {
@@ -440,17 +440,17 @@ class Tag extends Model
 
 ## Artisan command
 
-The `orderable:fix-positions` command will recalculate the data in the
+The `orderly:fix-positions` command will recalculate the data in the
 `position` column (eg. in case you've manually deleted rows and have "gaps").
 
 For an orderable model:
 
 ```bash
-php artisan orderable:fix-positions "App\\YourModel"
+php artisan orderly:fix-positions "App\\YourModel"
 ```
 
 For an orderable many-to-many relation:
 
 ```bash
-php artisan orderable:fix-positions "App\\YourModel" relationName
+php artisan orderly:fix-positions "App\\YourModel" relationName
 ```

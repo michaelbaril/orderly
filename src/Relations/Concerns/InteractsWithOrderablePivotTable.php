@@ -1,9 +1,9 @@
 <?php
 
-namespace Baril\Orderable\Relations\Concerns;
+namespace Baril\Orderly\Relations\Concerns;
 
-use Baril\Orderable\GroupException;
-use Baril\Orderable\PositionException;
+use Baril\Orderly\GroupException;
+use Baril\Orderly\PositionException;
 use Illuminate\Database\Eloquent\Model;
 
 trait InteractsWithOrderablePivotTable

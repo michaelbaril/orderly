@@ -1,10 +1,10 @@
 <?php
 
-namespace Baril\Orderable\Tests;
+namespace Baril\Orderly\Tests;
 
-use Baril\Orderable\PositionException;
-use Baril\Orderable\Tests\Models\Article;
-use Baril\Orderable\Tests\Models\Tag as Model;
+use Baril\Orderly\PositionException;
+use Baril\Orderly\Tests\Models\Article;
+use Baril\Orderly\Tests\Models\Tag as Model;
 
 class BelongsToManyOrderedTest extends TestCase
 {

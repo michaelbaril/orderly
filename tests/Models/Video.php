@@ -1,8 +1,8 @@
 <?php
 
-namespace Baril\Orderable\Tests\Models;
+namespace Baril\Orderly\Tests\Models;
 
-use Baril\Orderable\Concerns\HasOrderableRelationships;
+use Baril\Orderly\Concerns\HasOrderableRelationships;
 use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model

@@ -1,6 +1,6 @@
 <?php
 
-namespace Baril\Orderable\Relations;
+namespace Baril\Orderly\Relations;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Baril\Orderable\Concerns;
+namespace Baril\Orderly\Concerns;
 
-use Baril\Orderable\GroupException;
+use Baril\Orderly\GroupException;
 
 /**
  * @property string|array $groupColumn Name of the "group" column

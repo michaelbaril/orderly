@@ -1,10 +1,10 @@
 <?php
 
-namespace Baril\Orderable\Concerns;
+namespace Baril\Orderly\Concerns;
 
-use Baril\Orderable\GroupException;
-use Baril\Orderable\OrderableCollection;
-use Baril\Orderable\PositionException;
+use Baril\Orderly\GroupException;
+use Baril\Orderly\OrderableCollection;
+use Baril\Orderly\PositionException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace Baril\Orderable;
+namespace Baril\Orderly;
 
-use Baril\Orderable\Console\FixPositionsCommand;
+use Baril\Orderly\Console\FixPositionsCommand;
 use Illuminate\Support\ServiceProvider;
 
-class OrderableServiceProvider extends ServiceProvider
+class OrderlyServiceProvider extends ServiceProvider
 {
     public function register()
     {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Baril\Orderable\Tests;
+namespace Baril\Orderly\Tests;
 
-use Baril\Orderable\Tests\Models\Article;
-use Baril\Orderable\Tests\Models\Tag;
+use Baril\Orderly\Tests\Models\Article;
+use Baril\Orderly\Tests\Models\Tag;
 
 class ConsoleTest extends TestCase
 {
@@ -23,7 +23,7 @@ class ConsoleTest extends TestCase
         $connection->update("UPDATE $table SET position = 10 LIMIT 1");
 
         $this->assertNotEquals([1, 2, 3, 4, 5], Tag::ordered()->get()->pluck('position')->all());
-        $this->artisan('orderable:fix-positions '.addslashes(Tag::class));
+        $this->artisan('orderly:fix-positions '.addslashes(Tag::class));
         $this->assertEquals([1, 2, 3, 4, 5], Tag::ordered()->get()->pluck('position')->all());
     }
 
@@ -34,7 +34,7 @@ class ConsoleTest extends TestCase
         $connection->update("UPDATE $table SET position = 10 LIMIT 1");
 
         $this->assertNotEquals([1, 2, 3, 4, 5], $this->article->tags()->ordered()->get()->pluck('pivot.position')->all());
-        $this->artisan('orderable:fix-positions '.addslashes(Article::class). ' tags');
+        $this->artisan('orderly:fix-positions '.addslashes(Article::class). ' tags');
         $this->assertEquals([1, 2, 3, 4, 5], $this->article->tags()->ordered()->get()->pluck('pivot.position')->all());
     }
 }

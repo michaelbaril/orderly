@@ -1,10 +1,10 @@
 <?php
 
-namespace Baril\Orderable\Tests;
+namespace Baril\Orderly\Tests;
 
-use Baril\Orderable\Tests\Models\Post;
-use Baril\Orderable\Tests\Models\Tag as Model;
-use Baril\Orderable\Tests\Models\Video;
+use Baril\Orderly\Tests\Models\Post;
+use Baril\Orderly\Tests\Models\Tag as Model;
+use Baril\Orderly\Tests\Models\Video;
 
 class MorphToManyOrderedTest extends BelongsToManyOrderedTest
 {
