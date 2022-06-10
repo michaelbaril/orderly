@@ -65,7 +65,7 @@ class FixPositionsCommand extends Command
                 foreach ($column as $col) {
                     $group[] = $item->$col;
                 }
-                $query = $instance->newQuery()->inGroup($group)->ordered();
+                $query = $instance->newQuery()->whereGroup($group)->ordered();
                 $this->fixPositions($query, $instance->getOrderColumn());
                 $this->line('<info>Fixed for group:</info> ' . implode(',', $group));
             }
