@@ -11,8 +11,9 @@ It was originally part of the
 :---------|:----------
  5.6+     | use Smoothie instead
  6.x      | 1.x
- 7.x      | 1.x       
- 8.x      | 2.x
+ 7.x      | 1.x
+ 8.x      | 2.x / 3.x
+ 9.x      | 3.x
 
 ## Setup
 
