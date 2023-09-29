@@ -14,6 +14,7 @@ It was originally part of the
  7.x      | 1.x
  8.x      | 2.x / 3.x
  9.x      | 3.x
+ 10.x     | 3.1+
 
 ## Setup
 
