@@ -145,7 +145,7 @@ class OrderableTest extends TestCase
         $this->assertEquals($expectedNewOrder, $newOrder);
     }
 
-    public function reorderProvider()
+    public static function reorderProvider()
     {
         return [
             'all' => [
