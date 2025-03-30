@@ -422,7 +422,7 @@ trait InteractsWithOrderablePivotTable
     public function setOrder($ids)
     {
         $ids = array_flip($ids);
-        $models = $this->get();
+        $models = $this->ordered()->get();
         $i = $models->count();
         $models = $models->sortBy(function ($model) use ($ids, &$i) {
             return $ids[$model->getKey()] ?? ++$i;
