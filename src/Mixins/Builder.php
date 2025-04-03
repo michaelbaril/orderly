@@ -42,6 +42,6 @@ class Builder
                     })->sum();
                 }
             });
-        };        
+        };
     }
 }

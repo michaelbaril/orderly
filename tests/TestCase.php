@@ -50,7 +50,7 @@ class TestCase extends OrchestraTestCase
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
             'busy_timeout' => null,
             'journal_mode' => null,
-            'synchronous' => null,            
+            'synchronous' => null,
         ]);
     }
 
@@ -66,7 +66,7 @@ class TestCase extends OrchestraTestCase
     protected function setupSqlsrv($app)
     {
         $this->setupOtherSgbd($app, 'sqlsrv');
-        $app['config']->set('database.connections.sqlsrv.trust_server_certificate', true); 
+        $app['config']->set('database.connections.sqlsrv.trust_server_certificate', true);
     }
 
     protected function setupOtherSgbd($app, $engine)
@@ -88,7 +88,7 @@ class TestCase extends OrchestraTestCase
         return [ OrderlyServiceProvider::class ];
     }
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');

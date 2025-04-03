@@ -38,7 +38,16 @@ class BelongsToManyOrderable extends BelongsToMany
         $relatedKey,
         $relationName = null
     ) {
-        parent::__construct($query, $parent, $table, $foreignPivotKey, $relatedPivotKey, $parentKey, $relatedKey, $relationName);
+        parent::__construct(
+            $query,
+            $parent,
+            $table,
+            $foreignPivotKey,
+            $relatedPivotKey,
+            $parentKey,
+            $relatedKey,
+            $relationName
+        );
         $this->setOrderColumn($orderColumn);
     }
 }
