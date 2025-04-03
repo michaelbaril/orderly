@@ -10,17 +10,10 @@ class TestCase extends OrchestraTestCase
 {
     protected function getEnvironmentSetUp($app)
     {
-        // We could be using any version of Dotenv from 2.x to 5.x:
-        if (method_exists(Dotenv::class, 'createImmutable')) {
-            $dotenv = Dotenv::createImmutable(dirname(__DIR__));
-        } elseif (method_exists(Dotenv::class, 'create')) {
-            $dotenv = Dotenv::create(dirname(__DIR__));
-        } else {
-            $dotenv = new Dotenv(dirname(__DIR__));
-        }
+        $dotenv = Dotenv::createImmutable(dirname(__DIR__), '.env.test');
         $dotenv->load();
-        $app['config']->set('database.default', 'smoothie');
-        $app['config']->set('database.connections.smoothie', [
+        $app['config']->set('database.default', 'test');
+        $app['config']->set('database.connections.test', [
             'driver' => 'mysql',
             'host' => $_ENV['DB_HOST'],
             'port' => $_ENV['DB_PORT'],
