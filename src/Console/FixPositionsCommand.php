@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class FixPositionsCommand extends Command
 {
-    protected $signature = 'orderly:fix-positions {model : The model class.} {relationName? : The relationship to fix.}';
+    protected $signature = 'orderly:fix-positions
+        {model : The model class.}
+        {relationName? : The relationship to fix.}';
     protected $description = 'Rebuild the position column for a given orderable model or relation';
 
     protected $chunks = 200;
@@ -21,7 +23,7 @@ class FixPositionsCommand extends Command
             $this->error($model . ' is not a valid model class!');
             return;
         }
-        $instance = new $model;
+        $instance = new $model();
 
         // If the relation name is provided, then we're fixing an ordered relation:
         if ($relationName) {
