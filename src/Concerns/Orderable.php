@@ -48,10 +48,8 @@ trait Orderable
             // If the group was changed, we need to refresh the position for the
             // former group:
             if ($groupColumn && $model->isDirty($groupColumn)) {
-                $connection = $model->getConnection();
                 $group = $model->getGroup(true);
-                $connection->statement('set @rownum := 0');
-                static::whereGroup($group)->ordered()->update([$model->getOrderColumn() => $connection->raw('(@rownum := @rownum + 1)')]);
+                static::whereGroup($group)->ordered()->updateColumnWithRowNumber($model->getOrderColumn());
             }
         });
 
@@ -396,12 +394,6 @@ trait Orderable
         $instance = $query->getModel();
         $pdo = $instance->getConnection()->getPdo();
 
-        // We're reversing the array and then ordering by desc, because the field()
-        // function will return 0 for ids that are not listed, and we want them at the end:
-        $reversedIds = collect($ids)->reverse()->map(function ($id) use ($pdo) {
-            return $pdo->quote($id);
-        })->implode(',');
-
         // We're selecting only the necessary columns:
         $orderColumn = $instance->getOrderColumn();
         $groupColumn = $instance->getGroupColumn();
@@ -413,7 +405,7 @@ trait Orderable
             $columns = array_merge($columns, (array) $groupColumn);
         }
 
-        $collection = $query->orderByRaw("field({$instance->getKeyName()}, {$reversedIds}) desc")
+        $collection = $query->orderByValues($instance->getKeyName(), $ids)
                 ->ordered()
                 ->select($columns)
                 ->get();

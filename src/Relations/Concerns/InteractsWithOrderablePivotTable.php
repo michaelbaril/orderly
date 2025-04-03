@@ -108,7 +108,7 @@ trait InteractsWithOrderablePivotTable
     protected function parsePivot($entity)
     {
         if ($entity->{$this->accessor} && $entity->{$this->accessor}->{$this->orderColumn}) {
-            if ($entity->{$this->accessor}->{$this->foreignPivotKey} !== $this->parent->{$this->parentKey}) {
+            if ($entity->{$this->accessor}->{$this->foreignPivotKey} != $this->parent->{$this->parentKey}) {
                 throw new GroupException('The provided model doesn\'t belong to this relationship!');
             }
             return $entity->{$this->accessor};
@@ -444,11 +444,7 @@ trait InteractsWithOrderablePivotTable
 
     public function refreshPositions()
     {
-        $connection = $this->getConnection();
-        $connection->transaction(function () use ($connection) {
-            $connection->statement('set @rownum := 0');
-            $this->newPivotQuery()->orderBy($this->orderColumn)->update([$this->orderColumn => $connection->raw('(@rownum := @rownum + 1)')]);
-        });
+        $this->newPivotQuery()->orderBy($this->orderColumn)->updateColumnWithRowNumber($this->orderColumn);
     }
 
     public function before($entity)

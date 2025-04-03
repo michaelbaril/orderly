@@ -17,10 +17,10 @@ class ConsoleTest extends TestCase
 
     public function test_fix_positions()
     {
-        $instance = $this->tags[0];
-        $table = $instance->getTable();
-        $connection = $instance->getConnection();
-        $connection->update("UPDATE $table SET position = 10 LIMIT 1");
+        $this->tags[0]->newModelQuery()
+            ->toBase()
+            ->limit(1)
+            ->update(['position' => 10]);
 
         $this->assertNotEquals([1, 2, 3, 4, 5], Tag::ordered()->get()->pluck('position')->all());
         $this->artisan('orderly:fix-positions '.addslashes(Tag::class));
@@ -29,9 +29,10 @@ class ConsoleTest extends TestCase
 
     public function test_fix_relation_positions()
     {
-        $table = $this->article->tags()->getTable();
-        $connection = $this->article->getConnection();
-        $connection->update("UPDATE $table SET position = 10 LIMIT 1");
+        $this->article->tags()
+            ->newPivotStatement()
+            ->limit(1)
+            ->update(['position' => 10]);
 
         $this->assertNotEquals([1, 2, 3, 4, 5], $this->article->tags()->ordered()->get()->pluck('pivot.position')->all());
         $this->artisan('orderly:fix-positions '.addslashes(Article::class). ' tags');

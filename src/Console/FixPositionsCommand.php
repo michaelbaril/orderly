@@ -47,7 +47,7 @@ class FixPositionsCommand extends Command
 
     protected function fixUngroupable($instance)
     {
-        $this->fixPositions($instance->newQuery()->ordered(), $instance->getOrderColumn());
+        $this->fixPositions($instance->newQuery()->ordered(), $instance);
     }
 
     protected function fixGroupable($instance)
@@ -66,7 +66,7 @@ class FixPositionsCommand extends Command
                     $group[] = $item->$col;
                 }
                 $query = $instance->newQuery()->whereGroup($group)->ordered();
-                $this->fixPositions($query, $instance->getOrderColumn());
+                $this->fixPositions($query, $instance);
                 $this->line('<info>Fixed for group:</info> ' . implode(',', $group));
             }
         });
@@ -104,10 +104,8 @@ class FixPositionsCommand extends Command
         });
     }
 
-    protected function fixPositions($query, $column)
+    protected function fixPositions($query, $instance)
     {
-        $connection = $query->getConnection();
-        $connection->statement("set @rownum := 0");
-        $query->update([$column => $connection->raw('(@rownum := @rownum + 1)')]);
+        $query->updateColumnWithRowNumber($instance->getOrderColumn());
     }
 }
