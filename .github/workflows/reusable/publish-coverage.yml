@@ -1,0 +1,45 @@
+name: "Publish coverage"
+on: workflow_call
+jobs:
+  generate-badge:
+    runs-on: ubuntu-latest
+    name: Generate badge
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage
+          path: coverage
+      - name: Make code coverage badge
+        uses: steffendietz/clover-to-shieldsio-json-action@v1.0
+        with:
+          path-to-clover: coverage/clover.xml
+          path-to-json: coverage/badge.json
+      - name: Round percentage
+        run: |
+          percentage=$(sed -E "s/^.*\"([0-9.]+)\%.*$/\1/g" coverage/badge.json)
+          rounded=$(php -r "echo round($percentage);")
+          sed -i "s/$percentage%/$rounded%/g" coverage/badge.json
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage
+  publish:
+    needs: generate-badge
+    runs-on: ubuntu-latest
+    name: Publish to GH pages
+    concurrency:
+      group: publish-gh-pages
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+      - name: Publish coverage
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./coverage
+          destination_dir: coverage
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: Update coverage

@@ -1,0 +1,23 @@
+name: "Merge coverage"
+on:
+  workflow_call:
+    inputs:
+      required-percentage:
+        type: number
+        required: false
+        default: 50
+jobs:
+  generate-coverage-report:
+    name: Generate coverage report
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage
+          path: coverage
+      - name: Fail below threshold
+        uses: themichaelhall/check-code-coverage@v2
+        with:
+          report: coverage/clover.xml
+          required-percentage: ${{ inputs.required-percentage }}

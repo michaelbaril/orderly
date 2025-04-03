@@ -1,23 +1,14 @@
 name: "Run tests"
 on:
   push:
-    branches:
-      - master
-      - main
-      - test
+    branches: [master, main, test]
     paths:
       - src/**
       - tests/**
       - phpunit.xml
   pull_request:
-    types:
-      - opened
-      - reopened
-      - edited
-      - synchronize
-    branches:
-      - master
-      - main
+    types: [opened, reopened, edited, synchronize]
+    branches: [master, main]
     paths:
       - src/**
       - tests/**
@@ -27,7 +18,6 @@ concurrency:
   cancel-in-progress: true
 jobs:
   tests:
-    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
@@ -130,35 +120,12 @@ jobs:
             dependency-version: stable
             database-engine: sqlsrv
             database-version: 2022
-    env:
-      COMPOSE_FILE: ./docker-compose.yml
-      PHP_VERSION: ${{ matrix.php }}
-      DB_ENGINE: ${{ matrix.database-engine }}
-      DB_VERSION: ${{ matrix.database-version }}
-    name: "php:${{ matrix.php }}/lara:${{ matrix.laravel }}/${{ matrix.dependency-version }}/${{ matrix.database-engine }}:${{ matrix.database-version }}"
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          extensions: curl, zip, mbstring, pdo, pdo_mysql, pgsql, pdo_pgsql, sqlsrv, pdo_sqlsrv, pdo_odbc
-          coverage: none
-      - name: Install ODBC drivers
-        if: ${{ matrix.database-engine == 'sqlsrv' }}
-        run: |
-          curl -sSL -O https://packages.microsoft.com/config/ubuntu/$(grep VERSION_ID /etc/os-release | cut -d '"' -f 2)/packages-microsoft-prod.deb
-          sudo dpkg -i packages-microsoft-prod.deb
-          rm packages-microsoft-prod.deb
-          sudo apt-get update
-          sudo ACCEPT_EULA=Y apt-get install -y msodbcsql18
-          sudo apt-get install -y unixodbc-dev        
-      - name: Setup .env
-        run: sed -i -E "s/^DB_HOST=.*$/DB_HOST=127.0.0.1/g" .env.test
-      - name: Install dependencies
-        run: composer update --with laravel/framework:${{ matrix.laravel }} --prefer-${{ matrix.dependency-version }} --prefer-dist --no-interaction
-      - name: Start database container
-        run: docker compose up -d --wait database
-      - name: Run tests
-        run: ./vendor/bin/phpunit
+    name: "Tests: php:${{ matrix.php }}/lara:${{ matrix.laravel }}/${{ matrix.dependency-version }}/${{ matrix.database-engine }}:${{ matrix.database-version }}"
+    uses: ./.github/workflows/reusable/run-tests.yml
+    with:
+      php-version: ${{ matrix.php }}
+      composer-options: >
+        --with laravel/framework:${{ matrix.laravel }}
+        --prefer-${{ matrix.dependency-version }}
+      database-engine: ${{ matrix.database-engine }}
+      database-version: ${{ matrix.database-version }}

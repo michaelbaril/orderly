@@ -1,15 +1,5 @@
 name: "Publish API documentation"
-on:
-  push:
-    branches:
-      - master
-      - main
-    paths:
-      - src/**
-      - apigen.neon
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+on: workflow_call
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -20,11 +10,10 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
-          extensions: curl, zip, mbstring, pdo, pdo_mysql
           coverage: none
       - name: Install dependencies
         run: |
-          composer update --prefer-dist --no-interaction
+          composer update --no-interaction
       - name: Generate API documentation
         run: |
           mkdir -p bin
@@ -37,8 +26,8 @@ jobs:
           name: api
           path: api
   publish:
-    needs: generate
     runs-on: ubuntu-latest
+    needs: generate
     concurrency:
       group: publish-gh-pages
     steps:

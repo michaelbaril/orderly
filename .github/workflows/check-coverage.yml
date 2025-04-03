@@ -1,14 +1,8 @@
 name: "Check coverage"
 on:
   pull_request:
-    types:
-      - opened
-      - reopened
-      - edited
-      - synchronize
-    branches:
-      - master
-      - main
+    types: [opened, reopened, edited, synchronize]
+    branches: [master, main]
     paths:
       - src/**
       - tests/**
@@ -18,109 +12,36 @@ concurrency:
   cancel-in-progress: true
 jobs:
   generate-coverage:
-    runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
-        php: [8.4]
-        laravel: [12.*]
-        dependency-version: [stable]
-        database-engine: [sqlite, mysql, pgsql, sqlsrv]        
-        include:
-          - database-engine: mysql
-            database-version: 8.4
-          - database-engine: pgsql
-            database-version: 17.4
-          - database-engine: sqlsrv
-            database-version: 2022
-    name: "Generate coverage for ${{ matrix.database-engine }}"
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          extensions: curl, zip, mbstring, pdo, pdo_mysql, pgsql, pdo_pgsql, sqlsrv, pdo_sqlsrv, pdo_odbc
-          coverage: xdebug
-      - name: Install ODBC drivers
-        if: ${{ matrix.database-engine == 'sqlsrv' }}
-        run: |
-          curl -sSL -O https://packages.microsoft.com/config/ubuntu/$(grep VERSION_ID /etc/os-release | cut -d '"' -f 2)/packages-microsoft-prod.deb
-          sudo dpkg -i packages-microsoft-prod.deb
-          rm packages-microsoft-prod.deb
-          sudo apt-get update
-          sudo ACCEPT_EULA=Y apt-get install -y msodbcsql18
-          sudo apt-get install -y unixodbc-dev        
-      - name: Setup .env
-        run: sed -i -E "s/^DB_HOST=.*$/DB_HOST=127.0.0.1/g" .env.test
-      - name: Install dependencies
-        run: composer update --with laravel/framework:${{ matrix.laravel }} --prefer-${{ matrix.dependency-version }} --prefer-dist --no-interaction
-      - name: Start database container
-        run: docker compose up -d --wait database
-      - name: Enable PHPUnit coverage
-        run: |
-          sed -i "s/<\!--<coverage/<coverage/g" phpunit.xml
-          sed -i "s/<\/coverage>-->/<\/coverage>/g" phpunit.xml
-      - name: Execute tests
-        run: vendor/bin/phpunit
-      - name: Rename output
-        run: mv coverage.php coverage_${{ matrix.database-engine }}.php
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage_${{ matrix.database-engine }}
-          path: coverage_${{ matrix.database-engine }}.php
+        database:
+          - engine: sqlite
+          - engine: mysql
+            version: 8.4
+          - engine: pgsql
+            version: 17.4
+          - engine: sqlsrv
+            version: 2022
+    name: "Generate coverage for ${{ matrix.database.engine }}"
+    uses: ./.github/workflows/reusable/run-tests.yml
+    with:
+      php-version: 8.4
+      with-coverage: true
+      composer-options: >
+        --with laravel/framework:12.*
+      database-engine: ${{ matrix.database.engine }}
+      database-version: ${{ matrix.database.version || '-' }}
+      artifact-name: ${{ matrix.database.engine }}
   merge-coverage:
     needs: generate-coverage
-    runs-on: ubuntu-latest
-    name: Merge coverage
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.4
-          extensions: curl, zip, mbstring
-          coverage: xdebug
-      - name: Install dependencies
-        run: composer require nimut/phpunit-merger --prefer-dist --no-interaction
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-        with:
-          path: coverage_to_merge
-      - name: Merge coverage
-        run: |
-          vendor/bin/phpunit-merger coverage coverage_to_merge --html=coverage coverage/clover.xml
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage
-          path: coverage          
-  generate-report:
+    uses: ./.github/workflows/reusable/merge-coverage.yml
+    with:
+      cobertura: true
+  add-coverage-comment:
+    if: ${{ github.event_name == 'pull_request' }}
     needs: merge-coverage
-    runs-on: ubuntu-latest
-    name: Generate report
-    steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-      - name: Code Coverage Summary Report
-        uses: saschanowak/CloverCodeCoverageSummary@1.1.0
-        with:
-          filename: coverage/clover.xml
-      - name: Generate PR comment
-        run: |
-          cat code-coverage-summary.md >> code-coverage.md
-          cat code-coverage-details.md >> code-coverage.md
-      - name: Add PR comment
-        uses: marocchino/sticky-pull-request-comment@v2
-        if: github.event_name == 'pull_request'
-        with:
-          recreate: true
-          path: code-coverage.md
-      - name: Fail below 50%
-        uses: themichaelhall/check-code-coverage@v2
-        with:
-          report: coverage/clover.xml
-          required-percentage: 50
+    uses: ./.github/workflows/reusable/add-coverage-comment.yml
+  check-coverage:
+    needs: merge-coverage
+    uses: ./.github/workflows/reusable/check-coverage.yml

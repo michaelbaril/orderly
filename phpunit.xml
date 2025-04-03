@@ -21,14 +21,9 @@
       <directory suffix=".php">./src</directory>
     </include>
   </source>
-  <!--<coverage includeUncoveredFiles="true"
+  <coverage includeUncoveredFiles="true"
             pathCoverage="false"
             ignoreDeprecatedCodeUnits="true"
             disableCodeCoverageIgnore="true">
-    <report>
-      <clover outputFile="clover.xml"/>
-      <html outputDirectory="coverage" lowUpperBound="50" highLowerBound="90"/>
-      <php outputFile="coverage.php"/>
-    </report>
-  </coverage>-->
+  </coverage>
 </phpunit>

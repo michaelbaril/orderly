@@ -1,0 +1,43 @@
+name: "Merge coverage"
+on:
+  workflow_call:
+    inputs:
+      html:
+        type: boolean
+        required: false
+        default: false
+      cobertura:
+        type: boolean
+        required: false
+        default: false
+jobs:
+  merge-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          extensions: curl, zip, mbstring
+          coverage: xdebug
+      - name: Install dependencies
+        run: composer require nimut/phpunit-merger ${{ inputs.cobertura ?? 'ngyuki/clover-to-cobertura' }} --prefer-dist --no-interaction
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: coverage-*
+          path: coverage_to_merge
+      - name: Remove unneeded files
+        run: find ./coverage_to_merge -type f ! -name '*.php' -delete
+      - name: Merge coverage
+        run: vendor/bin/phpunit-merger coverage coverage_to_merge ${{ inputs.html && '--html=coverage' }} coverage/clover.xml
+      - if: ${{ inputs.cobertura }}
+        name: Convert to Cobertura
+        run: php vendor/ngyuki/clover-to-cobertura/clover-to-cobertura.php < coverage/clover.xml > coverage/cobertura.xml
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage
