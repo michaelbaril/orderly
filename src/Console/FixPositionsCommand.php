@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class FixPositionsCommand extends Command
 {
-    protected $signature = 'orderly:fix-positions {model : The model class.} {relationName? : The relationship to fix.}';
+    protected $signature = 'orderly:fix-positions
+        {model : The model class.}
+        {relationName? : The relationship to fix.}';
     protected $description = 'Rebuild the position column for a given orderable model or relation';
 
     protected $chunks = 200;
@@ -21,7 +23,7 @@ class FixPositionsCommand extends Command
             $this->error($model . ' is not a valid model class!');
             return;
         }
-        $instance = new $model;
+        $instance = new $model();
 
         // If the relation name is provided, then we're fixing an ordered relation:
         if ($relationName) {
@@ -47,7 +49,7 @@ class FixPositionsCommand extends Command
 
     protected function fixUngroupable($instance)
     {
-        $this->fixPositions($instance->newQuery()->ordered(), $instance->getOrderColumn());
+        $this->fixPositions($instance->newQuery()->ordered(), $instance);
     }
 
     protected function fixGroupable($instance)
@@ -66,7 +68,7 @@ class FixPositionsCommand extends Command
                     $group[] = $item->$col;
                 }
                 $query = $instance->newQuery()->whereGroup($group)->ordered();
-                $this->fixPositions($query, $instance->getOrderColumn());
+                $this->fixPositions($query, $instance);
                 $this->line('<info>Fixed for group:</info> ' . implode(',', $group));
             }
         });
@@ -104,10 +106,8 @@ class FixPositionsCommand extends Command
         });
     }
 
-    protected function fixPositions($query, $column)
+    protected function fixPositions($query, $instance)
     {
-        $connection = $query->getConnection();
-        $connection->statement("set @rownum := 0");
-        $query->update([$column => $connection->raw('(@rownum := @rownum + 1)')]);
+        $query->updateColumnWithRowNumber($instance->getOrderColumn());
     }
 }

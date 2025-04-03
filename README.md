@@ -1,9 +1,17 @@
-# Orderly
+# Orderly :card_file_box:
+
+[![Version](https://img.shields.io/packagist/v/baril/orderly?label=stable)](https://packagist.org/packages/baril/orderly)
+[![License](https://img.shields.io/packagist/l/baril/orderly)](https://packagist.org/packages/baril/orderly)
+[![Downloads](https://img.shields.io/packagist/dt/baril/orderly)](https://packagist.org/packages/baril/orderly/stats)
+[![Tests](https://img.shields.io/github/actions/workflow/status/michaelbaril/orderly/run-tests.yml?branch=master&label=tests)](https://github.com/michaelbaril/orderly/actions/workflows/run-tests.yml?query=branch%3Amaster)
+[![Coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fmichaelbaril.github.io%2Forderly%2Fcoverage%2Fbadge.json)](https://michaelbaril.github.io/orderly/coverage/)
 
 This package adds an orderable/sortable behavior to Eloquent models. It is
 inspired by the [`rutorika/sortable` package](https://github.com/boxfrommars/rutorika-sortable).
 It was originally part of the
 [Smoothie](https://github.com/michaelbaril/smoothie) package.
+
+You can find the full API documentation [here](https://michaelbaril.github.io/orderly/api/).
 
 ## Version compatibility
 

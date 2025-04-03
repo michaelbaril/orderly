@@ -47,7 +47,7 @@ trait HasOrderableRelationships
         $relatedKey = null,
         $relation = null
     ) {
-    
+
         // If no relationship name was passed, we will pull backtraces to get the
         // name of the calling function. We will use that function name as the
         // title of this relation since that is a great convention to apply.
@@ -94,7 +94,7 @@ trait HasOrderableRelationships
         $relatedKey = null,
         $relation = null
     ) {
-    
+
         return $this->belongsToManyOrderable(
             $related,
             $orderColumn,
@@ -131,7 +131,7 @@ trait HasOrderableRelationships
         $relatedKey = null,
         $inverse = false
     ) {
-    
+
         $caller = $this->guessBelongsToManyRelation();
 
         // First, we will need to determine the foreign key and "other key" for the
@@ -174,7 +174,7 @@ trait HasOrderableRelationships
         $relatedKey = null,
         $inverse = false
     ) {
-    
+
         return $this->morphToManyOrderable(
             $related,
             $name,
@@ -213,7 +213,7 @@ trait HasOrderableRelationships
         $parentKey = null,
         $relatedKey = null
     ) {
-    
+
         $foreignPivotKey = $foreignPivotKey ?: $this->getForeignKey();
 
         // For the inverse of the polymorphic many-to-many relations, we will change
@@ -244,7 +244,7 @@ trait HasOrderableRelationships
         $parentKey = null,
         $relatedKey = null
     ) {
-    
+
         return $this->morphedByManyOrderable(
             $related,
             $name,

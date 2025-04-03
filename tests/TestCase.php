@@ -10,23 +10,75 @@ class TestCase extends OrchestraTestCase
 {
     protected function getEnvironmentSetUp($app)
     {
-        // We could be using any version of Dotenv from 2.x to 5.x:
-        if (method_exists(Dotenv::class, 'createImmutable')) {
-            $dotenv = Dotenv::createImmutable(dirname(__DIR__));
-        } elseif (method_exists(Dotenv::class, 'create')) {
-            $dotenv = Dotenv::create(dirname(__DIR__));
-        } else {
-            $dotenv = new Dotenv(dirname(__DIR__));
+        $this->loadEnv(['.env.test', '.env']);
+        $this->setupDatabase($app, env('DB_ENGINE', 'sqlite'));
+    }
+
+    protected function loadEnv($file)
+    {
+        if (is_array($file)) {
+            foreach ($file as $f) {
+                $this->loadEnv($f);
+            }
+            return;
         }
-        $dotenv->load();
-        $app['config']->set('database.default', 'smoothie');
-        $app['config']->set('database.connections.smoothie', [
-            'driver' => 'mysql',
-            'host' => $_ENV['DB_HOST'],
-            'port' => $_ENV['DB_PORT'],
-            'database' => $_ENV['DB_DATABASE'],
-            'username' => $_ENV['DB_USERNAME'],
-            'password' => $_ENV['DB_PASSWORD'],
+        if (file_exists(dirname(__DIR__) . DIRECTORY_SEPARATOR . $file)) {
+            $dotenv = Dotenv::createImmutable(dirname(__DIR__), $file);
+            $dotenv->load();
+        }
+    }
+
+    protected function setupDatabase($app, $engine = 'mysql')
+    {
+        $method = 'setup' . ucfirst($engine);
+        method_exists($this, $method) ? $this->$method($app) : $this->setupOtherSgbd($app, $engine);
+        $app['config']->set('database.default', $engine);
+    }
+
+    protected function setupSqlite($app)
+    {
+        $database = env('SQLITE_DATABASE', database_path('database.sqlite'));
+        if (file_exists($database)) {
+            unlink($database);
+        }
+        touch($database);
+
+        $app['config']->set('database.connections.sqlite', [
+            'driver' => 'sqlite',
+            'database' => $database,
+            'prefix' => '',
+            'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
+            'busy_timeout' => null,
+            'journal_mode' => null,
+            'synchronous' => null,
+        ]);
+    }
+
+    protected function setupMariadb($app)
+    {
+        $engine = class_exists(\Illuminate\Database\MariaDbConnection::class)
+            ? 'mariadb'
+            : 'mysql';
+        $this->setupOtherSgbd($app, $engine);
+        $app['config']->set('database.connections.mariadb', $app['config']["database.connections.$engine"]);
+    }
+
+    protected function setupSqlsrv($app)
+    {
+        $this->setupOtherSgbd($app, 'sqlsrv');
+        $app['config']->set('database.connections.sqlsrv.trust_server_certificate', true);
+    }
+
+    protected function setupOtherSgbd($app, $engine)
+    {
+        $envPrefix = strtoupper($engine);
+        $app['config']->set("database.connections.$engine", [
+            'driver' => $engine,
+            'host' => env('DB_HOST'),
+            'port' => env("{$envPrefix}_PORT"),
+            'database' => env("{$envPrefix}_DATABASE", env('DB_DATABASE')),
+            'username' => env("{$envPrefix}_USERNAME", env('DB_USERNAME')),
+            'password' => env("{$envPrefix}_PASSWORD", env('DB_PASSWORD')),
             'prefix'   => '',
         ]);
     }
@@ -36,7 +88,7 @@ class TestCase extends OrchestraTestCase
         return [ OrderlyServiceProvider::class ];
     }
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');

@@ -9,7 +9,7 @@ class OrderableTest extends TestCase
 {
     protected $items;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->items = factory(Model::class, 5)->create();
@@ -113,7 +113,7 @@ class OrderableTest extends TestCase
 
         $collection = Model::ordered('desc')->whereIn('position', $positions)->get();
         $collection->saveOrder();
-        Model::orderBy('id')->each(function($item, $key) use ($positions) {
+        Model::orderBy('id')->each(function ($item, $key) use ($positions) {
             if (in_array($key + 1, $positions)) {
                 $this->assertEquals($positions[$key + 1], $item->position);
             } else {
