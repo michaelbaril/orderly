@@ -7,7 +7,7 @@ use Baril\Orderly\Tests\Models\Tag;
 
 class ConsoleTest extends TestCase
 {
-    protected function setUp() : void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->article = factory(Article::class)->create();
@@ -23,7 +23,7 @@ class ConsoleTest extends TestCase
             ->update(['position' => 10]);
 
         $this->assertNotEquals([1, 2, 3, 4, 5], Tag::ordered()->get()->pluck('position')->all());
-        $this->artisan('orderly:fix-positions '.addslashes(Tag::class));
+        $this->artisan('orderly:fix-positions ' . addslashes(Tag::class));
         $this->assertEquals([1, 2, 3, 4, 5], Tag::ordered()->get()->pluck('position')->all());
     }
 
@@ -35,7 +35,7 @@ class ConsoleTest extends TestCase
             ->update(['position' => 10]);
 
         $this->assertNotEquals([1, 2, 3, 4, 5], $this->article->tags()->ordered()->get()->pluck('pivot.position')->all());
-        $this->artisan('orderly:fix-positions '.addslashes(Article::class). ' tags');
+        $this->artisan('orderly:fix-positions ' . addslashes(Article::class) . ' tags');
         $this->assertEquals([1, 2, 3, 4, 5], $this->article->tags()->ordered()->get()->pluck('pivot.position')->all());
     }
 }
