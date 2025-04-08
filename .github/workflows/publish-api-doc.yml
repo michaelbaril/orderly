@@ -10,4 +10,4 @@ concurrency:
   cancel-in-progress: true
 jobs:
   publish-api-doc:
-    uses: ./.github/workflows/reusable/publish-api-doc.yml
+    uses: ./.github/workflows/reusable-publish-api-doc.yml

@@ -16,4 +16,4 @@ concurrency:
   cancel-in-progress: true      
 jobs:
   check-quality:
-    uses: ./.github/workflows/reusable/check-quality.yml
+    uses: ./.github/workflows/reusable-check-quality.yml

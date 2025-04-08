@@ -24,7 +24,7 @@ jobs:
           - engine: sqlsrv
             version: 2022
     name: "Generate coverage for ${{ matrix.database.engine }}"
-    uses: ./.github/workflows/reusable/run-tests.yml
+    uses: ./.github/workflows/reusable-run-tests.yml
     with:
       php-version: 8.4
       with-coverage: true
@@ -35,13 +35,13 @@ jobs:
       artifact-name: ${{ matrix.database.engine }}
   merge-coverage:
     needs: generate-coverage
-    uses: ./.github/workflows/reusable/merge-coverage.yml
+    uses: ./.github/workflows/reusable-merge-coverage.yml
     with:
       cobertura: true
   add-coverage-comment:
     if: ${{ github.event_name == 'pull_request' }}
     needs: merge-coverage
-    uses: ./.github/workflows/reusable/add-coverage-comment.yml
+    uses: ./.github/workflows/reusable-add-coverage-comment.yml
   check-coverage:
     needs: merge-coverage
-    uses: ./.github/workflows/reusable/check-coverage.yml
+    uses: ./.github/workflows/reusable-check-coverage.yml

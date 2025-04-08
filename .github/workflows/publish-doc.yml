@@ -11,5 +11,5 @@ concurrency:
   cancel-in-progress: true
 jobs:
   publish-doc:
-    uses: ./.github/workflows/reusable/publish-doc.yml
+    uses: ./.github/workflows/reusable-publish-doc.yml
 

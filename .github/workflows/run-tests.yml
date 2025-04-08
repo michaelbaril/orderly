@@ -121,7 +121,7 @@ jobs:
             database-engine: sqlsrv
             database-version: 2022
     name: "Tests: php:${{ matrix.php }}/lara:${{ matrix.laravel }}/${{ matrix.dependency-version }}/${{ matrix.database-engine }}:${{ matrix.database-version }}"
-    uses: ./.github/workflows/reusable/run-tests.yml
+    uses: ./.github/workflows/reusable-run-tests.yml
     with:
       php-version: ${{ matrix.php }}
       composer-options: >
