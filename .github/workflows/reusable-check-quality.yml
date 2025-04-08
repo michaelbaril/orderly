@@ -11,12 +11,12 @@ jobs:
         with:
           php-version: 8.4
           extensions: tokenizer, xmlwriter, simplexml
-          tools: ${{ github.event_name == 'pull_request' && 'cs2pr' }}
+          tools: ${{ github.event_name == 'pull_request' && 'cs2pr' || '' }}
           coverage: none
       - name: Install dependencies
         run: |
           composer update --no-interaction      
       - name: PHP Code Sniffer
-        run: ./vendor/bin/phpcs -q --report=checkstyle --standard=./phpcs.xml src ${{ github.event_name == 'pull_request' && '| cs2pr' }}
+        run: ./vendor/bin/phpcs -q --report=checkstyle --standard=./phpcs.xml src ${{ github.event_name == 'pull_request' && '| cs2pr' || '' }}
       # - name: PHPStan
       #   run: ./vendor/bin/phpstan analyse --configuration=./phpstan.neon --error-format=checkstyle src | cs2pr

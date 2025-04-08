@@ -23,7 +23,7 @@ jobs:
           extensions: curl, zip, mbstring
           coverage: xdebug
       - name: Install dependencies
-        run: composer require nimut/phpunit-merger ${{ inputs.cobertura ?? 'ngyuki/clover-to-cobertura' }} --prefer-dist --no-interaction
+        run: composer require nimut/phpunit-merger ${{ inputs.cobertura && 'ngyuki/clover-to-cobertura' }} --prefer-dist --no-interaction
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
@@ -32,7 +32,7 @@ jobs:
       - name: Remove unneeded files
         run: find ./coverage_to_merge -type f ! -name '*.php' -delete
       - name: Merge coverage
-        run: vendor/bin/phpunit-merger coverage coverage_to_merge ${{ inputs.html && '--html=coverage' }} coverage/clover.xml
+        run: vendor/bin/phpunit-merger coverage coverage_to_merge ${{ inputs.html && '--html=coverage' || '' }} coverage/clover.xml
       - if: ${{ inputs.cobertura }}
         name: Convert to Cobertura
         run: php vendor/ngyuki/clover-to-cobertura/clover-to-cobertura.php < coverage/clover.xml > coverage/cobertura.xml
