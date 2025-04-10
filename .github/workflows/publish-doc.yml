@@ -11,5 +11,5 @@ concurrency:
   cancel-in-progress: true
 jobs:
   publish-doc:
-    uses: michaelbaril/.github/workflows/publish-doc.yml@main
+    uses: michaelbaril/shared/.github/workflows/publish-doc.yml@main
 

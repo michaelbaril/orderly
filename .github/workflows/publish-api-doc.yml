@@ -10,4 +10,4 @@ concurrency:
   cancel-in-progress: true
 jobs:
   publish-api-doc:
-    uses: michaelbaril/.github/workflows/publish-api-doc.yml@main
+    uses: michaelbaril/shared/.github/workflows/publish-api-doc.yml@main
