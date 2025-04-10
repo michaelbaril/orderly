@@ -108,7 +108,7 @@ trait InteractsWithOrderablePivotTable
     protected function parsePivot($entity)
     {
         if ($entity->{$this->accessor} && $entity->{$this->accessor}->{$this->orderColumn}) {
-            if ($entity->{$this->accessor}->{$this->foreignPivotKey} !== $this->parent->{$this->parentKey}) {
+            if ($entity->{$this->accessor}->{$this->foreignPivotKey} != $this->parent->{$this->parentKey}) {
                 throw new GroupException('The provided model doesn\'t belong to this relationship!');
             }
             return $entity->{$this->accessor};
@@ -321,8 +321,14 @@ trait InteractsWithOrderablePivotTable
                 $this->newPivotQueryBetween($newPosition, $oldPosition)->increment($orderColumn);
             }
 
-            $this->updateExistingPivot($pivot->$relatedPivotKey, [$orderColumn => $this->getNewPosition($isMoveBefore, $isMoveForward, $newPosition)]);
-            $this->updateExistingPivot($positionPivot->$relatedPivotKey, [$orderColumn => $this->getNewPosition(!$isMoveBefore, $isMoveForward, $newPosition)]);
+            $this->updateExistingPivot(
+                $pivot->$relatedPivotKey,
+                [$orderColumn => $this->getNewPosition($isMoveBefore, $isMoveForward, $newPosition)]
+            );
+            $this->updateExistingPivot(
+                $positionPivot->$relatedPivotKey,
+                [$orderColumn => $this->getNewPosition(!$isMoveBefore, $isMoveForward, $newPosition)]
+            );
         });
         return $this;
     }
@@ -369,8 +375,10 @@ trait InteractsWithOrderablePivotTable
                 // table, so that the developers will easily update these records pain free.
                 parent::attach($id, $attributes, $touch);
                 $changes['attached'][] = $this->castKey($id);
-            } elseif (count($attributes) > 0 &&
-                $this->updateExistingPivot($id, $attributes, $touch)) {
+            } elseif (
+                count($attributes) > 0 &&
+                $this->updateExistingPivot($id, $attributes, $touch)
+            ) {
                 // Now we'll try to update an existing pivot record with the attributes that were
                 // given to the method. If the model is actually updated we will add it to the
                 // list of updated pivot records so we return them back out to the consumer.
@@ -444,11 +452,7 @@ trait InteractsWithOrderablePivotTable
 
     public function refreshPositions()
     {
-        $connection = $this->getConnection();
-        $connection->transaction(function () use ($connection) {
-            $connection->statement('set @rownum := 0');
-            $this->newPivotQuery()->orderBy($this->orderColumn)->update([$this->orderColumn => $connection->raw('(@rownum := @rownum + 1)')]);
-        });
+        $this->newPivotQuery()->orderBy($this->orderColumn)->updateColumnWithRowNumber($this->orderColumn);
     }
 
     public function before($entity)

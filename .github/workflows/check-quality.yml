@@ -1,0 +1,19 @@
+name: "Check quality"
+on:
+  push:
+    branches: [master, main]
+    paths:
+      - src/**
+      - phpcs.xml
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
+    branches: [master, main]
+    paths:
+      - src/**
+      - phpcs.xml
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true      
+jobs:
+  phpcs:
+    uses: michaelbaril/shared/.github/workflows/phpcs.yml@main
