@@ -15,5 +15,5 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true      
 jobs:
-  check-quality:
-    uses: michaelbaril/shared/.github/workflows/check-quality.yml@main
+  phpcs:
+    uses: michaelbaril/shared/.github/workflows/phpcs.yml@main
