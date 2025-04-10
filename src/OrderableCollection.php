@@ -47,7 +47,6 @@ class OrderableCollection extends EloquentCollection
         $count = $this->count();
         $ordered = $this->sortBy(function ($item) use ($ids, $count) {
             $index = array_search($item->getKey(), $ids);
-
             return ($index === false) ? $count + $item->getPosition() : $index;
         });
         return $ordered->saveOrder();
