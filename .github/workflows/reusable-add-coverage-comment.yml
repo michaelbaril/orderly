@@ -2,7 +2,7 @@ name: "Add coverage comment to PR"
 on:
   workflow_call:
 jobs:
-  generate-coverage-report:
+  add-coverage-comment:
     name: Add coverage comment
     runs-on: ubuntu-latest
     steps:

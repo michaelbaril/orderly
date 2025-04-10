@@ -1,0 +1,49 @@
+name: "Check quality"
+on:
+  workflow_call:
+    inputs:
+      phpcs:
+        type: boolean
+        required: false
+        default: true
+      phpstan:
+        type: boolean
+        required: false
+        default: false
+jobs:
+  phpcs:
+    name: "PHP Code Sniffer"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+          extensions: tokenizer, xmlwriter, simplexml
+          tools: ${{ github.event_name == 'pull_request' && 'cs2pr' || '' }}
+          coverage: none
+      - name: Install dependencies
+        run: |
+          composer update --no-interaction      
+      - name: PHP Code Sniffer
+        run: ./vendor/bin/phpcs -q --report=checkstyle --standard=./phpcs.xml src ${{ github.event_name == 'pull_request' && '| cs2pr' || '' }}
+  phpstan:
+    name: "PHPStan"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+          extensions: tokenizer, xmlwriter, simplexml
+          tools: ${{ github.event_name == 'pull_request' && 'cs2pr' || '' }}
+          coverage: none
+      - name: Install dependencies
+        run: |
+          composer update --no-interaction      
+      - name: PHPStan
+        run: ./vendor/bin/phpstan analyse --configuration=./phpstan.neon --error-format=checkstyle src | cs2pr
