@@ -36,12 +36,6 @@ jobs:
   merge-coverage:
     needs: generate-coverage
     uses: michaelbaril/shared/.github/workflows/merge-coverage.yml@main
-    with:
-      cobertura: true
-  add-coverage-comment:
-    if: ${{ github.event_name == 'pull_request' }}
-    needs: merge-coverage
-    uses: michaelbaril/shared/.github/workflows/add-coverage-comment.yml@main
   check-coverage:
     needs: merge-coverage
     uses: michaelbaril/shared/.github/workflows/check-coverage.yml@main
