@@ -15,7 +15,7 @@ class Article extends Model
 
     public function tags()
     {
-        return $this->belongsToManyOrderable(Tag::class);
+        return $this->belongsToManyOrdered(Tag::class);
     }
 
     public function status()

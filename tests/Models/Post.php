@@ -11,6 +11,6 @@ class Post extends Model
 
     public function tags()
     {
-        return $this->morphToManyOrderable(Tag::class, 'taggable', 'order');
+        return $this->morphToManyOrdered(Tag::class, 'taggable', 'order');
     }
 }
