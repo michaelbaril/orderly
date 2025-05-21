@@ -6,10 +6,7 @@
 [![Tests](https://img.shields.io/github/actions/workflow/status/michaelbaril/orderly/run-tests.yml?branch=master&label=tests)](https://github.com/michaelbaril/orderly/actions/workflows/run-tests.yml?query=branch%3Amaster)
 [![Coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fmichaelbaril.github.io%2Forderly%2Fcoverage%2Fbadge.json)](https://michaelbaril.github.io/orderly/coverage/)
 
-This package adds an orderable/sortable behavior to Eloquent models. It is
-inspired by the [`rutorika/sortable` package](https://github.com/boxfrommars/rutorika-sortable).
-It was originally part of the
-[Smoothie](https://github.com/michaelbaril/smoothie) package.
+This package adds an orderable/sortable behavior to Eloquent models.
 
 You can find the full API documentation [here](https://michaelbaril.github.io/orderly/api/).
 
@@ -17,14 +14,14 @@ You can find the full API documentation [here](https://michaelbaril.github.io/or
 
  Laravel  | Orderly
 :---------|:----------
- 5.6+     | use Smoothie instead
- 6.x      | 1.x
- 7.x      | 1.x
- 8.x      | 2.x / 3.x
- 9.x      | 3.x
- 10.x     | 3.1+
+ 12.x     | 3.3+
  11.x     | 3.2+
-
+ 10.x     | 3.1+
+ 9.x      | 3.x
+ 8.x      | 2.x / 3.x
+ 7.x      | 1.x
+ 6.x      | 1.x
+ 
 ## Setup
 
 ### New install
@@ -82,8 +79,8 @@ class Article extends Model
 
 ## Basic usage
 
-You can use the following method to change the model's position (no need to
-save it afterwards, the method does it already):
+You can use one of the following methods to change the model's position
+(no need to save afterwards):
 
 * `moveToOffset($offset)` (`$offset` starts at 0 and can be negative, ie.
 `$offset = -1` is the last position),
@@ -326,7 +323,7 @@ class Post extends Model
 ```
 
 In this case, if you occasionally want to order the related models by some other
-field, you will need to use the `unordered` scope first:
+field, you will need to use the `unordered` scope first, or use `forceOrderBy`:
 
 ```php
 $post->tags; // ordered by position, because of the definition above
@@ -338,6 +335,8 @@ $post->tags()->orderBy('id')->get();
 
 // This is the proper way to do it:
 $post->tags()->unordered()->orderBy('id')->get();
+// or:
+$post->tags()->forceOrderBy('id')->get();
 ```
 
 The `BelongsToManyOrderable` class has all the same methods as the `Orderable`
