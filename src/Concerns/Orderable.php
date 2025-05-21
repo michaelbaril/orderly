@@ -106,7 +106,7 @@ trait Orderable
      * @param Builder $query
      * @param string $direction
      *
-     * @return Builder
+     * @return void
      */
     public function scopeOrdered($query, $direction = 'asc')
     {
@@ -115,8 +115,9 @@ trait Orderable
     }
 
     /**
-     *
      * @param Builder $query
+     * 
+     * @return void
      */
     public function scopeUnordered($query)
     {
@@ -125,6 +126,19 @@ trait Orderable
                     return isset($order['column'])
                            ? $order['column'] === $this->getOrderColumn() : false;
                 })->values()->all();
+    }
+
+    /**
+     * @param Builder $query
+     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder<*>|\Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  string  $direction
+     *
+     * @return void
+     */
+    public function scopeForceOrderBy($query, $column, $direction = 'asc')
+    {
+        $this->scopeUnordered($query);
+        $query->orderBy($column, $direction);
     }
 
     /**

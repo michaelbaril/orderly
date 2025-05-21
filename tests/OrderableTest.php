@@ -85,7 +85,14 @@ class OrderableTest extends TestCase
     {
         $this->items[2]->moveToPosition(5);
         $expected = $this->items->pluck('id')->toArray();
+
+        $actual = Model::ordered()->orderBy('id')->pluck('id')->toArray();
+        $this->assertNotEquals($expected, $actual);
+
         $actual = Model::ordered()->unordered()->orderBy('id')->pluck('id')->toArray();
+        $this->assertEquals($expected, $actual);
+
+        $actual = Model::ordered()->forceOrderBy('id')->pluck('id')->toArray();
         $this->assertEquals($expected, $actual);
     }
 

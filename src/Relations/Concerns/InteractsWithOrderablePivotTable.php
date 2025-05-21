@@ -70,6 +70,17 @@ trait InteractsWithOrderablePivotTable
     }
 
     /**
+     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder<*>|\Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  string  $direction
+     *
+     * @return $this
+     */
+    public function forceOrderBy($column, $direction = 'asc')
+    {
+        return $this->unordered()->orderBy($column, $direction);
+    }
+
+    /**
      * Create a new query builder for the pivot table.
      *
      * @return \Illuminate\Database\Query\Builder

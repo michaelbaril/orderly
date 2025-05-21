@@ -137,7 +137,14 @@ class BelongsToManyOrderedTest extends TestCase
         $this->assertEquals($expected, $actual);
 
         sort($expected);
+
+        $actual = $article->tags()->orderBy('id')->pluck('id')->toArray();
+        $this->assertNotEquals($expected, $actual);
+
         $actual = $article->tags()->unordered()->orderBy('id')->pluck('id')->toArray();
+        $this->assertEquals($expected, $actual);
+
+        $actual = $article->tags()->forceOrderBy('id')->pluck('id')->toArray();
         $this->assertEquals($expected, $actual);
     }
 
