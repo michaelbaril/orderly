@@ -1,4 +1,4 @@
-name: "Publish coverage"
+name: Publish coverage
 on:
   push:
     branches: [master, main]
@@ -11,33 +11,13 @@ concurrency:
   cancel-in-progress: true
 jobs:
   generate-coverage:
-    strategy:
-      fail-fast: true
-      matrix:
-        database:
-          - engine: sqlite
-          - engine: mysql
-            version: 8.4
-          - engine: pgsql
-            version: 17.4
-          - engine: sqlsrv
-            version: 2022
-    name: "Generate coverage for ${{ matrix.database.engine }}"
-    uses: michaelbaril/shared/.github/workflows/run-tests.yml@main
-    with:
-      php-version: 8.4
-      with-coverage: true
-      composer-options: >
-        --with laravel/framework:12.*
-      database-engine: ${{ matrix.database.engine }}
-      database-version: ${{ matrix.database.version || '-' }}
-      artifact-name: ${{ matrix.database.engine }}
+    name: Generate coverage
+    uses: ./.github/workflows/generate-coverage.yml
   merge-coverage:
+    name: Merge coverage
     needs: generate-coverage
     uses: michaelbaril/shared/.github/workflows/merge-coverage.yml@main
-    with:
-      cobertura: true
-      html: true
   publish-coverage:
+    name: Publish coverage
     needs: merge-coverage
     uses: michaelbaril/shared/.github/workflows/publish-coverage.yml@main

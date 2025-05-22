@@ -1,4 +1,4 @@
-name: "Publish API documentation"
+name: Publish API documentation
 on:
   push:
     branches: [master, main]
@@ -10,4 +10,5 @@ concurrency:
   cancel-in-progress: true
 jobs:
   publish-api-doc:
+    name: Publish API documentation
     uses: michaelbaril/shared/.github/workflows/publish-api-doc.yml@main

@@ -1,4 +1,4 @@
-name: "Check coverage"
+name: Check coverage
 on:
   pull_request:
     types: [opened, reopened, edited, synchronize]
@@ -12,30 +12,13 @@ concurrency:
   cancel-in-progress: true
 jobs:
   generate-coverage:
-    strategy:
-      fail-fast: true
-      matrix:
-        database:
-          - engine: sqlite
-          - engine: mysql
-            version: 8.4
-          - engine: pgsql
-            version: 17.4
-          - engine: sqlsrv
-            version: 2022
-    name: "Generate coverage for ${{ matrix.database.engine }}"
-    uses: michaelbaril/shared/.github/workflows/run-tests.yml@main
-    with:
-      php-version: 8.4
-      with-coverage: true
-      composer-options: >
-        --with laravel/framework:12.*
-      database-engine: ${{ matrix.database.engine }}
-      database-version: ${{ matrix.database.version || '-' }}
-      artifact-name: ${{ matrix.database.engine }}
+    name: Generate coverage
+    uses: ./.github/workflows/generate-coverage.yml
   merge-coverage:
+    name: Merge coverage
     needs: generate-coverage
     uses: michaelbaril/shared/.github/workflows/merge-coverage.yml@main
   check-coverage:
+    name: Check coverage
     needs: merge-coverage
     uses: michaelbaril/shared/.github/workflows/check-coverage.yml@main

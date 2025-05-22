@@ -67,6 +67,7 @@ jobs:
             php: 8.2
             dependency-version: lowest
           - database-engine: mysql
+          - database-engine: mariadb
           - database-engine: pgsql
           - database-engine: sqlsrv
         include:
@@ -120,7 +121,7 @@ jobs:
             dependency-version: stable
             database-engine: sqlsrv
             database-version: 2022
-    name: "php:${{ matrix.php }}/lara:${{ matrix.laravel }}/${{ matrix.dependency-version }}/${{ matrix.database-engine }}:${{ matrix.database-version }}"
+    name: php:${{ matrix.php }}/lara:${{ matrix.laravel }}/${{ matrix.dependency-version }}/${{ matrix.database-engine }}:${{ matrix.database-version }}
     uses: michaelbaril/shared/.github/workflows/run-tests.yml@main
     with:
       php-version: ${{ matrix.php }}

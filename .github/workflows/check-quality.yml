@@ -1,4 +1,4 @@
-name: "Check quality"
+name: Check quality
 on:
   push:
     branches: [master, main]
@@ -16,4 +16,5 @@ concurrency:
   cancel-in-progress: true      
 jobs:
   phpcs:
+    name: PHP Code Sniffer
     uses: michaelbaril/shared/.github/workflows/phpcs.yml@main

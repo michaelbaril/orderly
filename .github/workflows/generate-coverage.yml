@@ -1,0 +1,20 @@
+on: workflow_call
+jobs:
+  generate-coverage:
+    strategy:
+      fail-fast: true
+      matrix:
+        database:
+          - engine: sqlite
+          - engine: mysql
+            version: 8.4
+          - engine: pgsql
+            version: 17.4
+          - engine: sqlsrv
+            version: 2022
+    name: Generate coverage for ${{ matrix.database.engine }}
+    uses: michaelbaril/shared/.github/workflows/run-tests.yml@main
+    with:
+      database-engine: ${{ matrix.database-engine }}
+      database-version: ${{ matrix.database-version }}
+      with-coverage: true
