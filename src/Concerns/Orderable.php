@@ -116,7 +116,7 @@ trait Orderable
 
     /**
      * @param Builder $query
-     * 
+     *
      * @return void
      */
     public function scopeUnordered($query)
@@ -130,7 +130,7 @@ trait Orderable
 
     /**
      * @param Builder $query
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder<*>|\Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  mixed  $column
      * @param  string  $direction
      *
      * @return void
