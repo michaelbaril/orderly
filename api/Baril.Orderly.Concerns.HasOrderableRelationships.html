@@ -1,0 +1,390 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<title>Trait Baril\Orderly\Concerns\HasOrderableRelationships |  API</title>
+	<link rel="stylesheet" href="assets/main.css">
+	<script src="assets/main.js" defer></script>
+</head>
+
+<body class="layout">
+	<div class="layout-aside">
+	<div class="menu">
+			<div class="menu-section">
+				<h3>Namespaces</h3>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Baril.html">Baril</a>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Baril.Orderly.html">Orderly</a>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Baril.Orderly.Concerns.html">Concerns</a>
+			</li>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.Orderly.Console.html">Console</a>
+			</li>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.Orderly.Mixins.html">Mixins</a>
+			</li>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.Orderly.Relations.html">Relations</a>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</div>
+
+		<div class="menu-section">
+			<h3>Traits</h3>
+			<ul>
+					<li>
+						<a href="Baril.Orderly.Concerns.Groupable.html">
+							Groupable
+						</a>
+					</li>
+					<li class="active">
+						<a href="Baril.Orderly.Concerns.HasOrderableRelationships.html">
+							HasOrderableRelationships
+						</a>
+					</li>
+					<li>
+						<a href="Baril.Orderly.Concerns.Orderable.html">
+							Orderable
+						</a>
+					</li>
+			</ul>
+		</div>
+	</div>
+	</div>
+
+	<div class="layout-main">
+		<div class="layout-navbar">
+	<nav class="navbar">
+		<div class="navbar-left">
+			<ul class="navbar-links">
+				<li>
+					<a href="index.html">Overview</a>
+				</li>
+				<li>
+					
+						<a href="namespace-Baril.Orderly.Concerns.html">Namespace</a>
+					
+				</li>
+<li class="active"><a href="Baril.Orderly.Concerns.HasOrderableRelationships.html">Trait</a></li>				<li>
+					<a href="tree.html">Tree</a>
+				</li>
+			</ul>
+		</div>
+		<div class="navbar-right">
+	<div class="search" data-elements="assets/elements.js">
+		<input class="search-input" placeholder="Search class, function or namespace" autofocus>
+		<ul class="search-results"></ul>
+	</div>
+		</div>
+	</nav>
+		</div>
+
+		<div class="layout-content">
+		<h1>
+			Trait <a href="namespace-Baril.html">Baril</a>\<a href="namespace-Baril.Orderly.html">Orderly</a>\<a href="namespace-Baril.Orderly.Concerns.html">Concerns</a>\<a href="Baril.Orderly.Concerns.HasOrderableRelationships.html">HasOrderableRelationships</a>
+		</h1>
+
+
+	<table class="classLikeSignatureTable">
+
+	</table>
+
+
+		<div class="classLikeSection">
+			<b>Located at</b> <a href="source-Concerns.HasOrderableRelationships.html#10" title="Go to source code">Concerns/HasOrderableRelationships.php</a><br>
+		</div>
+
+
+
+		<table class="table" id="methods">
+			<tr>
+				<th class="table-heading sortable" colspan="3" title="Switch between natural and alphabetical order">Methods</th>
+			</tr>
+
+	<tr class="expandable collapsed" data-order="bootHasOrderableRelationships" id="_bootHasOrderableRelationships">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasOrderableRelationships.html#12-22" title="Go to source code">bootHasOrderableRelationships</a>()</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_bootHasOrderableRelationships">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="belongsToManyOrderable" id="_belongsToManyOrderable">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasOrderableRelationships.html#24-85" title="Go to source code">belongsToManyOrderable</a>(
+	<span>string <var>$related</var></span>,
+	<span>string <var>$orderColumn</var> = <span class="php-str">'position'</span></span>,
+	<span>string <var>$table</var> = <span class="php-kw">null</span></span>,
+	<span>string <var>$foreignPivotKey</var> = <span class="php-kw">null</span></span>,
+	<span>string <var>$relatedPivotKey</var> = <span class="php-kw">null</span></span>,
+	<span>string <var>$parentKey</var> = <span class="php-kw">null</span></span>,
+	<span>string <var>$relatedKey</var> = <span class="php-kw">null</span></span>,
+	<span>string <var>$relation</var> = <span class="php-kw">null</span></span>,
+): <span title="Baril\Orderly\Concerns\BelongsToSortedMany">BelongsToSortedMany</span></code>
+
+
+	<div class="expandable-collapsedView">
+		Define a many-to-many orderable relationship.
+The prototype is similar as the belongsToMany method, with the
+…
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Define a many-to-many orderable relationship.
+The prototype is similar as the belongsToMany method, with the
+$orderColumn added as the 2nd parameter.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_belongsToManyOrderable">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="belongsToManyOrdered" id="_belongsToManyOrdered">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasOrderableRelationships.html#87-108" title="Go to source code">belongsToManyOrdered</a>(
+	<span><var>$related</var></span>,
+	<span><var>$orderColumn</var> = <span class="php-str">'position'</span></span>,
+	<span><var>$table</var> = <span class="php-kw">null</span></span>,
+	<span><var>$foreignPivotKey</var> = <span class="php-kw">null</span></span>,
+	<span><var>$relatedPivotKey</var> = <span class="php-kw">null</span></span>,
+	<span><var>$parentKey</var> = <span class="php-kw">null</span></span>,
+	<span><var>$relatedKey</var> = <span class="php-kw">null</span></span>,
+	<span><var>$relation</var> = <span class="php-kw">null</span></span>,
+)</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_belongsToManyOrdered">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="morphToManyOrderable" id="_morphToManyOrderable">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasOrderableRelationships.html#110-164" title="Go to source code">morphToManyOrderable</a>(
+	<span>string <var>$related</var></span>,
+	<span>string <var>$name</var></span>,
+	<span><var>$orderColumn</var> = <span class="php-str">'position'</span></span>,
+	<span>string <var>$table</var> = <span class="php-kw">null</span></span>,
+	<span>string <var>$foreignPivotKey</var> = <span class="php-kw">null</span></span>,
+	<span>string <var>$relatedPivotKey</var> = <span class="php-kw">null</span></span>,
+	<span>string <var>$parentKey</var> = <span class="php-kw">null</span></span>,
+	<span>string <var>$relatedKey</var> = <span class="php-kw">null</span></span>,
+	<span>bool <var>$inverse</var> = <span class="php-kw">false</span></span>,
+): <a href="Baril.Orderly.Relations.MorphToManyOrderable.html"><span title="Baril\Orderly\Relations\MorphToManyOrderable">MorphToManyOrderable</span></a></code>
+
+
+	<div class="expandable-collapsedView">
+		Define a polymorphic orderable many-to-many relationship.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Define a polymorphic orderable many-to-many relationship.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_morphToManyOrderable">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="morphToManyOrdered" id="_morphToManyOrdered">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasOrderableRelationships.html#166-189" title="Go to source code">morphToManyOrdered</a>(
+	<span><var>$related</var></span>,
+	<span><var>$name</var></span>,
+	<span><var>$orderColumn</var> = <span class="php-str">'position'</span></span>,
+	<span><var>$table</var> = <span class="php-kw">null</span></span>,
+	<span><var>$foreignPivotKey</var> = <span class="php-kw">null</span></span>,
+	<span><var>$relatedPivotKey</var> = <span class="php-kw">null</span></span>,
+	<span><var>$parentKey</var> = <span class="php-kw">null</span></span>,
+	<span><var>$relatedKey</var> = <span class="php-kw">null</span></span>,
+	<span><var>$inverse</var> = <span class="php-kw">false</span></span>,
+)</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_morphToManyOrdered">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="morphedByManyOrderable" id="_morphedByManyOrderable">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasOrderableRelationships.html#191-235" title="Go to source code">morphedByManyOrderable</a>(
+	<span>string <var>$related</var></span>,
+	<span>string <var>$name</var></span>,
+	<span>string <var>$orderColumn</var> = <span class="php-str">'position'</span></span>,
+	<span>string <var>$table</var> = <span class="php-kw">null</span></span>,
+	<span>string <var>$foreignPivotKey</var> = <span class="php-kw">null</span></span>,
+	<span>string <var>$relatedPivotKey</var> = <span class="php-kw">null</span></span>,
+	<span>string <var>$parentKey</var> = <span class="php-kw">null</span></span>,
+	<span>string <var>$relatedKey</var> = <span class="php-kw">null</span></span>,
+): <a href="Baril.Orderly.Relations.MorphToManyOrderable.html"><span title="Baril\Orderly\Relations\MorphToManyOrderable">MorphToManyOrderable</span></a></code>
+
+
+	<div class="expandable-collapsedView">
+		Define a polymorphic, inverse, orderable many-to-many relationship.
+The prototype is similar as the morphedByMany…
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Define a polymorphic, inverse, orderable many-to-many relationship.
+The prototype is similar as the morphedByMany method, with the
+$orderColumn added as the 3rd parameter.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_morphedByManyOrderable">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="morphedByManyOrdered" id="_morphedByManyOrdered">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasOrderableRelationships.html#237-258" title="Go to source code">morphedByManyOrdered</a>(
+	<span><var>$related</var></span>,
+	<span><var>$name</var></span>,
+	<span><var>$orderColumn</var> = <span class="php-str">'position'</span></span>,
+	<span><var>$table</var> = <span class="php-kw">null</span></span>,
+	<span><var>$foreignPivotKey</var> = <span class="php-kw">null</span></span>,
+	<span><var>$relatedPivotKey</var> = <span class="php-kw">null</span></span>,
+	<span><var>$parentKey</var> = <span class="php-kw">null</span></span>,
+	<span><var>$relatedKey</var> = <span class="php-kw">null</span></span>,
+)</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_morphedByManyOrdered">#</a>
+		</td>
+	</tr>
+		</table>
+
+
+		</div>
+
+		<div class="layout-footer">
+			 API documentation generated by <a href="https://www.apigen.org">ApiGen v7.0.0-alpha.6</a>
+		</div>
+	</div>
+
+	<div class="layout-rest">
+		<div class="navbar"></div>
+	</div>
+</body>
+</html>

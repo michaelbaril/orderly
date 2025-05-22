@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url><loc>index.html</loc></url>
+
+		<url><loc>tree.html</loc></url>
+
+			<url><loc>namespace-Baril.html</loc></url>
+			<url><loc>namespace-Baril.Orderly.html</loc></url>
+			<url><loc>namespace-Baril.Orderly.Concerns.html</loc></url>
+			<url><loc>namespace-Baril.Orderly.Console.html</loc></url>
+			<url><loc>namespace-Baril.Orderly.Mixins.html</loc></url>
+			<url><loc>namespace-Baril.Orderly.Relations.html</loc></url>
+			<url><loc>namespace-Baril.Orderly.Relations.Concerns.html</loc></url>
+
+			<url><loc>Baril.Orderly.Concerns.Groupable.html</loc></url>
+			<url><loc>Baril.Orderly.Concerns.HasOrderableRelationships.html</loc></url>
+			<url><loc>Baril.Orderly.Concerns.Orderable.html</loc></url>
+			<url><loc>Baril.Orderly.Console.FixPositionsCommand.html</loc></url>
+			<url><loc>Baril.Orderly.GroupException.html</loc></url>
+			<url><loc>Baril.Orderly.Mixins.Builder.html</loc></url>
+			<url><loc>Baril.Orderly.Mixins.Grammar.html</loc></url>
+			<url><loc>Baril.Orderly.OrderableCollection.html</loc></url>
+			<url><loc>Baril.Orderly.OrderlyServiceProvider.html</loc></url>
+			<url><loc>Baril.Orderly.PositionException.html</loc></url>
+			<url><loc>Baril.Orderly.Relations.BelongsToManyOrderable.html</loc></url>
+			<url><loc>Baril.Orderly.Relations.Concerns.InteractsWithOrderablePivotTable.html</loc></url>
+			<url><loc>Baril.Orderly.Relations.MorphToManyOrderable.html</loc></url>
+
+
+			<url><loc>source-Concerns.Groupable.html</loc></url>
+			<url><loc>source-Concerns.HasOrderableRelationships.html</loc></url>
+			<url><loc>source-Concerns.Orderable.html</loc></url>
+			<url><loc>source-Console.FixPositionsCommand.html</loc></url>
+			<url><loc>source-GroupException.html</loc></url>
+			<url><loc>source-Mixins.Builder.html</loc></url>
+			<url><loc>source-Mixins.Grammar.html</loc></url>
+			<url><loc>source-OrderableCollection.html</loc></url>
+			<url><loc>source-OrderlyServiceProvider.html</loc></url>
+			<url><loc>source-PositionException.html</loc></url>
+			<url><loc>source-Relations.BelongsToManyOrderable.html</loc></url>
+			<url><loc>source-Relations.Concerns.InteractsWithOrderablePivotTable.html</loc></url>
+			<url><loc>source-Relations.MorphToManyOrderable.html</loc></url>
+</urlset>

@@ -1,0 +1,362 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<title>Class Baril\Orderly\OrderableCollection |  API</title>
+	<link rel="stylesheet" href="assets/main.css">
+	<script src="assets/main.js" defer></script>
+</head>
+
+<body class="layout">
+	<div class="layout-aside">
+	<div class="menu">
+			<div class="menu-section">
+				<h3>Namespaces</h3>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Baril.html">Baril</a>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Baril.Orderly.html">Orderly</a>
+	<ul>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.Orderly.Concerns.html">Concerns</a>
+			</li>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.Orderly.Console.html">Console</a>
+			</li>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.Orderly.Mixins.html">Mixins</a>
+			</li>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.Orderly.Relations.html">Relations</a>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</div>
+
+		<div class="menu-section">
+			<h3>Classes</h3>
+			<ul>
+					<li class="active">
+						<a href="Baril.Orderly.OrderableCollection.html">
+							OrderableCollection
+						</a>
+					</li>
+					<li>
+						<a href="Baril.Orderly.OrderlyServiceProvider.html">
+							OrderlyServiceProvider
+						</a>
+					</li>
+			</ul>
+		</div>
+		<div class="menu-section">
+			<h3>Exceptions</h3>
+			<ul>
+					<li>
+						<a href="Baril.Orderly.GroupException.html">
+							GroupException
+						</a>
+					</li>
+					<li>
+						<a href="Baril.Orderly.PositionException.html">
+							PositionException
+						</a>
+					</li>
+			</ul>
+		</div>
+	</div>
+	</div>
+
+	<div class="layout-main">
+		<div class="layout-navbar">
+	<nav class="navbar">
+		<div class="navbar-left">
+			<ul class="navbar-links">
+				<li>
+					<a href="index.html">Overview</a>
+				</li>
+				<li>
+					
+						<a href="namespace-Baril.Orderly.html">Namespace</a>
+					
+				</li>
+<li class="active"><a href="Baril.Orderly.OrderableCollection.html">Class</a></li>				<li>
+					<a href="tree.html">Tree</a>
+				</li>
+			</ul>
+		</div>
+		<div class="navbar-right">
+	<div class="search" data-elements="assets/elements.js">
+		<input class="search-input" placeholder="Search class, function or namespace" autofocus>
+		<ul class="search-results"></ul>
+	</div>
+		</div>
+	</nav>
+		</div>
+
+		<div class="layout-content">
+		<h1>
+			Class <a href="namespace-Baril.html">Baril</a>\<a href="namespace-Baril.Orderly.html">Orderly</a>\<a href="Baril.Orderly.OrderableCollection.html">OrderableCollection</a>
+		</h1>
+
+
+	<table class="classLikeSignatureTable">
+
+
+
+		<tr>
+			<th><code>extends</code></th>
+			<td>
+<code><a href="Illuminate.Database.Eloquent.Collection.html"><span title="Illuminate\Database\Eloquent\Collection">Collection</span></a></code>			</td>
+		</tr>
+
+	</table>
+
+			<div class="classLikeSection">
+	<ul class="classTree">
+	<li>
+<a href="Illuminate.Support.Collection.html"><span>Illuminate\Support\Collection</span></a>
+
+		implements
+			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>&lt;TKey, TValue&gt;, 
+			<a href="Illuminate.Contracts.Support.CanBeEscapedWhenCastToString.html"><span title="Illuminate\Contracts\Support\CanBeEscapedWhenCastToString">CanBeEscapedWhenCastToString</span></a>, 
+			<a href="Illuminate.Support.Enumerable.html"><span title="Illuminate\Support\Enumerable">Enumerable</span></a>&lt;TKey, TValue&gt;
+
+		uses
+			<a href="Illuminate.Support.Traits.EnumeratesValues.html"><span title="Illuminate\Support\Traits\EnumeratesValues">EnumeratesValues</span></a>, 
+			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>, 
+			<a href="Illuminate.Support.Traits.TransformsToResourceCollection.html"><span title="Illuminate\Support\Traits\TransformsToResourceCollection">TransformsToResourceCollection</span></a>
+	<ul class="classTree">
+	<li>
+<a href="Illuminate.Database.Eloquent.Collection.html"><span>Illuminate\Database\Eloquent\Collection</span></a>
+
+		implements
+			<a href="Illuminate.Contracts.Queue.QueueableCollection.html"><span title="Illuminate\Contracts\Queue\QueueableCollection">QueueableCollection</span></a>
+
+		uses
+			<a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithDictionary.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithDictionary">InteractsWithDictionary</span></a>
+	<ul class="classTree">
+	<li>
+<b><span class="active">Baril\Orderly\OrderableCollection</span></b>
+
+
+	</li>
+	</ul>
+	</li>
+	</ul>
+	</li>
+	</ul>
+			</div>
+
+		<div class="classLikeSection">
+			<b>Located at</b> <a href="source-OrderableCollection.html#7" title="Go to source code">OrderableCollection.php</a><br>
+		</div>
+
+
+
+		<table class="table" id="methods">
+			<tr>
+				<th class="table-heading sortable" colspan="3" title="Switch between natural and alphabetical order">Methods</th>
+			</tr>
+
+	<tr class="expandable collapsed" data-order="saveOrder" id="_saveOrder">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-OrderableCollection.html#9-43" title="Go to source code">saveOrder</a>()</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_saveOrder">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="setOrder" id="_setOrder">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-OrderableCollection.html#45-53" title="Go to source code">setOrder</a>(<span><var>$ids</var></span>)</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_setOrder">#</a>
+		</td>
+	</tr>
+		</table>
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods inherited from <a href="Illuminate.Database.Eloquent.Collection.html"><span>Illuminate\Database\Eloquent\Collection</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Illuminate.Database.Eloquent.Collection.html#_find">find()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_findOrFail">findOrFail()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_load">load()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_loadAggregate">loadAggregate()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_loadCount">loadCount()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_loadMax">loadMax()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_loadMin">loadMin()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_loadSum">loadSum()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_loadAvg">loadAvg()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_loadExists">loadExists()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_loadMissing">loadMissing()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_loadMissingRelationshipChain">loadMissingRelationshipChain()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_loadMissingRelation">loadMissingRelation()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_loadMorph">loadMorph()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_loadMorphCount">loadMorphCount()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_contains">contains()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_doesntContain">doesntContain()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_modelKeys">modelKeys()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_merge">merge()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_map">map()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_mapWithKeys">mapWithKeys()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_fresh">fresh()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_diff">diff()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_intersect">intersect()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_unique">unique()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_only">only()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_except">except()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_makeHidden">makeHidden()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_makeVisible">makeVisible()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_setVisible">setVisible()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_setHidden">setHidden()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_append">append()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_getDictionary">getDictionary()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_countBy">countBy()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_collapse">collapse()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_flatten">flatten()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_flip">flip()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_keys">keys()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_pad">pad()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_partition">partition()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_pluck">pluck()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_zip">zip()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_duplicateComparator">duplicateComparator()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_withRelationshipAutoloading">withRelationshipAutoloading()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_getQueueableClass">getQueueableClass()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_getQueueableModelClass">getQueueableModelClass()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_getQueueableIds">getQueueableIds()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_getQueueableRelations">getQueueableRelations()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_getQueueableConnection">getQueueableConnection()</a>, <a href="Illuminate.Database.Eloquent.Collection.html#_toQuery">toQuery()</a></code>				</td>
+			</tr>
+		</table>
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods inherited from <a href="Illuminate.Support.Collection.html"><span>Illuminate\Support\Collection</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Illuminate.Support.Collection.html#___construct">__construct()</a>, <a href="Illuminate.Support.Collection.html#_range">range()</a>, <a href="Illuminate.Support.Collection.html#_all">all()</a>, <a href="Illuminate.Support.Collection.html#_lazy">lazy()</a>, <a href="Illuminate.Support.Collection.html#_median">median()</a>, <a href="Illuminate.Support.Collection.html#_mode">mode()</a>, <a href="Illuminate.Support.Collection.html#_collapseWithKeys">collapseWithKeys()</a>, <a href="Illuminate.Support.Collection.html#_containsStrict">containsStrict()</a>, <a href="Illuminate.Support.Collection.html#_crossJoin">crossJoin()</a>, <a href="Illuminate.Support.Collection.html#_diffUsing">diffUsing()</a>, <a href="Illuminate.Support.Collection.html#_diffAssoc">diffAssoc()</a>, <a href="Illuminate.Support.Collection.html#_diffAssocUsing">diffAssocUsing()</a>, <a href="Illuminate.Support.Collection.html#_diffKeys">diffKeys()</a>, <a href="Illuminate.Support.Collection.html#_diffKeysUsing">diffKeysUsing()</a>, <a href="Illuminate.Support.Collection.html#_duplicates">duplicates()</a>, <a href="Illuminate.Support.Collection.html#_duplicatesStrict">duplicatesStrict()</a>, <a href="Illuminate.Support.Collection.html#_filter">filter()</a>, <a href="Illuminate.Support.Collection.html#_first">first()</a>, <a href="Illuminate.Support.Collection.html#_forget">forget()</a>, <a href="Illuminate.Support.Collection.html#_get">get()</a>, <a href="Illuminate.Support.Collection.html#_getOrPut">getOrPut()</a>, <a href="Illuminate.Support.Collection.html#_groupBy">groupBy()</a>, <a href="Illuminate.Support.Collection.html#_keyBy">keyBy()</a>, <a href="Illuminate.Support.Collection.html#_has">has()</a>, <a href="Illuminate.Support.Collection.html#_hasAny">hasAny()</a>, <a href="Illuminate.Support.Collection.html#_implode">implode()</a>, <a href="Illuminate.Support.Collection.html#_intersectUsing">intersectUsing()</a>, <a href="Illuminate.Support.Collection.html#_intersectAssoc">intersectAssoc()</a>, <a href="Illuminate.Support.Collection.html#_intersectAssocUsing">intersectAssocUsing()</a>, <a href="Illuminate.Support.Collection.html#_intersectByKeys">intersectByKeys()</a>, <a href="Illuminate.Support.Collection.html#_isEmpty">isEmpty()</a>, <a href="Illuminate.Support.Collection.html#_containsOneItem">containsOneItem()</a>, <a href="Illuminate.Support.Collection.html#_join">join()</a>, <a href="Illuminate.Support.Collection.html#_last">last()</a>, <a href="Illuminate.Support.Collection.html#_mapToDictionary">mapToDictionary()</a>, <a href="Illuminate.Support.Collection.html#_mergeRecursive">mergeRecursive()</a>, <a href="Illuminate.Support.Collection.html#_multiply">multiply()</a>, <a href="Illuminate.Support.Collection.html#_combine">combine()</a>, <a href="Illuminate.Support.Collection.html#_union">union()</a>, <a href="Illuminate.Support.Collection.html#_nth">nth()</a>, <a href="Illuminate.Support.Collection.html#_select">select()</a>, <a href="Illuminate.Support.Collection.html#_pop">pop()</a>, <a href="Illuminate.Support.Collection.html#_prepend">prepend()</a>, <a href="Illuminate.Support.Collection.html#_push">push()</a>, <a href="Illuminate.Support.Collection.html#_unshift">unshift()</a>, <a href="Illuminate.Support.Collection.html#_concat">concat()</a>, <a href="Illuminate.Support.Collection.html#_pull">pull()</a>, <a href="Illuminate.Support.Collection.html#_put">put()</a>, <a href="Illuminate.Support.Collection.html#_random">random()</a>, <a href="Illuminate.Support.Collection.html#_replace">replace()</a>, <a href="Illuminate.Support.Collection.html#_replaceRecursive">replaceRecursive()</a>, <a href="Illuminate.Support.Collection.html#_reverse">reverse()</a>, <a href="Illuminate.Support.Collection.html#_search">search()</a>, <a href="Illuminate.Support.Collection.html#_before">before()</a>, <a href="Illuminate.Support.Collection.html#_after">after()</a>, <a href="Illuminate.Support.Collection.html#_shift">shift()</a>, <a href="Illuminate.Support.Collection.html#_shuffle">shuffle()</a>, <a href="Illuminate.Support.Collection.html#_sliding">sliding()</a>, <a href="Illuminate.Support.Collection.html#_skip">skip()</a>, <a href="Illuminate.Support.Collection.html#_skipUntil">skipUntil()</a>, <a href="Illuminate.Support.Collection.html#_skipWhile">skipWhile()</a>, <a href="Illuminate.Support.Collection.html#_slice">slice()</a>, <a href="Illuminate.Support.Collection.html#_split">split()</a>, <a href="Illuminate.Support.Collection.html#_splitIn">splitIn()</a>, <a href="Illuminate.Support.Collection.html#_sole">sole()</a>, <a href="Illuminate.Support.Collection.html#_firstOrFail">firstOrFail()</a>, <a href="Illuminate.Support.Collection.html#_chunk">chunk()</a>, <a href="Illuminate.Support.Collection.html#_chunkWhile">chunkWhile()</a>, <a href="Illuminate.Support.Collection.html#_sort">sort()</a>, <a href="Illuminate.Support.Collection.html#_sortDesc">sortDesc()</a>, <a href="Illuminate.Support.Collection.html#_sortBy">sortBy()</a>, <a href="Illuminate.Support.Collection.html#_sortByMany">sortByMany()</a>, <a href="Illuminate.Support.Collection.html#_sortByDesc">sortByDesc()</a>, <a href="Illuminate.Support.Collection.html#_sortKeys">sortKeys()</a>, <a href="Illuminate.Support.Collection.html#_sortKeysDesc">sortKeysDesc()</a>, <a href="Illuminate.Support.Collection.html#_sortKeysUsing">sortKeysUsing()</a>, <a href="Illuminate.Support.Collection.html#_splice">splice()</a>, <a href="Illuminate.Support.Collection.html#_take">take()</a>, <a href="Illuminate.Support.Collection.html#_takeUntil">takeUntil()</a>, <a href="Illuminate.Support.Collection.html#_takeWhile">takeWhile()</a>, <a href="Illuminate.Support.Collection.html#_transform">transform()</a>, <a href="Illuminate.Support.Collection.html#_dot">dot()</a>, <a href="Illuminate.Support.Collection.html#_undot">undot()</a>, <a href="Illuminate.Support.Collection.html#_values">values()</a>, <a href="Illuminate.Support.Collection.html#_getIterator">getIterator()</a>, <a href="Illuminate.Support.Collection.html#_count">count()</a>, <a href="Illuminate.Support.Collection.html#_add">add()</a>, <a href="Illuminate.Support.Collection.html#_toBase">toBase()</a>, <a href="Illuminate.Support.Collection.html#_offsetExists">offsetExists()</a>, <a href="Illuminate.Support.Collection.html#_offsetGet">offsetGet()</a>, <a href="Illuminate.Support.Collection.html#_offsetSet">offsetSet()</a>, <a href="Illuminate.Support.Collection.html#_offsetUnset">offsetUnset()</a></code>				</td>
+			</tr>
+		</table>
+
+
+
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods used from <a href="Illuminate.Support.Traits.EnumeratesValues.html"><span>Illuminate\Support\Traits\EnumeratesValues</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Illuminate.Support.Traits.EnumeratesValues.html#_make">make()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_wrap">wrap()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_unwrap">unwrap()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_empty">empty()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_times">times()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_fromJson">fromJson()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_avg">avg()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_average">average()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_some">some()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_dd">dd()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_dump">dump()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_each">each()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_eachSpread">eachSpread()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_every">every()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_firstWhere">firstWhere()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_value">value()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_ensure">ensure()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_isNotEmpty">isNotEmpty()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_mapSpread">mapSpread()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_mapToGroups">mapToGroups()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_flatMap">flatMap()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_mapInto">mapInto()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_min">min()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_max">max()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_forPage">forPage()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_percentage">percentage()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_sum">sum()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_whenEmpty">whenEmpty()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_whenNotEmpty">whenNotEmpty()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_unlessEmpty">unlessEmpty()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_unlessNotEmpty">unlessNotEmpty()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_where">where()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_whereNull">whereNull()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_whereNotNull">whereNotNull()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_whereStrict">whereStrict()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_whereIn">whereIn()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_whereInStrict">whereInStrict()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_whereBetween">whereBetween()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_whereNotBetween">whereNotBetween()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_whereNotIn">whereNotIn()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_whereNotInStrict">whereNotInStrict()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_whereInstanceOf">whereInstanceOf()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_pipe">pipe()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_pipeInto">pipeInto()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_pipeThrough">pipeThrough()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_reduce">reduce()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_reduceSpread">reduceSpread()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_reduceWithKeys">reduceWithKeys()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_reject">reject()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_tap">tap()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_uniqueStrict">uniqueStrict()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_collect">collect()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_toArray">toArray()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_jsonSerialize">jsonSerialize()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_toJson">toJson()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_getCachingIterator">getCachingIterator()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#___toString">__toString()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_escapeWhenCastingToString">escapeWhenCastingToString()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_proxy">proxy()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#___get">__get()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_getArrayableItems">getArrayableItems()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_operatorForWhere">operatorForWhere()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_useAsCallable">useAsCallable()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_valueRetriever">valueRetriever()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_equality">equality()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_negate">negate()</a>, <a href="Illuminate.Support.Traits.EnumeratesValues.html#_identity">identity()</a></code>				</td>
+			</tr>
+		</table>
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods used from <a href="Illuminate.Support.Traits.Macroable.html"><span>Illuminate\Support\Traits\Macroable</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Illuminate.Support.Traits.Macroable.html#_macro">macro()</a>, <a href="Illuminate.Support.Traits.Macroable.html#_mixin">mixin()</a>, <a href="Illuminate.Support.Traits.Macroable.html#_hasMacro">hasMacro()</a>, <a href="Illuminate.Support.Traits.Macroable.html#_flushMacros">flushMacros()</a>, <a href="Illuminate.Support.Traits.Macroable.html#___callStatic">__callStatic()</a>, <a href="Illuminate.Support.Traits.Macroable.html#___call">__call()</a></code>				</td>
+			</tr>
+		</table>
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods used from <a href="Illuminate.Support.Traits.TransformsToResourceCollection.html"><span>Illuminate\Support\Traits\TransformsToResourceCollection</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Illuminate.Support.Traits.TransformsToResourceCollection.html#_toResourceCollection">toResourceCollection()</a>, <a href="Illuminate.Support.Traits.TransformsToResourceCollection.html#_guessResourceCollection">guessResourceCollection()</a></code>				</td>
+			</tr>
+		</table>
+
+
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods used from <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithDictionary.html"><span>Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithDictionary</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithDictionary.html#_getDictionaryKey">getDictionaryKey()</a></code>				</td>
+			</tr>
+		</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Properties inherited from <a href="Illuminate.Support.Collection.html"><span>Illuminate\Support\Collection</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><var><a href="Illuminate.Support.Collection.html#$items">$items</a></var></code>				</td>
+			</tr>
+		</table>
+
+
+
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Properties used from <a href="Illuminate.Support.Traits.EnumeratesValues.html"><span>Illuminate\Support\Traits\EnumeratesValues</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$escapeWhenCastingToString">$escapeWhenCastingToString</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$proxies">$proxies</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$average">$average</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$avg">$avg</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$contains">$contains</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$doesntContain">$doesntContain</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$each">$each</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$every">$every</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$filter">$filter</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$first">$first</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$flatMap">$flatMap</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$groupBy">$groupBy</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$keyBy">$keyBy</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$last">$last</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$map">$map</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$max">$max</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$min">$min</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$partition">$partition</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$percentage">$percentage</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$reject">$reject</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$skipUntil">$skipUntil</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$skipWhile">$skipWhile</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$some">$some</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$sortBy">$sortBy</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$sortByDesc">$sortByDesc</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$sum">$sum</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$takeUntil">$takeUntil</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$takeWhile">$takeWhile</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$unique">$unique</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$unless">$unless</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$until">$until</a></var>, <var><a href="Illuminate.Support.Traits.EnumeratesValues.html#$when">$when</a></var></code>				</td>
+			</tr>
+		</table>
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Properties used from <a href="Illuminate.Support.Traits.Macroable.html"><span>Illuminate\Support\Traits\Macroable</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><var><a href="Illuminate.Support.Traits.Macroable.html#$macros">$macros</a></var></code>				</td>
+			</tr>
+		</table>
+
+
+
+
+
+
+
+
+		</div>
+
+		<div class="layout-footer">
+			 API documentation generated by <a href="https://www.apigen.org">ApiGen v7.0.0-alpha.6</a>
+		</div>
+	</div>
+
+	<div class="layout-rest">
+		<div class="navbar"></div>
+	</div>
+</body>
+</html>
