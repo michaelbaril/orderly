@@ -17,6 +17,8 @@ jobs:
     name: Merge coverage
     needs: generate-coverage
     uses: michaelbaril/shared/.github/workflows/merge-coverage.yml@main
+    with:
+      html: true
   publish-coverage:
     name: Publish coverage
     needs: merge-coverage
