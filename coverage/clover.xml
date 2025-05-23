@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1748021882">
-  <project timestamp="1748021882">
+<coverage generated="1748023705">
+  <project timestamp="1748023705">
     <file name="/home/runner/work/orderly/orderly/src/Concerns/Groupable.php">
       <class name="Baril\Orderly\Concerns\Groupable" namespace="global">
         <metrics complexity="21" methods="6" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="37" coveredstatements="26" elements="43" coveredelements="28"/>
