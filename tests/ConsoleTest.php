@@ -10,7 +10,7 @@ class ConsoleTest extends TestCase
 {
     public function test_fix_positions()
     {
-        $tags = factory(Tag::class, 5)->create();
+        $tags = Tag::factory()->count(5)->create();
 
         $tags[0]->newModelQuery()
             ->toBase()
@@ -24,8 +24,8 @@ class ConsoleTest extends TestCase
 
     public function test_fix_positions_within_groups()
     {
-        $article = factory(Article::class)->create();
-        $paragraphs = factory(Paragraph::class, 10)->create([
+        $article = Article::factory()->create();
+        $paragraphs = Paragraph::factory()->count(10)->create([
             'article_id' => $article->id,
             'section' => 1,
         ]);
@@ -49,8 +49,8 @@ class ConsoleTest extends TestCase
 
     public function test_fix_relation_positions()
     {
-        $article = factory(Article::class)->create();
-        $article->tags()->attach(factory(Tag::class, 5)->create());
+        $article = Article::factory()->create();
+        $article->tags()->attach(Tag::factory()->count(5)->create());
 
         $article->tags()
             ->newPivotStatement()

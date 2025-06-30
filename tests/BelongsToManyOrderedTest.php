@@ -4,7 +4,7 @@ namespace Baril\Orderly\Tests;
 
 use Baril\Orderly\PositionException;
 use Baril\Orderly\Tests\Models\Article;
-use Baril\Orderly\Tests\Models\Tag as Model;
+use Baril\Orderly\Tests\Models\Tag;
 
 class BelongsToManyOrderedTest extends TestCase
 {
@@ -14,8 +14,8 @@ class BelongsToManyOrderedTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->articles = factory(Article::class, 2)->create();
-        $this->items = factory(Model::class, 8)->create();
+        $this->articles = Article::factory()->count(2)->create();
+        $this->items = Tag::factory()->count(8)->create();
     }
 
     protected function syncTags($article, $tags)

@@ -3,7 +3,6 @@
 namespace Baril\Orderly\Tests\Models;
 
 use Baril\Orderly\Tests\Models\Article;
-use Illuminate\Database\Eloquent\Model;
 
 class Paragraph extends Model
 {

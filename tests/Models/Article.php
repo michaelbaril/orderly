@@ -5,7 +5,6 @@ namespace Baril\Orderly\Tests\Models;
 use Baril\Orderly\Concerns\HasOrderableRelationships;
 use Baril\Orderly\Tests\Models\Status;
 use Baril\Orderly\Tests\Models\Tag;
-use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {

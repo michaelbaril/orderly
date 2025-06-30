@@ -2,8 +2,6 @@
 
 namespace Baril\Orderly\Tests\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
 class Tag extends Model
 {
     use \Baril\Orderly\Concerns\Orderable;

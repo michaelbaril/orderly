@@ -5,7 +5,7 @@ namespace Baril\Orderly\Tests;
 use Baril\Orderly\GroupException;
 use Baril\Orderly\PositionException;
 use Baril\Orderly\Tests\Models\Article;
-use Baril\Orderly\Tests\Models\Paragraph as Model;
+use Baril\Orderly\Tests\Models\Paragraph;
 
 class OrderableWithNestedGroupsTest extends TestCase
 {
@@ -15,8 +15,8 @@ class OrderableWithNestedGroupsTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->articles = factory(Article::class, 2)->create();
-        $this->items = factory(Model::class, 8)->create([
+        $this->articles = Article::factory()->count(2)->create();
+        $this->items = Paragraph::factory()->count(8)->create([
             'article_id' => $this->articles[0]->id,
             'section' => 1,
         ]);
@@ -39,7 +39,7 @@ class OrderableWithNestedGroupsTest extends TestCase
             $section
         ];
 
-        $actual = Model::whereGroup($group)->orderBy('id')->pluck('position')->toArray();
+        $actual = Paragraph::whereGroup($group)->orderBy('id')->pluck('position')->toArray();
         $this->assertEquals($expected, $actual);
     }
 
@@ -55,7 +55,7 @@ class OrderableWithNestedGroupsTest extends TestCase
     {
         $this->setGroup(1, 0, 2);
         $this->items[1]->save();
-        $model = factory(Model::class)->make(['article_id' => $this->articles[0]->id, 'section' => 2]);
+        $model = Paragraph::factory()->make(['article_id' => $this->articles[0]->id, 'section' => 2]);
         $model->save();
         $this->assertEquals(2, $model->position);
     }
@@ -104,14 +104,14 @@ class OrderableWithNestedGroupsTest extends TestCase
     {
         $this->setGroup([0], 1, 1);
         $this->expectException(GroupException::class);
-        Model::setOrder([$this->items[0]->id]);
+        Paragraph::setOrder([$this->items[0]->id]);
     }
 
     public function test_mass_reordering()
     {
         $this->setGroup([0], 1, 1);
-        $affected = Model::whereGroup([$this->articles[0]->id, 1])->setOrder([$this->items[7]->id, $this->items[4]->id]);
-        $positions = Model::orderBy('id')->pluck('position')->all();
+        $affected = Paragraph::whereGroup([$this->articles[0]->id, 1])->setOrder([$this->items[7]->id, $this->items[4]->id]);
+        $positions = Paragraph::orderBy('id')->pluck('position')->all();
         $this->assertEquals([
             1,
             3, 4, 5, 2, 6, 7, 1,
