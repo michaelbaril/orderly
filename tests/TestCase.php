@@ -92,7 +92,6 @@ class TestCase extends OrchestraTestCase
     {
         parent::setUp();
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
-        $this->withFactories(__DIR__ . '/database/factories');
         \DB::enableQueryLog();
     }
 

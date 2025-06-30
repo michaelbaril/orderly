@@ -3,7 +3,7 @@
 namespace Baril\Orderly\Tests;
 
 use Baril\Orderly\PositionException;
-use Baril\Orderly\Tests\Models\Status as Model;
+use Baril\Orderly\Tests\Models\Status;
 
 class OrderableTest extends TestCase
 {
@@ -12,12 +12,12 @@ class OrderableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->items = factory(Model::class, 5)->create();
+        $this->items = Status::factory()->count(5)->create();
     }
 
     protected function assertPositions($expected)
     {
-        $actual = Model::orderBy('id')->pluck('position')->toArray();
+        $actual = Status::orderBy('id')->pluck('position')->toArray();
         $this->assertEquals($expected, $actual);
     }
 
@@ -77,7 +77,7 @@ class OrderableTest extends TestCase
             $this->items[1]->id,
             $this->items[0]->id,
         ];
-        $actual = Model::ordered('desc')->pluck('id')->toArray();
+        $actual = Status::ordered('desc')->pluck('id')->toArray();
         $this->assertEquals($expected, $actual);
     }
 
@@ -86,13 +86,13 @@ class OrderableTest extends TestCase
         $this->items[2]->moveToPosition(5);
         $expected = $this->items->pluck('id')->toArray();
 
-        $actual = Model::ordered()->orderBy('id')->pluck('id')->toArray();
+        $actual = Status::ordered()->orderBy('id')->pluck('id')->toArray();
         $this->assertNotEquals($expected, $actual);
 
-        $actual = Model::ordered()->unordered()->orderBy('id')->pluck('id')->toArray();
+        $actual = Status::ordered()->unordered()->orderBy('id')->pluck('id')->toArray();
         $this->assertEquals($expected, $actual);
 
-        $actual = Model::ordered()->forceOrderBy('id')->pluck('id')->toArray();
+        $actual = Status::ordered()->forceOrderBy('id')->pluck('id')->toArray();
         $this->assertEquals($expected, $actual);
     }
 
@@ -104,7 +104,7 @@ class OrderableTest extends TestCase
 
     public function test_order_collection()
     {
-        $collection = Model::all();
+        $collection = Status::all();
         $collection->shuffle();
         $collection->saveOrder();
         $collection->each(function ($item, $key) {
@@ -118,9 +118,9 @@ class OrderableTest extends TestCase
             4 => 1,
         ];
 
-        $collection = Model::ordered('desc')->whereIn('position', $positions)->get();
+        $collection = Status::ordered('desc')->whereIn('position', $positions)->get();
         $collection->saveOrder();
-        Model::orderBy('id')->each(function ($item, $key) use ($positions) {
+        Status::orderBy('id')->each(function ($item, $key) use ($positions) {
             if (in_array($key + 1, $positions)) {
                 $this->assertEquals($positions[$key + 1], $item->position);
             } else {
@@ -139,10 +139,10 @@ class OrderableTest extends TestCase
             $ids[] = $this->items[$pos - 1]->id;
         }
 
-        $affected = Model::setOrder($ids);
+        $affected = Status::setOrder($ids);
         $this->assertEquals($expectedAffected, $affected);
 
-        $ids = Model::ordered()->pluck('id')->all();
+        $ids = Status::ordered()->pluck('id')->all();
         $items = $this->items->pluck('id')->flip();
         $newOrder = [];
         foreach ($ids as $id) {
