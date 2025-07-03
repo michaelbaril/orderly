@@ -3,6 +3,7 @@
 namespace Baril\Orderly;
 
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
+use Illuminate\Support\Arr;
 
 class OrderableCollection extends EloquentCollection
 {
@@ -45,10 +46,13 @@ class OrderableCollection extends EloquentCollection
     public function setOrder($ids)
     {
         $count = $this->count();
-        $ordered = $this->sortBy(function ($item) use ($ids, $count) {
+        $isList = Arr::isList($this->keys()->all());
+
+        return $this->sortBy(function ($item) use ($ids, $count) {
             $index = array_search($item->getKey(), $ids);
             return ($index === false) ? $count + $item->getPosition() : $index;
+        })->saveOrder()->when($isList, function ($orderedCollection) {
+            return $orderedCollection->values();
         });
-        return $ordered->saveOrder();
     }
 }
