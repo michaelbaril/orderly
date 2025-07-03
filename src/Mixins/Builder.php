@@ -28,7 +28,7 @@ class Builder
             $grammar = $this->getGrammar();
 
             return $connection->transaction(function () use ($column, $connection, $grammar) {
-                if ($grammar->supportsSequences()) {
+                if ($grammar->supportsSequences() && $grammar->supportsUpdateWithOrderBy()) {
                     $connection->statement($grammar->compileCreateSequence('rownum'));
                     $update = $this->update([$column => $connection->raw($grammar->compileNextVal('rownum'))]);
                     $connection->statement($grammar->compileDropSequence('rownum'));

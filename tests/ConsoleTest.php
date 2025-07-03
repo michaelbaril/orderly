@@ -12,14 +12,19 @@ class ConsoleTest extends TestCase
     {
         $tags = Tag::factory()->count(5)->create();
 
-        $tags[0]->newModelQuery()
-            ->toBase()
-            ->limit(1)
-            ->update(['position' => 10]);
+        $tags[0]->position = 10;
+        $tags[0]->save();
+        $tags[2]->position = 0;
+        $tags[2]->save();
 
-        $this->assertNotEquals([1, 2, 3, 4, 5], Tag::ordered()->get()->pluck('position')->all());
         $this->artisan('orderly:fix-positions', ['model' => Tag::class]);
-        $this->assertEquals([1, 2, 3, 4, 5], Tag::ordered()->get()->pluck('position')->all());
+        $this->assertEquals(
+            [5, 2, 1, 3, 4],
+            Tag::orderBy('id')
+                ->get()
+                ->map->getPosition()
+                ->all()
+        );
     }
 
     public function test_fix_positions_within_groups()
@@ -29,12 +34,18 @@ class ConsoleTest extends TestCase
             'article_id' => $article->id,
             'section' => 1,
         ]);
-        $paragraphs->skip(5)->each(function ($paragraph) {
+        $paragraphs->sortBy('id')->skip(5)->each(function ($paragraph) {
             $paragraph->section = 2;
             $paragraph->save();
         });
 
-        $this->assertEquals([1, 2, 3, 4, 5, 1, 2, 3, 4, 5], Paragraph::orderBy('id')->pluck('position')->all());
+        $this->assertEquals(
+            [1, 2, 3, 4, 5, 1, 2, 3, 4, 5],
+            Paragraph::orderBy('id')
+                ->get()
+                ->map->getPosition()
+                ->all()
+        );
 
         $paragraphs[0]->position = 0;
         $paragraphs[0]->save();
@@ -42,9 +53,16 @@ class ConsoleTest extends TestCase
         $paragraphs[7]->position = 10;
         $paragraphs[7]->save();
 
+
         $this->artisan('orderly:fix-positions', ['model' => Paragraph::class]);
 
-        $this->assertEquals([1, 2, 3, 4, 5, 1, 2, 5, 3, 4], Paragraph::orderBy('id')->pluck('position')->all());
+        $this->assertEquals(
+            [1, 2, 3, 4, 5, 1, 2, 5, 3, 4],
+            Paragraph::orderBy('id')
+                ->get()
+                ->map->getPosition()
+                ->all()
+        );
     }
 
     public function test_fix_relation_positions()
