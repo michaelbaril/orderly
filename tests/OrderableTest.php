@@ -127,6 +127,16 @@ class OrderableTest extends TestCase
                 $this->assertEquals($key + 1, $item->position);
             }
         });
+
+        $ids = $collection->pluck('id')->all();
+        $collection->setOrder([
+            $ids[1],
+            $ids[2],
+            $ids[0],
+        ]);
+        $positions = Status::whereKey($ids)->orderBy('id')->get()->pluck('position', 'id')->all();
+        $expectedPositions = array_combine($ids, [4, 1, 3]);
+        $this->assertEquals($expectedPositions, $positions);
     }
 
     /**
