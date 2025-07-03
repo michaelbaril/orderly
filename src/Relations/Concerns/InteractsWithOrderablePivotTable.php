@@ -463,7 +463,7 @@ trait InteractsWithOrderablePivotTable
 
     public function refreshPositions()
     {
-        $this->newPivotQuery()->orderBy($this->orderColumn)->updateColumnWithRowNumber($this->orderColumn);
+        $this->newPivotQuery()->updateColumnWithRowNumber($this->orderColumn);
     }
 
     public function before($entity)

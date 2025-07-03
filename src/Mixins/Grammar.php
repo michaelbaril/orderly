@@ -25,6 +25,13 @@ class Grammar
         };
     }
 
+    public function supportsUpdateWithOrderBy()
+    {
+        return function (): bool {
+            return $this instanceof MySqlGrammar || $this instanceof SQLiteGrammar;
+        };
+    }
+
     public function supportsSequences()
     {
         return function (): bool {
