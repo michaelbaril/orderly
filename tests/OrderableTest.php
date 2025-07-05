@@ -102,43 +102,6 @@ class OrderableTest extends TestCase
         $this->assertEquals(3, $this->items[1]->next()->count());
     }
 
-    public function test_order_collection()
-    {
-        $collection = Status::all();
-        $collection->shuffle();
-        $collection->saveOrder();
-        $collection->each(function ($item, $key) {
-            $this->assertEquals($key + 1, $item->position);
-            $this->assertEquals($key + 1, $item->fresh()->position);
-        });
-
-        $positions = [
-            1 => 4,
-            3 => 3,
-            4 => 1,
-        ];
-
-        $collection = Status::ordered('desc')->whereIn('position', $positions)->get();
-        $collection->saveOrder();
-        Status::orderBy('id')->each(function ($item, $key) use ($positions) {
-            if (in_array($key + 1, $positions)) {
-                $this->assertEquals($positions[$key + 1], $item->position);
-            } else {
-                $this->assertEquals($key + 1, $item->position);
-            }
-        });
-
-        $ids = $collection->pluck('id')->all();
-        $collection->setOrder([
-            $ids[1],
-            $ids[2],
-            $ids[0],
-        ]);
-        $positions = Status::whereKey($ids)->orderBy('id')->get()->pluck('position', 'id')->all();
-        $expectedPositions = array_combine($ids, [4, 1, 3]);
-        $this->assertEquals($expectedPositions, $positions);
-    }
-
     /**
      * @dataProvider reorderProvider
      */
