@@ -38,7 +38,7 @@ trait Orderable
 
             // only automatically calculate next position with max+1 when a position has not been set already,
             // or if the group is changing
-            if ($model->$orderColumn === null || ($groupColumn && $model->isDirty($groupColumn))) {
+            if ($model->getPosition() === null || ($groupColumn && $model->isDirty($groupColumn))) {
                 $model->setAttribute($orderColumn, $query->max($orderColumn) + 1);
             }
         });
@@ -208,8 +208,7 @@ trait Orderable
      */
     public function moveUp($positions = 1, $strict = true)
     {
-        $orderColumn = $this->getOrderColumn();
-        $currentPosition = $this->getAttribute($orderColumn);
+        $currentPosition = $this->getPosition();
         $newPosition = $currentPosition - $positions;
         if (!$strict) {
             $newPosition = max(1, $newPosition);
@@ -243,8 +242,8 @@ trait Orderable
         $this->getConnection()->transaction(function () use ($entity) {
             $orderColumn = $this->getOrderColumn();
 
-            $oldPosition = $this->getAttribute($orderColumn);
-            $newPosition = $entity->getAttribute($orderColumn);
+            $oldPosition = $this->getPosition();
+            $newPosition = $entity->getPosition();
 
             if ($oldPosition === $newPosition) {
                 return;
@@ -298,8 +297,8 @@ trait Orderable
         $this->getConnection()->transaction(function () use ($entity, $action) {
             $orderColumn = $this->getOrderColumn();
 
-            $oldPosition = $this->getAttribute($orderColumn);
-            $newPosition = $entity->getAttribute($orderColumn);
+            $oldPosition = $this->getPosition();
+            $newPosition = $entity->getPosition();
 
             if ($oldPosition === $newPosition) {
                 return;
@@ -370,8 +369,7 @@ trait Orderable
      */
     public function previous($limit = null)
     {
-        $orderColumn = $this->getOrderColumn();
-        $query = $this->newQueryBetween(null, $this->getAttribute($orderColumn))->ordered('desc');
+        $query = $this->newQueryBetween(null, $this->getPosition())->ordered('desc');
         if ($limit) {
             $query->limit($limit);
         }
@@ -385,8 +383,7 @@ trait Orderable
      */
     public function next($limit = null)
     {
-        $orderColumn = $this->getOrderColumn();
-        $query = $this->newQueryBetween($this->getAttribute($orderColumn), null)->ordered();
+        $query = $this->newQueryBetween($this->getPosition(), null)->ordered();
         if ($limit) {
             $query->limit($limit);
         }
