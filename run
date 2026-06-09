@@ -7,7 +7,7 @@ NC='\033[0m'
 
 myself="$(realpath $0)"
 preset_min='7.3 8.* lowest'
-preset_max='8.4 12.* stable'
+preset_max='8.4 13.* stable'
 preset_sqlite_min="$preset_min sqlite"
 preset_sqlite_max="$preset_max sqlite"
 preset_sqlite="$preset_sqlite_max"
