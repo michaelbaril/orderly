@@ -12,8 +12,10 @@ on:
     types: [opened, reopened, edited, synchronize]
     branches: [master, main]
     paths:
+      - .github/workflows/run-tests.yml
       - src/**
       - tests/**
+      - composer.json
       - phpunit.xml
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
