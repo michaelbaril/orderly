@@ -82,4 +82,28 @@ class ConsoleTest extends TestCase
         ]);
         $this->assertEquals([1, 2, 3, 4, 5], $article->tags()->ordered()->get()->pluck('pivot.position')->all());
     }
+
+    public function test_fix_positions_returns_success_exit_code()
+    {
+        Tag::factory()->count(3)->create();
+
+        $this->artisan('orderly:fix-positions', ['model' => Tag::class])
+            ->assertExitCode(0);
+    }
+
+    public function test_fix_positions_fails_on_invalid_model()
+    {
+        $this->artisan('orderly:fix-positions', ['model' => 'NotAModelClass'])
+            ->assertExitCode(1);
+    }
+
+    public function test_fix_positions_fails_on_invalid_relation()
+    {
+        Article::factory()->create();
+
+        $this->artisan('orderly:fix-positions', [
+            'model' => Article::class,
+            'relationName' => 'doesNotExist',
+        ])->assertExitCode(1);
+    }
 }
