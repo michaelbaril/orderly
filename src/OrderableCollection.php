@@ -46,7 +46,7 @@ class OrderableCollection extends EloquentCollection
     public function setOrder($ids)
     {
         $count = $this->count();
-        $isList = Arr::isList($this->keys()->all());
+        $isList = ! Arr::isAssoc($this->keys()->all());
 
         return $this->sortBy(function ($item) use ($ids, $count) {
             $index = array_search($item->getKey(), $ids);
