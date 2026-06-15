@@ -15,27 +15,26 @@ class FixPositionsCommand extends Command
 
     protected $chunks = 200;
 
-    public function handle()
+    public function handle(): int
     {
         $model = $this->argument('model');
         $relationName = $this->argument('relationName');
         if (!class_exists($model) || !is_subclass_of($model, Model::class)) {
             $this->error($model . ' is not a valid model class!');
-            return;
+            return static::FAILURE;
         }
         $instance = new $model();
 
         // If the relation name is provided, then we're fixing an ordered relation:
         if ($relationName) {
-            $this->fixRelation($instance, $relationName);
-            return;
+            return $this->fixRelation($instance, $relationName);
         }
         // else, it's an orderable model.
 
         // Let's check that the model uses the Orderable trait:
         if (!method_exists($model, 'getOrderColumn')) {
             $this->error('{model} must be a valid model class and use the Orderable trait!');
-            return;
+            return static::FAILURE;
         }
 
         // The treatment will be different whether the model is groupable or not:
@@ -45,6 +44,7 @@ class FixPositionsCommand extends Command
             $this->fixUngroupable($instance);
         }
         $this->info('Done!');
+        return static::SUCCESS;
     }
 
     protected function fixUngroupable($instance)
@@ -74,17 +74,17 @@ class FixPositionsCommand extends Command
         });
     }
 
-    protected function fixRelation($instance, $relationName)
+    protected function fixRelation($instance, $relationName): int
     {
         try {
             $relation = $instance->$relationName();
             if (!$relation instanceof BelongsToManyOrderable) {
                 $this->error($relationName . ' is not a valid belongs-to-many-ordered relationship!');
-                return;
+                return static::FAILURE;
             }
         } catch (\Exception $e) {
             $this->error($relationName . ' is not a valid relationship!');
-            return;
+            return static::FAILURE;
         }
 
         $query = $instance->newQuery()
@@ -104,6 +104,7 @@ class FixPositionsCommand extends Command
                 $this->line("<info>Fixed for model:</info> {$item->getKey()}");
             }
         });
+        return static::SUCCESS;
     }
 
     protected function fixPositions($query, $instance)
