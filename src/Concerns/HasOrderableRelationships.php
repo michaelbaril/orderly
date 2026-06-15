@@ -35,7 +35,7 @@ trait HasOrderableRelationships
      * @param string $relatedKey
      * @param string $relation
      *
-     * @return BelongsToSortedMany
+     * @return BelongsToManyOrderable
      */
     public function belongsToManyOrderable(
         $related,
