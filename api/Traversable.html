@@ -388,99 +388,6 @@
 
 	<ul class="classTree">
 	<li>
-<a href="Iterator.html"><span>Iterator</span></a>
-		extends
-			<b><span class="active" title="Traversable">Traversable</span></b>
-
-
-	<ul class="classTree">
-	<li>
-<a href="Generator.html"><span>Generator</span></a>
-
-		implements
-			<a href="Iterator.html"><span title="Iterator">Iterator</span></a>
-
-	</li>
-	<li>
-<a href="SeekableIterator.html"><span>SeekableIterator</span></a>
-		extends
-			<a href="Iterator.html"><span title="Iterator">Iterator</span></a>
-
-
-	<ul class="classTree">
-	<li>
-<a href="ArrayIterator.html"><span>ArrayIterator</span></a>
-
-		implements
-			<a href="SeekableIterator.html"><span title="SeekableIterator">SeekableIterator</span></a>, 
-			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>, 
-			<a href="Serializable.html"><span title="Serializable">Serializable</span></a>, 
-			<a href="Countable.html"><span title="Countable">Countable</span></a>
-
-	</li>
-	<li>
-<a href="SplFileObject.html"><span>SplFileObject</span></a>
-
-		implements
-			<a href="RecursiveIterator.html"><span title="RecursiveIterator">RecursiveIterator</span></a>, 
-			<a href="SeekableIterator.html"><span title="SeekableIterator">SeekableIterator</span></a>
-
-	</li>
-	</ul>
-	</li>
-	<li>
-<a href="RecursiveIterator.html"><span>RecursiveIterator</span></a>
-		extends
-			<a href="Iterator.html"><span title="Iterator">Iterator</span></a>
-
-
-	<ul class="classTree">
-	<li>
-<a href="Symfony.Component.Console.Helper.TreeHelper.html"><span>Symfony\Component\Console\Helper\TreeHelper</span></a>
-
-		implements
-			<a href="RecursiveIterator.html"><span title="RecursiveIterator">RecursiveIterator</span></a>&lt;int, <a href="Symfony.Component.Console.Helper.TreeNode.html"><span title="Symfony\Component\Console\Helper\TreeNode">TreeNode</span></a>&gt;
-
-	</li>
-	<li>
-<a href="SplFileObject.html"><span>SplFileObject</span></a>
-
-		implements
-			<a href="RecursiveIterator.html"><span title="RecursiveIterator">RecursiveIterator</span></a>, 
-			<a href="SeekableIterator.html"><span title="SeekableIterator">SeekableIterator</span></a>
-
-	</li>
-	</ul>
-	</li>
-	<li>
-<a href="OuterIterator.html"><span>OuterIterator</span></a>
-		extends
-			<a href="Iterator.html"><span title="Iterator">Iterator</span></a>
-
-
-	<ul class="classTree">
-	<li>
-<a href="IteratorIterator.html"><span>IteratorIterator</span></a>
-
-		implements
-			<a href="OuterIterator.html"><span title="OuterIterator">OuterIterator</span></a>
-
-	<ul class="classTree">
-	<li>
-<a href="CachingIterator.html"><span>CachingIterator</span></a>
-
-		implements
-			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>, 
-			<a href="Countable.html"><span title="Countable">Countable</span></a>
-
-	</li>
-	</ul>
-	</li>
-	</ul>
-	</li>
-	</ul>
-	</li>
-	<li>
 <a href="IteratorAggregate.html"><span>IteratorAggregate</span></a>
 		extends
 			<b><span class="active" title="Traversable">Traversable</span></b>
@@ -501,12 +408,23 @@
 
 	</li>
 	<li>
-<a href="WeakMap.html"><span>WeakMap</span></a>
+<a href="Symfony.Component.Console.Helper.HelperSet.html"><span>Symfony\Component\Console\Helper\HelperSet</span></a>
 
 		implements
-			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>, 
+			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>&lt;string, <a href="Symfony.Component.Console.Helper.HelperInterface.html"><span title="Symfony\Component\Console\Helper\HelperInterface">HelperInterface</span></a>&gt;
+
+	</li>
+	<li>
+<a href="Illuminate.Pagination.Paginator.html"><span>Illuminate\Pagination\Paginator</span></a>
+
+		implements
+			<a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>&lt;TKey, TValue&gt;, 
+			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>&lt;TKey, TValue&gt;, 
 			<a href="Countable.html"><span title="Countable">Countable</span></a>, 
-			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>
+			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>&lt;TKey, TValue&gt;, 
+			<a href="Illuminate.Contracts.Support.Jsonable.html"><span title="Illuminate\Contracts\Support\Jsonable">Jsonable</span></a>, 
+			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>, 
+			<a href="Illuminate.Contracts.Pagination.Paginator.html"><span title="Illuminate\Contracts\Pagination\Paginator">Paginator</span></a>&lt;TKey, TValue&gt;
 
 	</li>
 	<li>
@@ -530,25 +448,29 @@
 
 	</li>
 	<li>
-<a href="Illuminate.Pagination.Paginator.html"><span>Illuminate\Pagination\Paginator</span></a>
+<a href="WeakMap.html"><span>WeakMap</span></a>
 
 		implements
-			<a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>&lt;TKey, TValue&gt;, 
-			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>&lt;TKey, TValue&gt;, 
+			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>, 
 			<a href="Countable.html"><span title="Countable">Countable</span></a>, 
-			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>&lt;TKey, TValue&gt;, 
-			<a href="Illuminate.Contracts.Support.Jsonable.html"><span title="Illuminate\Contracts\Support\Jsonable">Jsonable</span></a>, 
-			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>, 
-			<a href="Illuminate.Contracts.Pagination.Paginator.html"><span title="Illuminate\Contracts\Pagination\Paginator">Paginator</span></a>&lt;TKey, TValue&gt;
+			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>
 
 	</li>
 	<li>
-<a href="Symfony.Component.Console.Helper.TreeNode.html"><span>Symfony\Component\Console\Helper\TreeNode</span></a>
+<a href="Symfony.Component.HttpFoundation.HeaderBag.html"><span>Symfony\Component\HttpFoundation\HeaderBag</span></a>
 
 		implements
+			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>&lt;string, list&lt;string|null&gt;&gt;, 
 			<a href="Countable.html"><span title="Countable">Countable</span></a>, 
-			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>&lt;<a href="Symfony.Component.Console.Helper.TreeNode.html"><span title="Symfony\Component\Console\Helper\TreeNode">TreeNode</span></a>&gt;
+			<a href="Stringable.html"><span title="Stringable">Stringable</span></a>
 
+	<ul class="classTree">
+	<li>
+<a href="Symfony.Component.HttpFoundation.ResponseHeaderBag.html"><span>Symfony\Component\HttpFoundation\ResponseHeaderBag</span></a>
+
+
+	</li>
+	</ul>
 	</li>
 	<li>
 <a href="PDOStatement.html"><span>PDOStatement</span></a>
@@ -585,39 +507,16 @@
 	</ul>
 	</li>
 	<li>
-<a href="Illuminate.Database.Schema.IndexDefinition.html"><span>Illuminate\Database\Schema\IndexDefinition</span></a>
-
-
-	</li>
-	<li>
 <a href="Illuminate.Database.Schema.ForeignKeyDefinition.html"><span>Illuminate\Database\Schema\ForeignKeyDefinition</span></a>
 
 
 	</li>
-	</ul>
-	</li>
 	<li>
-<a href="Symfony.Component.HttpFoundation.HeaderBag.html"><span>Symfony\Component\HttpFoundation\HeaderBag</span></a>
-
-		implements
-			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>&lt;string, list&lt;string|null&gt;&gt;, 
-			<a href="Countable.html"><span title="Countable">Countable</span></a>, 
-			<a href="Stringable.html"><span title="Stringable">Stringable</span></a>
-
-	<ul class="classTree">
-	<li>
-<a href="Symfony.Component.HttpFoundation.ResponseHeaderBag.html"><span>Symfony\Component\HttpFoundation\ResponseHeaderBag</span></a>
+<a href="Illuminate.Database.Schema.IndexDefinition.html"><span>Illuminate\Database\Schema\IndexDefinition</span></a>
 
 
 	</li>
 	</ul>
-	</li>
-	<li>
-<a href="Symfony.Component.Console.Helper.HelperSet.html"><span>Symfony\Component\Console\Helper\HelperSet</span></a>
-
-		implements
-			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>&lt;string, <a href="Symfony.Component.Console.Helper.HelperInterface.html"><span title="Symfony\Component\Console\Helper\HelperInterface">HelperInterface</span></a>&gt;
-
 	</li>
 	<li>
 <a href="Symfony.Component.HttpFoundation.ParameterBag.html"><span>Symfony\Component\HttpFoundation\ParameterBag</span></a>
@@ -628,7 +527,7 @@
 
 	<ul class="classTree">
 	<li>
-<a href="Symfony.Component.HttpFoundation.FileBag.html"><span>Symfony\Component\HttpFoundation\FileBag</span></a>
+<a href="Symfony.Component.HttpFoundation.InputBag.html"><span>Symfony\Component\HttpFoundation\InputBag</span></a>
 
 
 	</li>
@@ -638,7 +537,7 @@
 
 	</li>
 	<li>
-<a href="Symfony.Component.HttpFoundation.InputBag.html"><span>Symfony\Component\HttpFoundation\InputBag</span></a>
+<a href="Symfony.Component.HttpFoundation.FileBag.html"><span>Symfony\Component\HttpFoundation\FileBag</span></a>
 
 
 	</li>
@@ -689,6 +588,14 @@
 
 	</li>
 	</ul>
+	</li>
+	<li>
+<a href="Symfony.Component.Console.Helper.TreeNode.html"><span>Symfony\Component\Console\Helper\TreeNode</span></a>
+
+		implements
+			<a href="Countable.html"><span title="Countable">Countable</span></a>, 
+			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>&lt;<a href="Symfony.Component.Console.Helper.TreeNode.html"><span title="Symfony\Component\Console\Helper\TreeNode">TreeNode</span></a>&gt;
+
 	</li>
 	<li>
 <a href="Illuminate.Support.Enumerable.html"><span>Illuminate\Support\Enumerable</span></a>
@@ -763,6 +670,99 @@
 		uses
 			<a href="Illuminate.Support.Traits.Dumpable.html"><span title="Illuminate\Support\Traits\Dumpable">Dumpable</span></a>, 
 			<a href="Illuminate.Support.Traits.InteractsWithData.html"><span title="Illuminate\Support\Traits\InteractsWithData">InteractsWithData</span></a>
+	</li>
+	</ul>
+	</li>
+	</ul>
+	</li>
+	<li>
+<a href="Iterator.html"><span>Iterator</span></a>
+		extends
+			<b><span class="active" title="Traversable">Traversable</span></b>
+
+
+	<ul class="classTree">
+	<li>
+<a href="Generator.html"><span>Generator</span></a>
+
+		implements
+			<a href="Iterator.html"><span title="Iterator">Iterator</span></a>
+
+	</li>
+	<li>
+<a href="SeekableIterator.html"><span>SeekableIterator</span></a>
+		extends
+			<a href="Iterator.html"><span title="Iterator">Iterator</span></a>
+
+
+	<ul class="classTree">
+	<li>
+<a href="ArrayIterator.html"><span>ArrayIterator</span></a>
+
+		implements
+			<a href="SeekableIterator.html"><span title="SeekableIterator">SeekableIterator</span></a>, 
+			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>, 
+			<a href="Serializable.html"><span title="Serializable">Serializable</span></a>, 
+			<a href="Countable.html"><span title="Countable">Countable</span></a>
+
+	</li>
+	<li>
+<a href="SplFileObject.html"><span>SplFileObject</span></a>
+
+		implements
+			<a href="RecursiveIterator.html"><span title="RecursiveIterator">RecursiveIterator</span></a>, 
+			<a href="SeekableIterator.html"><span title="SeekableIterator">SeekableIterator</span></a>
+
+	</li>
+	</ul>
+	</li>
+	<li>
+<a href="OuterIterator.html"><span>OuterIterator</span></a>
+		extends
+			<a href="Iterator.html"><span title="Iterator">Iterator</span></a>
+
+
+	<ul class="classTree">
+	<li>
+<a href="IteratorIterator.html"><span>IteratorIterator</span></a>
+
+		implements
+			<a href="OuterIterator.html"><span title="OuterIterator">OuterIterator</span></a>
+
+	<ul class="classTree">
+	<li>
+<a href="CachingIterator.html"><span>CachingIterator</span></a>
+
+		implements
+			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>, 
+			<a href="Countable.html"><span title="Countable">Countable</span></a>
+
+	</li>
+	</ul>
+	</li>
+	</ul>
+	</li>
+	<li>
+<a href="RecursiveIterator.html"><span>RecursiveIterator</span></a>
+		extends
+			<a href="Iterator.html"><span title="Iterator">Iterator</span></a>
+
+
+	<ul class="classTree">
+	<li>
+<a href="Symfony.Component.Console.Helper.TreeHelper.html"><span>Symfony\Component\Console\Helper\TreeHelper</span></a>
+
+		implements
+			<a href="RecursiveIterator.html"><span title="RecursiveIterator">RecursiveIterator</span></a>&lt;int, <a href="Symfony.Component.Console.Helper.TreeNode.html"><span title="Symfony\Component\Console\Helper\TreeNode">TreeNode</span></a>&gt;
+
+	</li>
+	<li>
+<a href="SplFileObject.html"><span>SplFileObject</span></a>
+
+		implements
+			<a href="RecursiveIterator.html"><span title="RecursiveIterator">RecursiveIterator</span></a>, 
+			<a href="SeekableIterator.html"><span title="SeekableIterator">SeekableIterator</span></a>
+
 	</li>
 	</ul>
 	</li>
