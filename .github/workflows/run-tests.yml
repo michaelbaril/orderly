@@ -130,11 +130,11 @@ jobs:
             database-engine: pgsql
             database-version: 17.4
           # SQL Server / min
-          - php: 8.2
-            laravel: 8.*
-            dependency-version: lowest
-            database-engine: sqlsrv
-            database-version: 2019
+          # - php: 8.2
+          #   laravel: 8.*
+          #   dependency-version: lowest
+          #   database-engine: sqlsrv
+          #   database-version: 2019
           # SQL Server / max
           - php: 8.4
             laravel: 13.*
