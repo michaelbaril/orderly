@@ -565,25 +565,13 @@
 	<div class="description"><p>Returns whether the argument is an AbstractUid and contains the same value as the current instance.</p>
 </div>
 
-							<h4>Parameters</h4>
-							<table>
-									<tr>
-										<td><var>$other</var>&nbsp;&nbsp;</td>
-										<td><p>The object to compare the current instance to,
-which is always an instance of the same class.</p>
-</td>
-									</tr>
-							</table>
 
-							<h4>Returns</h4>
-							<div><p>True if equal, false otherwise.</p>
-</div>
 
 
 		<h4>Implements</h4>
 		<ul>
 				<li>
-<a href="Ds.Hashable.html#_equals">						<code>Ds\Hashable::equals()</code></a>				</li>
+<a href="Symfony.Component.Uid.HashableInterface.html#_equals">						<code>Symfony\Component\Uid\HashableInterface::equals()</code></a>				</li>
 		</ul>
 	</div>
 			</td>
@@ -605,39 +593,16 @@ which is always an instance of the same class.</p>
 				<code>hash(): non-empty-string</code>
 
 
-	<div class="expandable-collapsedView">
-		Returns a scalar value to be used as the hash value of the objects.
-	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Returns a scalar value to be used as the hash value of the objects.</p>
-<p>While the hash value does not define equality, all objects that are
-equal according to Ds\Hashable::equals() must have the same hash
-value. Hash values of equal objects don't have to be unique, for
-example you could just return TRUE for all objects and nothing
-would break - the only implication would be that hash tables then
-turn into linked lists because all your objects will be hashed to
-the same bucket. It's therefore very important that you pick a good
-hash value, such as an ID or email address.</p>
-<p>This method allows objects to be used as keys in structures such as
-Ds\Map and Ds\Set, or any other lookup structure that honors this
-interface.</p>
-<p><b>Caution:</b> Do not pick a value that might change within the object,
-such as a public property. Hash table lookups would fail because
-the hash has changed.</p>
-<p><b>Caution:</b> All objects that are equal must have the same hash value.</p>
-</div>
 
 
-							<h4>Returns</h4>
-							<div><p>A scalar value to be used as this object's hash value.</p>
-</div>
 
 
 		<h4>Implements</h4>
 		<ul>
 				<li>
-<a href="Ds.Hashable.html#_hash">						<code>Ds\Hashable::hash()</code></a>				</li>
+<a href="Symfony.Component.Uid.HashableInterface.html#_hash">						<code>Symfony\Component\Uid\HashableInterface::hash()</code></a>				</li>
 		</ul>
 	</div>
 			</td>

@@ -101,6 +101,11 @@
 						</a>
 					</li>
 					<li>
+						<a href="Carbon.OverflowMode.html">
+							OverflowMode
+						</a>
+					</li>
+					<li>
 						<a href="Carbon.Unit.html">
 							Unit
 						</a>
@@ -1193,12 +1198,12 @@
 
 	<div class="expandable-collapsedView">
 		Set a Carbon instance (real or mock) to be returned when a "now"
-instance is created.  The provided instance will be…
+instance is created. The provided instance will be…
 	</div>
 
 	<div class="expandable-expandedView">
 	<div class="description"><p>Set a Carbon instance (real or mock) to be returned when a &quot;now&quot;
-instance is created.  The provided instance will be returned
+instance is created. The provided instance will be returned
 specifically under the following conditions:</p>
 <ul>
 <li>A call to the static now() method, ex. Carbon::now()</li>
@@ -1206,8 +1211,6 @@ specifically under the following conditions:</p>
 <li>When the string &quot;now&quot; is passed to the constructor or parse(), ex. new Carbon('now')</li>
 <li>When a string containing the desired time is passed to Carbon::parse().</li>
 </ul>
-<p>Note the timezone parameter was left out of the examples above and
-has no affect as the mock value will be returned regardless of its value.</p>
 <p>Only the moment is mocked with setTestNow(), the timezone will still be the one passed
 as parameter of date_default_timezone_get() as a fallback (see setTestNowAndTimezone()).</p>
 <p>To clear the test instance call this method using the default
@@ -1248,12 +1251,12 @@ parameter of null.</p>
 
 	<div class="expandable-collapsedView">
 		Set a Carbon instance (real or mock) to be returned when a "now"
-instance is created.  The provided instance will be…
+instance is created. The provided instance will be…
 	</div>
 
 	<div class="expandable-expandedView">
 	<div class="description"><p>Set a Carbon instance (real or mock) to be returned when a &quot;now&quot;
-instance is created.  The provided instance will be returned
+instance is created. The provided instance will be returned
 specifically under the following conditions:</p>
 <ul>
 <li>A call to the static now() method, ex. Carbon::now()</li>
@@ -2100,15 +2103,18 @@ then return the result of the closure (or null if the closure was void).</p>
 			</td>
 
 			<td class="table-cell">
-				<code>fromSerialized(<span><var>$value</var></span>): <a href="Carbon.Carbon.html"><span title="Carbon\Carbon">Carbon</span></a></code>
+				<code>fromSerialized(<span><var>$value</var></span>, <span>array <var>$options</var> = []</span>): <a href="Carbon.Carbon.html"><span title="Carbon\Carbon">Carbon</span></a></code>
 
 
 	<div class="expandable-collapsedView">
 		Create an instance from a serialized string.
+                                                                          …
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create an instance from a serialized string.</p>
+	<div class="description"><p>Create an instance from a serialized string.
+If $value is not from a trusted source, consider using the allowed_classes option to limit
+the types of objects that can be built, for instance:</p>
 </div>
 
 
@@ -2164,7 +2170,7 @@ then return the result of the closure (or null if the closure was void).</p>
 			</td>
 
 			<td class="table-cell">
-				<code>getAvailableLocalesInfo(): <a href="Carbon.Language.html"><span title="Carbon\Language">Language</span></a>[]</code>
+				<code>getAvailableLocalesInfo(): array</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3351,7 +3357,7 @@ Set midday/noon hour</p>
 	<span>string <var>$timeString</var></span>,
 	<span>?string <var>$from</var> = <span class="php-kw">null</span></span>,
 	<span>?string <var>$to</var> = <span class="php-kw">null</span></span>,
-	<span>int <var>$mode</var> = <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::<a href="Carbon.CarbonInterface.html#TRANSLATE_ALL">TRANSLATE_ALL</a></span>,
+	<span>int <var>$mode</var> = <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::TRANSLATE_ALL</span>,
 ): string</code>
 
 
@@ -3624,7 +3630,7 @@ Set midday/noon hour</p>
 			</td>
 
 			<td class="table-cell">
-<code><var>$weekendDays</var> = [<a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::<a href="Carbon.CarbonInterface.html#SATURDAY">SATURDAY</a>, <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::<a href="Carbon.CarbonInterface.html#SUNDAY">SUNDAY</a>]</code>
+<code><var>$weekendDays</var> = [<a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::SATURDAY, <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::SUNDAY]</code>
 				
 	<div class="expandable-collapsedView">
 		Days of weekend.

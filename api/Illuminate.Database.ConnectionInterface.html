@@ -96,6 +96,16 @@
 			<h3>Exceptions</h3>
 			<ul>
 					<li>
+						<a href="Illuminate.Database.ClassMorphViolationException.html">
+							ClassMorphViolationException
+						</a>
+					</li>
+					<li>
+						<a href="Illuminate.Database.LazyLoadingViolationException.html">
+							LazyLoadingViolationException
+						</a>
+					</li>
+					<li>
 						<a href="Illuminate.Database.LostConnectionException.html">
 							LostConnectionException
 						</a>
@@ -123,6 +133,11 @@
 					<li>
 						<a href="Illuminate.Database.RecordsNotFoundException.html">
 							RecordsNotFoundException
+						</a>
+					</li>
+					<li>
+						<a href="Illuminate.Database.UniqueConstraintViolationException.html">
+							UniqueConstraintViolationException
 						</a>
 					</li>
 			</ul>
@@ -214,7 +229,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>table(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|<a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a>|string <var>$table</var></span>, <span>string|null <var>$as</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a></code>
+				<code>table(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|<a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a>|<a href="UnitEnum.html"><span title="UnitEnum">UnitEnum</span></a>|string <var>$table</var></span>, <span>string|null <var>$as</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -250,7 +265,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>raw(<span>mixed <var>$value</var></span>): <a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a></code>
+				<code>raw(<span>literal-string|int|float <var>$value</var></span>): <a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -365,7 +380,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>select(<span>string <var>$query</var></span>, <span>array <var>$bindings</var> = []</span>, <span>bool <var>$useReadPdo</var> = <span class="php-kw">true</span></span>): array</code>
+				<code>select(<span>string <var>$query</var></span>, <span>array <var>$bindings</var> = []</span>, <span>bool <var>$useReadPdo</var> = <span class="php-kw">true</span></span>, <span>array <var>$fetchUsing</var> = []</span>): array</code>
 
 
 	<div class="expandable-collapsedView">
@@ -401,7 +416,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>cursor(<span>string <var>$query</var></span>, <span>array <var>$bindings</var> = []</span>, <span>bool <var>$useReadPdo</var> = <span class="php-kw">true</span></span>): <a href="Generator.html"><span title="Generator">Generator</span></a></code>
+				<code>cursor(<span>string <var>$query</var></span>, <span>array <var>$bindings</var> = []</span>, <span>bool <var>$useReadPdo</var> = <span class="php-kw">true</span></span>, <span>array <var>$fetchUsing</var> = []</span>): <a href="Generator.html"><span title="Generator">Generator</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -617,7 +632,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>unprepared(<span>string <var>$query</var></span>): bool</code>
+				<code>unprepared(<span>literal-string <var>$query</var></span>): bool</code>
 
 
 	<div class="expandable-collapsedView">

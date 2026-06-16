@@ -212,6 +212,37 @@
 				<th class="table-heading sortable" colspan="3" title="Switch between natural and alphabetical order">Methods</th>
 			</tr>
 
+	<tr class="expandable collapsed" data-order="initializeHasRelationships" id="_initializeHasRelationships">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>initializeHasRelationships(): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Initialize the HasRelationships trait.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Initialize the HasRelationships trait.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_initializeHasRelationships">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="relationResolver" id="_relationResolver">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1188,15 +1219,15 @@
 			</td>
 
 			<td class="table-cell">
-				<code>belongsToMany&lt;<span title="">TRelatedModel</span> is <a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a>&gt;(
+				<code>belongsToMany&lt;<span title="">TRelatedModel</span> is <a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a>, <span title="">TPivotModel</span> is <a href="Illuminate.Database.Eloquent.Relations.Pivot.html"><span title="Illuminate\Database\Eloquent\Relations\Pivot">Pivot</span></a> = <a href="Illuminate.Database.Eloquent.Relations.Pivot.html"><span title="Illuminate\Database\Eloquent\Relations\Pivot">Pivot</span></a>, <span title="">TPivotTable</span> is string|null&gt;(
 	<span>class-string&lt;TRelatedModel&gt; <var>$related</var></span>,
-	<span>string|class-string&lt;<a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a>&gt;|null <var>$table</var> = <span class="php-kw">null</span></span>,
+	<span>class-string&lt;TPivotModel&gt;|TPivotTable <var>$table</var> = <span class="php-kw">null</span></span>,
 	<span>string|null <var>$foreignPivotKey</var> = <span class="php-kw">null</span></span>,
 	<span>string|null <var>$relatedPivotKey</var> = <span class="php-kw">null</span></span>,
 	<span>string|null <var>$parentKey</var> = <span class="php-kw">null</span></span>,
 	<span>string|null <var>$relatedKey</var> = <span class="php-kw">null</span></span>,
 	<span>string|null <var>$relation</var> = <span class="php-kw">null</span></span>,
-): <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html"><span title="Illuminate\Database\Eloquent\Relations\BelongsToMany">BelongsToMany</span></a>&lt;TRelatedModel, $this, <a href="Illuminate.Database.Eloquent.Relations.Pivot.html"><span title="Illuminate\Database\Eloquent\Relations\Pivot">Pivot</span></a>&gt;</code>
+): <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html"><span title="Illuminate\Database\Eloquent\Relations\BelongsToMany">BelongsToMany</span></a>&lt;TRelatedModel, $this, TPivotModel&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1589,6 +1620,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Illuminate.Database.ClassMorphViolationException.html"><span>Illuminate\Database\ClassMorphViolationException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
@@ -1904,6 +1942,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_withoutRelations">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="withoutRelation" id="_withoutRelation">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>withoutRelation(<span>array|string <var>$relations</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Duplicate the instance and unset the given loaded relations.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Duplicate the instance and unset the given loaded relations.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_withoutRelation">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="unsetRelations" id="_unsetRelations">

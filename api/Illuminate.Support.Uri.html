@@ -190,7 +190,7 @@
 		<tr>
 			<th><code>implements</code></th>
 			<td>
-<code><a href="Illuminate.Contracts.Support.Htmlable.html"><span title="Illuminate\Contracts\Support\Htmlable">Htmlable</span></a>, <a href="Illuminate.Contracts.Support.Responsable.html"><span title="Illuminate\Contracts\Support\Responsable">Responsable</span></a>, <a href="Stringable.html"><span title="Stringable">Stringable</span></a></code>			</td>
+<code><a href="Illuminate.Contracts.Support.Htmlable.html"><span title="Illuminate\Contracts\Support\Htmlable">Htmlable</span></a>, <a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>, <a href="Illuminate.Contracts.Support.Responsable.html"><span title="Illuminate\Contracts\Support\Responsable">Responsable</span></a>, <a href="Stringable.html"><span title="Stringable">Stringable</span></a></code>			</td>
 		</tr>
 		<tr>
 			<th><code>uses</code></th>
@@ -460,6 +460,37 @@
 			<a href="#_action">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="authority" id="_authority">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>authority(): ?string</code>
+
+
+	<div class="expandable-collapsedView">
+		Get the URI's authority.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the URI's authority.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_authority">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="scheme" id="_scheme">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -626,7 +657,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>path(): ?string</code>
+				<code>path(): non-empty-string</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1082,6 +1113,37 @@
 			<a href="#_withFragment">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="withoutFragment" id="_withoutFragment">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>withoutFragment(): static</code>
+
+
+	<div class="expandable-collapsedView">
+		Remove the fragment from the URI.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Remove the fragment from the URI.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_withoutFragment">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="redirect" id="_redirect">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1113,6 +1175,37 @@
 			<a href="#_redirect">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="toStringable" id="_toStringable">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>toStringable(): <a href="Illuminate.Support.Stringable.html"><span title="Illuminate\Support\Stringable">Stringable</span></a></code>
+
+
+	<div class="expandable-collapsedView">
+		Get the URI as a Stringable instance.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the URI as a Stringable instance.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_toStringable">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="toResponse" id="_toResponse">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1128,11 +1221,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create an HTTP response that represents the object.
+		Create an HTTP response that represents the URI object.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create an HTTP response that represents the object.</p>
+	<div class="description"><p>Create an HTTP response that represents the URI object.</p>
 </div>
 
 
@@ -1164,11 +1257,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Get content as a string of HTML.
+		Get the URI as a string of HTML.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Get content as a string of HTML.</p>
+	<div class="description"><p>Get the URI as a string of HTML.</p>
 </div>
 
 
@@ -1247,6 +1340,37 @@
 			<a href="#_value">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="toString" id="_toString">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>toString(): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Get the string representation of the URI.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the string representation of the URI.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_toString">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="isEmpty" id="_isEmpty">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1276,6 +1400,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_isEmpty">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="isNotEmpty" id="_isNotEmpty">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>isNotEmpty(): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Determine if the URI is not an empty string.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Determine if the URI is not an empty string.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_isNotEmpty">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="dump" id="_dump">
@@ -1371,6 +1526,42 @@
 			<a href="#_getUri">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="jsonSerialize" id="_jsonSerialize">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>jsonSerialize(): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Convert the object into a value that is JSON serializable.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Convert the object into a value that is JSON serializable.</p>
+</div>
+
+
+
+
+		<h4>Implements</h4>
+		<ul>
+				<li>
+<a href="JsonSerializable.html#_jsonSerialize">						<code>JsonSerializable::jsonSerialize()</code></a>				</li>
+		</ul>
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_jsonSerialize">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="__toString" id="___toString">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1448,6 +1639,7 @@
 <code><a href="Illuminate.Support.Traits.Tappable.html#_tap">tap()</a></code>				</td>
 			</tr>
 		</table>
+
 
 
 

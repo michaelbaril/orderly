@@ -45,6 +45,16 @@
 					</li>
 			</ul>
 		</div>
+		<div class="menu-section">
+			<h3>Exceptions</h3>
+			<ul>
+					<li>
+						<a href="Illuminate.Container.EntryNotFoundException.html">
+							EntryNotFoundException
+						</a>
+					</li>
+			</ul>
+		</div>
 	</div>
 	</div>
 
@@ -89,6 +99,11 @@
 			<th><code>implements</code></th>
 			<td>
 <code><a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>, <a href="Illuminate.Contracts.Container.Container.html"><span title="Illuminate\Contracts\Container\Container">Container</span></a></code>			</td>
+		</tr>
+		<tr>
+			<th><code>uses</code></th>
+			<td>
+<code><a href="Illuminate.Support.Traits.ReflectsClosures.html"><span title="Illuminate\Support\Traits\ReflectsClosures">ReflectsClosures</span></a></code>			</td>
 		</tr>
 
 	</table>
@@ -317,6 +332,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_isShared">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="getScopedTyped" id="_getScopedTyped">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getScopedTyped(<span><a href="ReflectionClass.html"><span title="ReflectionClass">ReflectionClass</span></a>&lt;object&gt;|class-string <var>$reflection</var></span>): <span class="php-str">'singleton'</span>|<span class="php-str">'scoped'</span>|null</code>
+
+
+	<div class="expandable-collapsedView">
+		Determine if a ReflectionClass has scoping attributes applied.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Determine if a ReflectionClass has scoping attributes applied.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getScopedTyped">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="isAlias" id="_isAlias">
@@ -808,44 +854,6 @@
 			<a href="#_bindBasedOnClosureReturnTypes">#</a>
 		</td>
 	</tr>
-	<tr class="expandable collapsed" data-order="closureReturnTypes" id="_closureReturnTypes">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	protected
-					
-					
-				</code>
-			</td>
-
-			<td class="table-cell">
-				<code>closureReturnTypes(<span><a href="Closure.html"><span title="Closure">Closure</span></a> <var>$closure</var></span>): list&lt;class-string&gt;</code>
-
-
-	<div class="expandable-collapsedView">
-		Get the class names / types of the return type of the given Closure.
-	</div>
-
-	<div class="expandable-expandedView">
-	<div class="description"><p>Get the class names / types of the return type of the given Closure.</p>
-</div>
-
-
-
-							<h4>Throws</h4>
-							<table>
-									<tr>
-										<td><code><a href="ReflectionException.html"><span>ReflectionException</span></a></code>&nbsp;</td>
-										<td></td>
-									</tr>
-							</table>
-
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#_closureReturnTypes">#</a>
-		</td>
-	</tr>
 	<tr class="expandable collapsed" data-order="extend" id="_extend">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -967,7 +975,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>tag(<span>array|string <var>$abstracts</var></span>, <span>array|mixed ...<var>$tags</var></span>): void</code>
+				<code>tag(<span>array|string <var>$abstracts</var></span>, <span>mixed ...<var>$tags</var></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1460,6 +1468,17 @@
 							<div><p>Entry.</p>
 </div>
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Illuminate.Contracts.Container.CircularDependencyException.html"><span>Illuminate\Contracts\Container\CircularDependencyException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td><code><a href="Illuminate.Container.EntryNotFoundException.html"><span>Illuminate\Container\EntryNotFoundException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 		<h4>Implements</h4>
 		<ul>
@@ -1547,6 +1566,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_getConcrete">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="getConcreteBindingFromAttributes" id="_getConcreteBindingFromAttributes">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getConcreteBindingFromAttributes(<span>string <var>$abstract</var></span>): mixed</code>
+
+
+	<div class="expandable-collapsedView">
+		Get the concrete binding for an abstract from the Bind attribute.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the concrete binding for an abstract from the Bind attribute.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getConcreteBindingFromAttributes">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="getContextualConcrete" id="_getContextualConcrete">
@@ -1682,6 +1732,47 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_build">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="buildSelfBuildingInstance" id="_buildSelfBuildingInstance">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>buildSelfBuildingInstance&lt;<span title="">TClass</span> is object&gt;(
+	<span>object{newInstance: ((<a href="Closure.html"><span title="Closure">Closure</span></a>(static, array):&nbsp;TClass)|class-string&lt;TClass&gt;)} <var>$concrete</var></span>,
+	<span><a href="ReflectionClass.html"><span title="ReflectionClass">ReflectionClass</span></a> <var>$reflector</var></span>,
+): TClass</code>
+
+
+	<div class="expandable-collapsedView">
+		Instantiate a concrete instance of the given self building type.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Instantiate a concrete instance of the given self building type.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Illuminate.Contracts.Container.BindingResolutionException.html"><span>Illuminate\Contracts\Container\BindingResolutionException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_buildSelfBuildingInstance">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="resolveDependencies" id="_resolveDependencies">
@@ -1864,7 +1955,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>resolveClass(<span><a href="ReflectionParameter.html"><span title="ReflectionParameter">ReflectionParameter</span></a> <var>$parameter</var></span>): mixed</code>
+				<code>resolveClass(<span><a href="ReflectionParameter.html"><span title="ReflectionParameter">ReflectionParameter</span></a> <var>$parameter</var></span>, <span>?string <var>$className</var> = <span class="php-kw">null</span></span>): mixed</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1933,7 +2024,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>resolveFromAttribute(<span><a href="ReflectionAttribute.html"><span title="ReflectionAttribute">ReflectionAttribute</span></a> <var>$attribute</var></span>): mixed</code>
+				<code>resolveFromAttribute(<span><a href="ReflectionAttribute.html"><span title="ReflectionAttribute">ReflectionAttribute</span></a> <var>$attribute</var></span>, <span><a href="ReflectionParameter.html"><span title="ReflectionParameter">ReflectionParameter</span></a> <var>$parameter</var></span>): mixed</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1946,6 +2037,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Illuminate.Contracts.Container.BindingResolutionException.html"><span>Illuminate\Contracts\Container\BindingResolutionException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
@@ -2040,7 +2138,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>beforeResolving(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|null <var>$callback</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>beforeResolving(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|string <var>$abstract</var></span>, <span>?<a href="Closure.html"><span title="Closure">Closure</span></a> <var>$callback</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2076,7 +2174,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>resolving(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|null <var>$callback</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>resolving(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|string <var>$abstract</var></span>, <span>?<a href="Closure.html"><span title="Closure">Closure</span></a> <var>$callback</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2112,7 +2210,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>afterResolving(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|null <var>$callback</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>afterResolving(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|string <var>$abstract</var></span>, <span>?<a href="Closure.html"><span title="Closure">Closure</span></a> <var>$callback</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2664,6 +2762,68 @@
 			<a href="#_forgetScopedInstances">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="resolveEnvironmentUsing" id="_resolveEnvironmentUsing">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>resolveEnvironmentUsing(<span>((callable(array&lt;int, string&gt;|string):&nbsp;bool)|string)|null <var>$callback</var></span>): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Set the callback which determines the current container environment.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Set the callback which determines the current container environment.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_resolveEnvironmentUsing">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="currentEnvironmentIs" id="_currentEnvironmentIs">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>currentEnvironmentIs(<span>array&lt;int, string&gt;|string <var>$environments</var></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Determine the environment for the container.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Determine the environment for the container.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_currentEnvironmentIs">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="flush" id="_flush">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -2742,7 +2902,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>setInstance(<span><a href="Illuminate.Contracts.Container.Container.html"><span title="Illuminate\Contracts\Container\Container">Container</span></a>|null <var>$container</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Contracts.Container.Container.html"><span title="Illuminate\Contracts\Container\Container">Container</span></a>|static</code>
+				<code>setInstance(<span>?<a href="Illuminate.Contracts.Container.Container.html"><span title="Illuminate\Contracts\Container\Container">Container</span></a> <var>$container</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Contracts.Container.Container.html"><span title="Illuminate\Contracts\Container\Container">Container</span></a>|static</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2773,7 +2933,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>offsetExists(<span>string <var>$key</var></span>): bool</code>
+				<code>offsetExists(<span>string <var>$offset</var></span>): bool</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2809,7 +2969,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>offsetGet(<span>string <var>$key</var></span>): mixed</code>
+				<code>offsetGet(<span>string <var>$offset</var></span>): mixed</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2845,7 +3005,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>offsetSet(<span>string <var>$key</var></span>, <span>mixed <var>$value</var></span>): void</code>
+				<code>offsetSet(<span>string <var>$offset</var></span>, <span>mixed <var>$value</var></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2881,7 +3041,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>offsetUnset(<span>string <var>$key</var></span>): void</code>
+				<code>offsetUnset(<span>string <var>$offset</var></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2968,6 +3128,16 @@
 			<a href="#___set">#</a>
 		</td>
 	</tr>
+		</table>
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods used from <a href="Illuminate.Support.Traits.ReflectsClosures.html"><span>Illuminate\Support\Traits\ReflectsClosures</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Illuminate.Support.Traits.ReflectsClosures.html#_firstClosureParameterType">firstClosureParameterType()</a>, <a href="Illuminate.Support.Traits.ReflectsClosures.html#_firstClosureParameterTypes">firstClosureParameterTypes()</a>, <a href="Illuminate.Support.Traits.ReflectsClosures.html#_closureParameterTypes">closureParameterTypes()</a>, <a href="Illuminate.Support.Traits.ReflectsClosures.html#_closureReturnTypes">closureReturnTypes()</a></code>				</td>
+			</tr>
 		</table>
 
 
@@ -3319,6 +3489,54 @@
 			<a href="#$contextualAttributes">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="checkedForAttributeBindings" id="$checkedForAttributeBindings">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">array&lt;class-string, true&gt;</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$checkedForAttributeBindings</var> = []</code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$checkedForAttributeBindings">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="checkedForSingletonOrScopedAttributes" id="$checkedForSingletonOrScopedAttributes">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">array&lt;class-string, <span class="php-str">'scoped'</span>|<span class="php-str">'singleton'</span>|null&gt;</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$checkedForSingletonOrScopedAttributes</var> = []</code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$checkedForSingletonOrScopedAttributes">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="reboundCallbacks" id="$reboundCallbacks">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -3511,7 +3729,32 @@
 			<a href="#$afterResolvingAttributeCallbacks">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="environmentResolver" id="$environmentResolver">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">((callable(array&lt;int, string&gt;|string):&nbsp;bool)|string)|null</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$environmentResolver</var> = <span class="php-kw">null</span></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$environmentResolver">#</a>
+		</td>
+	</tr>
 		</table>
+
 
 
 		</div>

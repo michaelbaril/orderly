@@ -607,15 +607,15 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>set(<span><a href="Carbon.Unit.html"><span title="Carbon\Unit">Unit</span></a>|array|string <var>$name</var></span>, <span><a href="DateTimeZone.html"><span title="DateTimeZone">DateTimeZone</span></a>|<a href="Carbon.Month.html"><span title="Carbon\Month">Month</span></a>|string|int|float|null <var>$value</var> = <span class="php-kw">null</span></span>): $this</code>
+				<code>set(<span><a href="Carbon.Unit.html"><span title="Carbon\Unit">Unit</span></a>|array|string <var>$name</var></span>, <span><a href="DateTimeZone.html"><span title="DateTimeZone">DateTimeZone</span></a>|<a href="Carbon.Month.html"><span title="Carbon\Month">Month</span></a>|string|int|float|null <var>$value</var> = <span class="php-kw">null</span></span>): static</code>
 
 
 	<div class="expandable-collapsedView">
-		Set a part of the Carbon object.
+		Set one or multiple components of the Carbon object.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Set a part of the Carbon object.</p>
+	<div class="description"><p>Set one or multiple components of the Carbon object.</p>
 </div>
 
 
@@ -860,7 +860,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>dayOfYear&lt;<span title="">T</span> is int|null&gt;(<span>T <var>$value</var> = <span class="php-kw">null</span></span>): static|int</code>
+				<code>dayOfYear(<span>int|null <var>$value</var> = <span class="php-kw">null</span></span>): ($value is null&nbsp;?&nbsp;int&nbsp;:&nbsp;static)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -871,6 +871,14 @@ if null given or parse the input if string given.</p>
 	<div class="description"><p>Get/set the day of year.</p>
 </div>
 
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$value</var>&nbsp;&nbsp;</td>
+										<td><p>new value for day of year if using as setter.</p>
+</td>
+									</tr>
+							</table>
 
 
 
@@ -891,7 +899,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>weekday(<span><a href="Carbon.WeekDay.html"><span title="Carbon\WeekDay">WeekDay</span></a>|int|null <var>$value</var> = <span class="php-kw">null</span></span>): static|int</code>
+				<code>weekday(<span><a href="Carbon.WeekDay.html"><span title="Carbon\WeekDay">WeekDay</span></a>|int|null <var>$value</var> = <span class="php-kw">null</span></span>): ($value is null&nbsp;?&nbsp;int&nbsp;:&nbsp;static)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -930,7 +938,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>isoWeekday(<span><a href="Carbon.WeekDay.html"><span title="Carbon\WeekDay">WeekDay</span></a>|int|null <var>$value</var> = <span class="php-kw">null</span></span>): static|int</code>
+				<code>isoWeekday(<span><a href="Carbon.WeekDay.html"><span title="Carbon\WeekDay">WeekDay</span></a>|int|null <var>$value</var> = <span class="php-kw">null</span></span>): ($value is null&nbsp;?&nbsp;int&nbsp;:&nbsp;static)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1060,7 +1068,7 @@ if not provided, start of week is inferred from the locale
 			</td>
 
 			<td class="table-cell">
-				<code>setUnitNoOverflow(<span>string <var>$valueUnit</var></span>, <span>int <var>$value</var></span>, <span>string <var>$overflowUnit</var></span>): static</code>
+				<code>setUnitNoOverflow(<span><a href="Carbon.Unit.html"><span title="Carbon\Unit">Unit</span></a>|string <var>$valueUnit</var></span>, <span>int <var>$value</var></span>, <span><a href="Carbon.Unit.html"><span title="Carbon\Unit">Unit</span></a>|string <var>$overflowUnit</var></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): static</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1088,6 +1096,11 @@ if not provided, start of week is inferred from the locale
 										<td><p>unit name to not overflow</p>
 </td>
 									</tr>
+									<tr>
+										<td><var>$anchorDay</var>&nbsp;&nbsp;</td>
+										<td><p>set day to this value after modification</p>
+</td>
+									</tr>
 							</table>
 
 
@@ -1109,7 +1122,7 @@ if not provided, start of week is inferred from the locale
 			</td>
 
 			<td class="table-cell">
-				<code>addUnitNoOverflow(<span>string <var>$valueUnit</var></span>, <span>int <var>$value</var></span>, <span>string <var>$overflowUnit</var></span>): static</code>
+				<code>addUnitNoOverflow(<span><a href="Carbon.Unit.html"><span title="Carbon\Unit">Unit</span></a>|string <var>$valueUnit</var></span>, <span>int <var>$value</var></span>, <span><a href="Carbon.Unit.html"><span title="Carbon\Unit">Unit</span></a>|string <var>$overflowUnit</var></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): static</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1137,6 +1150,11 @@ if not provided, start of week is inferred from the locale
 										<td><p>unit name to not overflow</p>
 </td>
 									</tr>
+									<tr>
+										<td><var>$anchorDay</var>&nbsp;&nbsp;</td>
+										<td><p>set day to this value after modification</p>
+</td>
+									</tr>
 							</table>
 
 
@@ -1158,7 +1176,7 @@ if not provided, start of week is inferred from the locale
 			</td>
 
 			<td class="table-cell">
-				<code>subUnitNoOverflow(<span>string <var>$valueUnit</var></span>, <span>int <var>$value</var></span>, <span>string <var>$overflowUnit</var></span>): static</code>
+				<code>subUnitNoOverflow(<span><a href="Carbon.Unit.html"><span title="Carbon\Unit">Unit</span></a>|string <var>$valueUnit</var></span>, <span>int <var>$value</var></span>, <span><a href="Carbon.Unit.html"><span title="Carbon\Unit">Unit</span></a>|string <var>$overflowUnit</var></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): static</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1186,6 +1204,11 @@ if not provided, start of week is inferred from the locale
 										<td><p>unit name to not overflow</p>
 </td>
 									</tr>
+									<tr>
+										<td><var>$anchorDay</var>&nbsp;&nbsp;</td>
+										<td><p>set day to this value after modification</p>
+</td>
+									</tr>
 							</table>
 
 
@@ -1207,7 +1230,7 @@ if not provided, start of week is inferred from the locale
 			</td>
 
 			<td class="table-cell">
-				<code>utcOffset(<span>?int <var>$minuteOffset</var> = <span class="php-kw">null</span></span>): static|int</code>
+				<code>utcOffset(<span>?int <var>$minuteOffset</var> = <span class="php-kw">null</span></span>): ($minuteOffset is null&nbsp;?&nbsp;int&nbsp;:&nbsp;static)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -6082,7 +6105,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>setMicrosecond(<span>int <var>$value</var></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>setMicrosecond(<span>int <var>$value</var></span>): <b><span class="active" title="Carbon\Traits\Date">self</span></b></code>
 
 
 	<div class="expandable-collapsedView">
@@ -6113,7 +6136,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addYears(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addYears(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -6175,7 +6198,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subYears(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subYears(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -6361,7 +6384,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addYearsWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addYearsWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -6423,7 +6446,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subYearsWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subYearsWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -6485,7 +6508,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addYearsWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addYearsWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -6547,7 +6570,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subYearsWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subYearsWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -6609,7 +6632,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addYearsNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addYearsNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -6671,7 +6694,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subYearsNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subYearsNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -6733,7 +6756,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addMonths(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addMonths(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -6795,7 +6818,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subMonths(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subMonths(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -6981,7 +7004,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addMonthsWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addMonthsWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -7043,7 +7066,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subMonthsWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subMonthsWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -7105,7 +7128,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addMonthsWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addMonthsWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -7167,7 +7190,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subMonthsWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subMonthsWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -7229,7 +7252,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addMonthsNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addMonthsNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -7291,7 +7314,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subMonthsNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subMonthsNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -8345,7 +8368,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addMillennia(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addMillennia(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -8407,7 +8430,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subMillennia(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subMillennia(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -8593,7 +8616,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addMillenniaWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addMillenniaWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -8655,7 +8678,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subMillenniaWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subMillenniaWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -8717,7 +8740,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addMillenniaWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addMillenniaWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -8779,7 +8802,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subMillenniaWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subMillenniaWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -8841,7 +8864,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addMillenniaNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addMillenniaNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -8903,7 +8926,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subMillenniaNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subMillenniaNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -8965,7 +8988,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addCenturies(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addCenturies(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -9027,7 +9050,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subCenturies(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subCenturies(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -9213,7 +9236,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addCenturiesWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addCenturiesWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -9275,7 +9298,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subCenturiesWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subCenturiesWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -9337,7 +9360,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addCenturiesWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addCenturiesWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -9399,7 +9422,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subCenturiesWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subCenturiesWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -9461,7 +9484,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addCenturiesNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addCenturiesNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -9523,7 +9546,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subCenturiesNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subCenturiesNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -9585,7 +9608,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addDecades(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addDecades(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -9647,7 +9670,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subDecades(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subDecades(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -9833,7 +9856,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addDecadesWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addDecadesWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -9895,7 +9918,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subDecadesWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subDecadesWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -9957,7 +9980,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addDecadesWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addDecadesWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -10019,7 +10042,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subDecadesWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subDecadesWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -10081,7 +10104,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addDecadesNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addDecadesNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -10143,7 +10166,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subDecadesNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subDecadesNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -10205,7 +10228,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addQuarters(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addQuarters(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -10267,7 +10290,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subQuarters(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subQuarters(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -10453,7 +10476,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addQuartersWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addQuartersWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -10515,7 +10538,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subQuartersWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subQuartersWithoutOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -10577,7 +10600,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addQuartersWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addQuartersWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -10639,7 +10662,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subQuartersWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subQuartersWithNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -10701,7 +10724,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addQuartersNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>addQuartersNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -10763,7 +10786,7 @@ if null given or parse the input if string given.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subQuartersNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
+				<code>subQuartersNoOverflow(<span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>): <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -21106,6 +21129,90 @@ if null given or parse the input if string given.</p>
 			<a href="#_yearsInMillennium">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="plus" id="_plus">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>plus(
+	<span>int <var>$years</var> = <span class="php-num">0</span></span>,
+	<span>int <var>$months</var> = <span class="php-num">0</span></span>,
+	<span>int|float <var>$weeks</var> = <span class="php-num">0</span></span>,
+	<span>int|float <var>$days</var> = <span class="php-num">0</span></span>,
+	<span>int|float <var>$hours</var> = <span class="php-num">0</span></span>,
+	<span>int|float <var>$minutes</var> = <span class="php-num">0</span></span>,
+	<span>int|float <var>$seconds</var> = <span class="php-num">0</span></span>,
+	<span>int|float <var>$microseconds</var> = <span class="php-num">0</span></span>,
+	<span><a href="Carbon.OverflowMode.html"><span title="Carbon\OverflowMode">OverflowMode</span></a>|bool|null <var>$overflow</var> = <span class="php-kw">null</span></span>,
+	<span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>,
+): static</code>
+
+
+	<div class="expandable-collapsedView">
+		Add given amount of time to the current date.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add given amount of time to the current date.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_plus">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="minus" id="_minus">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>minus(
+	<span>int <var>$years</var> = <span class="php-num">0</span></span>,
+	<span>int <var>$months</var> = <span class="php-num">0</span></span>,
+	<span>int|float <var>$weeks</var> = <span class="php-num">0</span></span>,
+	<span>int|float <var>$days</var> = <span class="php-num">0</span></span>,
+	<span>int|float <var>$hours</var> = <span class="php-num">0</span></span>,
+	<span>int|float <var>$minutes</var> = <span class="php-num">0</span></span>,
+	<span>int|float <var>$seconds</var> = <span class="php-num">0</span></span>,
+	<span>int|float <var>$microseconds</var> = <span class="php-num">0</span></span>,
+	<span><a href="Carbon.OverflowMode.html"><span title="Carbon\OverflowMode">OverflowMode</span></a>|bool|null <var>$overflow</var> = <span class="php-kw">null</span></span>,
+	<span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>,
+): static</code>
+
+
+	<div class="expandable-collapsedView">
+		Subtract given amount of time to the current date.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Subtract given amount of time to the current date.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_minus">#</a>
+		</td>
+	</tr>
 		</table>
 
 
@@ -21129,13 +21236,13 @@ if null given or parse the input if string given.</p>
 
 			<td class="table-cell">
 <code><var>$days</var> = [
-	<a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::<a href="Carbon.CarbonInterface.html#SUNDAY">SUNDAY</a> =&gt; <span class="php-str">'Sunday'</span>,
-	<a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::<a href="Carbon.CarbonInterface.html#MONDAY">MONDAY</a> =&gt; <span class="php-str">'Monday'</span>,
-	<a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::<a href="Carbon.CarbonInterface.html#TUESDAY">TUESDAY</a> =&gt; <span class="php-str">'Tuesday'</span>,
-	<a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::<a href="Carbon.CarbonInterface.html#WEDNESDAY">WEDNESDAY</a> =&gt; <span class="php-str">'Wednesday'</span>,
-	<a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::<a href="Carbon.CarbonInterface.html#THURSDAY">THURSDAY</a> =&gt; <span class="php-str">'Thursday'</span>,
-	<a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::<a href="Carbon.CarbonInterface.html#FRIDAY">FRIDAY</a> =&gt; <span class="php-str">'Friday'</span>,
-	<a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::<a href="Carbon.CarbonInterface.html#SATURDAY">SATURDAY</a> =&gt; <span class="php-str">'Saturday'</span>,
+	<a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::SUNDAY =&gt; <span class="php-str">'Sunday'</span>,
+	<a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::MONDAY =&gt; <span class="php-str">'Monday'</span>,
+	<a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::TUESDAY =&gt; <span class="php-str">'Tuesday'</span>,
+	<a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::WEDNESDAY =&gt; <span class="php-str">'Wednesday'</span>,
+	<a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::THURSDAY =&gt; <span class="php-str">'Thursday'</span>,
+	<a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::FRIDAY =&gt; <span class="php-str">'Friday'</span>,
+	<a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::SATURDAY =&gt; <span class="php-str">'Saturday'</span>,
 ]</code>
 				
 

@@ -200,7 +200,11 @@
 			</td>
 
 			<td class="table-cell">
-				<code>promptUntilValid(<span><a href="Closure.html"><span title="Closure">Closure</span></a> <var>$prompt</var></span>, <span>bool|string <var>$required</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|null <var>$validate</var></span>): mixed</code>
+				<code>promptUntilValid&lt;<span title="">PResult</span>&gt;(
+	<span><a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;PResult <var>$prompt</var></span>,
+	<span>bool|string <var>$required</var></span>,
+	<span>(<a href="Closure.html"><span title="Closure">Closure</span></a>(PResult):&nbsp;mixed)|null <var>$validate</var></span>,
+): PResult</code>
 
 
 	<div class="expandable-collapsedView">
@@ -213,6 +217,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Illuminate.Console.PromptValidationException.html"><span>Illuminate\Console\PromptValidationException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
@@ -299,7 +310,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>validationMessages(): array</code>
+				<code>validationMessages(): array&lt;string, string&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -330,7 +341,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>validationAttributes(): array</code>
+				<code>validationAttributes(): array&lt;string, string&gt;</code>
 
 
 	<div class="expandable-collapsedView">

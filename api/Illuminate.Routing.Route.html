@@ -2231,7 +2231,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>middleware(<span>array|string|null <var>$middleware</var> = <span class="php-kw">null</span></span>): $this|array</code>
+				<code>middleware(<span>array|string|null <var>$middleware</var> = <span class="php-kw">null</span></span>): ($middleware is null&nbsp;?&nbsp;array&nbsp;:&nbsp;$this)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2342,6 +2342,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_staticallyProvidedControllerMiddleware">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="attributeProvidedControllerMiddleware" id="_attributeProvidedControllerMiddleware">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>attributeProvidedControllerMiddleware(<span>string <var>$class</var></span>, <span>string <var>$method</var></span>): array</code>
+
+
+	<div class="expandable-collapsedView">
+		Get the attribute provided controller middleware for the given class and method.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the attribute provided controller middleware for the given class and method.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_attributeProvidedControllerMiddleware">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="withoutMiddleware" id="_withoutMiddleware">

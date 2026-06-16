@@ -348,6 +348,37 @@
 			<a href="#_withoutGlobalScopes">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="withoutGlobalScopesExcept" id="_withoutGlobalScopesExcept">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>withoutGlobalScopesExcept(<span>array <var>$scopes</var> = []</span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Remove all global scopes except the given scopes.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Remove all global scopes except the given scopes.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_withoutGlobalScopesExcept">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="removedScopes" id="_removedScopes">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -439,6 +470,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_whereKeyNot">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="except" id="_except">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>except(<span>iterable|mixed <var>$models</var></span>): static</code>
+
+
+	<div class="expandable-collapsedView">
+		Exclude the given models from the query results.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Exclude the given models from the query results.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_except">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="where" id="_where">
@@ -1087,7 +1149,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>firstOrNew(<span>array <var>$attributes</var> = []</span>, <span>array <var>$values</var> = []</span>): TModel</code>
+				<code>firstOrNew(<span>array <var>$attributes</var> = []</span>, <span>(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;array)|array <var>$values</var> = []</span>): TModel</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1118,7 +1180,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>firstOrCreate(<span>array <var>$attributes</var> = []</span>, <span>array <var>$values</var> = []</span>): TModel</code>
+				<code>firstOrCreate(<span>array <var>$attributes</var> = []</span>, <span>(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;array)|array <var>$values</var> = []</span>): TModel</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1149,7 +1211,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>createOrFirst(<span>array <var>$attributes</var> = []</span>, <span>array <var>$values</var> = []</span>): TModel</code>
+				<code>createOrFirst(<span>array <var>$attributes</var> = []</span>, <span>(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;array)|array <var>$values</var> = []</span>): TModel</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1162,6 +1224,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Illuminate.Database.UniqueConstraintViolationException.html"><span>Illuminate\Database\UniqueConstraintViolationException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
@@ -1180,7 +1249,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>updateOrCreate(<span>array <var>$attributes</var></span>, <span>array <var>$values</var> = []</span>): TModel</code>
+				<code>updateOrCreate(<span>array <var>$attributes</var></span>, <span>(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;array)|array <var>$values</var> = []</span>): TModel</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1851,7 +1920,7 @@
 	<span>string <var>$pageName</var> = <span class="php-str">'page'</span></span>,
 	<span>int|null <var>$page</var> = <span class="php-kw">null</span></span>,
 	<span><a href="Closure.html"><span title="Closure">Closure</span></a>|int|null <var>$total</var> = <span class="php-kw">null</span></span>,
-): <a href="Illuminate.Pagination.LengthAwarePaginator.html"><span title="Illuminate\Pagination\LengthAwarePaginator">LengthAwarePaginator</span></a></code>
+): <a href="Illuminate.Pagination.LengthAwarePaginator.html"><span title="Illuminate\Pagination\LengthAwarePaginator">LengthAwarePaginator</span></a>&lt;int, TModel&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1894,7 +1963,7 @@
 	<span>array|string <var>$columns</var> = [<span class="php-str">'*'</span>]</span>,
 	<span>string <var>$pageName</var> = <span class="php-str">'page'</span></span>,
 	<span>int|null <var>$page</var> = <span class="php-kw">null</span></span>,
-): <a href="Illuminate.Contracts.Pagination.Paginator.html"><span title="Illuminate\Contracts\Pagination\Paginator">Paginator</span></a></code>
+): <a href="Illuminate.Pagination.Paginator.html"><span title="Illuminate\Pagination\Paginator">Paginator</span></a>&lt;int, TModel&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1930,7 +1999,7 @@
 	<span>array|string <var>$columns</var> = [<span class="php-str">'*'</span>]</span>,
 	<span>string <var>$cursorName</var> = <span class="php-str">'cursor'</span></span>,
 	<span><a href="Illuminate.Pagination.Cursor.html"><span title="Illuminate\Pagination\Cursor">Cursor</span></a>|string|null <var>$cursor</var> = <span class="php-kw">null</span></span>,
-): <a href="Illuminate.Contracts.Pagination.CursorPaginator.html"><span title="Illuminate\Contracts\Pagination\CursorPaginator">CursorPaginator</span></a></code>
+): <a href="Illuminate.Pagination.CursorPaginator.html"><span title="Illuminate\Pagination\CursorPaginator">CursorPaginator</span></a>&lt;int, TModel&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2178,7 +2247,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>touch(<span>string|null <var>$column</var> = <span class="php-kw">null</span></span>): int|false</code>
+				<code>touch(<span>array|string|null <var>$column</var> = <span class="php-kw">null</span></span>): int|false</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2258,6 +2327,68 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_decrement">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="incrementEach" id="_incrementEach">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>incrementEach(<span>array&lt;string, float|int|numeric-string&gt; <var>$columns</var></span>, <span>array&lt;string, mixed&gt; <var>$extra</var> = []</span>): int</code>
+
+
+	<div class="expandable-collapsedView">
+		Increment the given column's values by the given amounts.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Increment the given column's values by the given amounts.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_incrementEach">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="decrementEach" id="_decrementEach">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>decrementEach(<span>array&lt;string, float|int|numeric-string&gt; <var>$columns</var></span>, <span>array&lt;string, mixed&gt; <var>$extra</var> = []</span>): int</code>
+
+
+	<div class="expandable-collapsedView">
+		Decrement the given column's values by the given amounts.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Decrement the given column's values by the given amounts.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_decrementEach">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="addUpdatedAtColumn" id="_addUpdatedAtColumn">
@@ -4352,7 +4483,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap"><a href="Illuminate.Database.Eloquent.HigherOrderBuilderProxy.html"><span title="Illuminate\Database\Eloquent\HigherOrderBuilderProxy">HigherOrderBuilderProxy</span></a></code>
+				<code class="nowrap"><a href="Illuminate.Database.Eloquent.HigherOrderBuilderProxy.html"><span title="Illuminate\Database\Eloquent\HigherOrderBuilderProxy">HigherOrderBuilderProxy</span></a>|$this</code>
 			</td>
 
 			<td class="table-cell">
@@ -4376,7 +4507,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap"><a href="Illuminate.Database.Eloquent.HigherOrderBuilderProxy.html"><span title="Illuminate\Database\Eloquent\HigherOrderBuilderProxy">HigherOrderBuilderProxy</span></a></code>
+				<code class="nowrap"><a href="Illuminate.Database.Eloquent.HigherOrderBuilderProxy.html"><span title="Illuminate\Database\Eloquent\HigherOrderBuilderProxy">HigherOrderBuilderProxy</span></a>|$this</code>
 			</td>
 
 			<td class="table-cell">
@@ -4400,7 +4531,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap"><a href="Illuminate.Database.Eloquent.HigherOrderBuilderProxy.html"><span title="Illuminate\Database\Eloquent\HigherOrderBuilderProxy">HigherOrderBuilderProxy</span></a></code>
+				<code class="nowrap"><a href="Illuminate.Database.Eloquent.HigherOrderBuilderProxy.html"><span title="Illuminate\Database\Eloquent\HigherOrderBuilderProxy">HigherOrderBuilderProxy</span></a>|$this</code>
 			</td>
 
 			<td class="table-cell">

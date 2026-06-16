@@ -360,7 +360,7 @@
 	<span>callable(<a href="Illuminate.Support.Collection.html"><span title="Illuminate\Support\Collection">Collection</span></a>&lt;int, TValue&gt;, int):&nbsp;mixed <var>$callback</var></span>,
 	<span>string|null <var>$column</var> = <span class="php-kw">null</span></span>,
 	<span>string|null <var>$alias</var> = <span class="php-kw">null</span></span>,
-	<span>bool <var>$descending</var> = <span class="php-kw">false</span></span>,
+	<span><a href="SortDirection.html"><span title="SortDirection">SortDirection</span></a>|bool <var>$descending</var> = <span class="php-kw">false</span></span>,
 ): bool</code>
 
 
@@ -553,7 +553,7 @@
 	<span>int <var>$chunkSize</var> = <span class="php-num">1000</span></span>,
 	<span>string|null <var>$column</var> = <span class="php-kw">null</span></span>,
 	<span>string|null <var>$alias</var> = <span class="php-kw">null</span></span>,
-	<span>bool <var>$descending</var> = <span class="php-kw">false</span></span>,
+	<span><a href="SortDirection.html"><span title="SortDirection">SortDirection</span></a>|bool <var>$descending</var> = <span class="php-kw">false</span></span>,
 ): <a href="Illuminate.Support.LazyCollection.html"><span title="Illuminate\Support\LazyCollection">LazyCollection</span></a></code>
 
 
@@ -571,6 +571,10 @@
 							<table>
 									<tr>
 										<td><code><a href="InvalidArgumentException.html"><span>InvalidArgumentException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td><code><a href="RuntimeException.html"><span>RuntimeException</span></a></code>&nbsp;</td>
 										<td></td>
 									</tr>
 							</table>

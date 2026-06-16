@@ -235,7 +235,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>__construct(<span>string|null <var>$name</var> = <span class="php-kw">null</span></span>)</code>
+				<code>__construct(<span>string|null <var>$name</var> = <span class="php-kw">null</span></span>, <span>?callable <var>$code</var> = <span class="php-kw">null</span></span>)</code>
 
 
 
@@ -680,6 +680,40 @@ in a sub-class.</p>
 			</td>
 		<td class="table-anchor">
 			<a href="#_complete">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="getCode" id="_getCode">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getCode(): ?callable</code>
+
+
+	<div class="expandable-collapsedView">
+		Gets the code that is executed by the command.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Gets the code that is executed by the command.</p>
+</div>
+
+
+							<h4>Returns</h4>
+							<div><p>null if the code has not been set with setCode()</p>
+</div>
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getCode">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="setCode" id="_setCode">

@@ -74,6 +74,11 @@
 						</a>
 					</li>
 					<li>
+						<a href="Illuminate.Support.Traits.ReflectsClosures.html">
+							ReflectsClosures
+						</a>
+					</li>
+					<li>
 						<a href="Illuminate.Support.Traits.Tappable.html">
 							Tappable
 						</a>
@@ -133,37 +138,6 @@
 
 	<ul class="classTree">
 	<li>
-<a href="Illuminate.Support.Collection.html"><span>Illuminate\Support\Collection</span></a>
-
-		implements
-			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>&lt;TKey, TValue&gt;, 
-			<a href="Illuminate.Contracts.Support.CanBeEscapedWhenCastToString.html"><span title="Illuminate\Contracts\Support\CanBeEscapedWhenCastToString">CanBeEscapedWhenCastToString</span></a>, 
-			<a href="Illuminate.Support.Enumerable.html"><span title="Illuminate\Support\Enumerable">Enumerable</span></a>&lt;TKey, TValue&gt;
-
-		uses
-			<a href="Illuminate.Support.Traits.EnumeratesValues.html"><span title="Illuminate\Support\Traits\EnumeratesValues">EnumeratesValues</span></a>, 
-			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>, 
-			<b><span class="active" title="Illuminate\Support\Traits\TransformsToResourceCollection">TransformsToResourceCollection</span></b>
-	<ul class="classTree">
-	<li>
-<a href="Illuminate.Database.Eloquent.Collection.html"><span>Illuminate\Database\Eloquent\Collection</span></a>
-
-		implements
-			<a href="Illuminate.Contracts.Queue.QueueableCollection.html"><span title="Illuminate\Contracts\Queue\QueueableCollection">QueueableCollection</span></a>
-
-		uses
-			<a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithDictionary.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithDictionary">InteractsWithDictionary</span></a>
-	<ul class="classTree">
-	<li>
-<a href="Baril.Orderly.OrderableCollection.html"><span>Baril\Orderly\OrderableCollection</span></a>
-
-
-	</li>
-	</ul>
-	</li>
-	</ul>
-	</li>
-	<li>
 <a href="Illuminate.Pagination.AbstractPaginator.html"><span>Illuminate\Pagination\AbstractPaginator</span></a>
 
 		implements
@@ -201,6 +175,37 @@
 			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>, 
 			<a href="Illuminate.Contracts.Pagination.Paginator.html"><span title="Illuminate\Contracts\Pagination\Paginator">Paginator</span></a>&lt;TKey, TValue&gt;
 
+	</li>
+	</ul>
+	</li>
+	<li>
+<a href="Illuminate.Support.Collection.html"><span>Illuminate\Support\Collection</span></a>
+
+		implements
+			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>&lt;TKey, TValue&gt;, 
+			<a href="Illuminate.Contracts.Support.CanBeEscapedWhenCastToString.html"><span title="Illuminate\Contracts\Support\CanBeEscapedWhenCastToString">CanBeEscapedWhenCastToString</span></a>, 
+			<a href="Illuminate.Support.Enumerable.html"><span title="Illuminate\Support\Enumerable">Enumerable</span></a>&lt;TKey, TValue&gt;
+
+		uses
+			<a href="Illuminate.Support.Traits.EnumeratesValues.html"><span title="Illuminate\Support\Traits\EnumeratesValues">EnumeratesValues</span></a>, 
+			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>, 
+			<b><span class="active" title="Illuminate\Support\Traits\TransformsToResourceCollection">TransformsToResourceCollection</span></b>
+	<ul class="classTree">
+	<li>
+<a href="Illuminate.Database.Eloquent.Collection.html"><span>Illuminate\Database\Eloquent\Collection</span></a>
+
+		implements
+			<a href="Illuminate.Contracts.Queue.QueueableCollection.html"><span title="Illuminate\Contracts\Queue\QueueableCollection">QueueableCollection</span></a>
+
+		uses
+			<a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithDictionary.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithDictionary">InteractsWithDictionary</span></a>
+	<ul class="classTree">
+	<li>
+<a href="Baril.Orderly.OrderableCollection.html"><span>Baril\Orderly\OrderableCollection</span></a>
+
+
+	</li>
+	</ul>
 	</li>
 	</ul>
 	</li>
@@ -321,6 +326,68 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_guessResourceCollection">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="resolveResourceFromAttribute" id="_resolveResourceFromAttribute">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>resolveResourceFromAttribute(<span>class-string&lt;<a href="Illuminate.Http.Resources.Json.JsonResource.html"><span title="Illuminate\Http\Resources\Json\JsonResource">JsonResource</span></a>&gt; <var>$class</var></span>): class-string&lt;*&gt;|null</code>
+
+
+	<div class="expandable-collapsedView">
+		Get the resource class from the class attribute.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the resource class from the class attribute.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_resolveResourceFromAttribute">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="resolveResourceCollectionFromAttribute" id="_resolveResourceCollectionFromAttribute">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>resolveResourceCollectionFromAttribute(<span>class-string&lt;<a href="Illuminate.Http.Resources.Json.ResourceCollection.html"><span title="Illuminate\Http\Resources\Json\ResourceCollection">ResourceCollection</span></a>&gt; <var>$class</var></span>): class-string&lt;*&gt;|null</code>
+
+
+	<div class="expandable-collapsedView">
+		Get the resource collection class from the class attribute.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the resource collection class from the class attribute.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_resolveResourceCollectionFromAttribute">#</a>
 		</td>
 	</tr>
 		</table>

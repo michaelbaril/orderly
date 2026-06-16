@@ -74,6 +74,11 @@
 						</a>
 					</li>
 					<li>
+						<a href="Illuminate.Support.Traits.ReflectsClosures.html">
+							ReflectsClosures
+						</a>
+					</li>
+					<li>
 						<a href="Illuminate.Support.Traits.Tappable.html">
 							Tappable
 						</a>
@@ -134,17 +139,6 @@
 
 	<ul class="classTree">
 	<li>
-<a href="Illuminate.Support.LazyCollection.html"><span>Illuminate\Support\LazyCollection</span></a>
-
-		implements
-			<a href="Illuminate.Contracts.Support.CanBeEscapedWhenCastToString.html"><span title="Illuminate\Contracts\Support\CanBeEscapedWhenCastToString">CanBeEscapedWhenCastToString</span></a>, 
-			<a href="Illuminate.Support.Enumerable.html"><span title="Illuminate\Support\Enumerable">Enumerable</span></a>&lt;TKey, TValue&gt;
-
-		uses
-			<b><span class="active" title="Illuminate\Support\Traits\EnumeratesValues">EnumeratesValues</span></b>, 
-			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>
-	</li>
-	<li>
 <a href="Illuminate.Support.Collection.html"><span>Illuminate\Support\Collection</span></a>
 
 		implements
@@ -175,6 +169,17 @@
 	</li>
 	</ul>
 	</li>
+	<li>
+<a href="Illuminate.Support.LazyCollection.html"><span>Illuminate\Support\LazyCollection</span></a>
+
+		implements
+			<a href="Illuminate.Contracts.Support.CanBeEscapedWhenCastToString.html"><span title="Illuminate\Contracts\Support\CanBeEscapedWhenCastToString">CanBeEscapedWhenCastToString</span></a>, 
+			<a href="Illuminate.Support.Enumerable.html"><span title="Illuminate\Support\Enumerable">Enumerable</span></a>&lt;TKey, TValue&gt;
+
+		uses
+			<b><span class="active" title="Illuminate\Support\Traits\EnumeratesValues">EnumeratesValues</span></b>, 
+			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>
+	</li>
 	</ul>
 	</li>
 	</ul>
@@ -204,6 +209,7 @@
 			<td class="table-cell">
 				<code>make&lt;<span title="">TMakeKey</span> is array-key, <span title="">TMakeValue</span>&gt;(
 	<span><a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>&lt;TMakeKey, TMakeValue&gt;|iterable&lt;TMakeKey, TMakeValue&gt;|null <var>$items</var> = []</span>,
+	<span>...<var>$args</var></span>,
 ): static&lt;TMakeKey, TMakeValue&gt;</code>
 
 
@@ -235,7 +241,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>wrap&lt;<span title="">TWrapValue</span>&gt;(<span>iterable&lt;array-key, TWrapValue&gt;|TWrapValue <var>$value</var></span>): static&lt;array-key, TWrapValue&gt;</code>
+				<code>wrap&lt;<span title="">TWrapValue</span>&gt;(<span>iterable&lt;array-key, TWrapValue&gt;|TWrapValue <var>$value</var></span>, <span>...<var>$args</var></span>): static&lt;array-key, TWrapValue&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -299,7 +305,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>empty(): static</code>
+				<code>empty(<span>...<var>$args</var></span>): static</code>
 
 
 	<div class="expandable-collapsedView">
@@ -330,7 +336,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>times&lt;<span title="">TTimesValue</span>&gt;(<span>int <var>$number</var></span>, <span>(callable(int):&nbsp;TTimesValue)|null <var>$callback</var> = <span class="php-kw">null</span></span>): static&lt;int, TTimesValue&gt;</code>
+				<code>times&lt;<span title="">TTimesValue</span>&gt;(<span>int <var>$number</var></span>, <span>(callable(int):&nbsp;TTimesValue)|null <var>$callback</var> = <span class="php-kw">null</span></span>, <span>...<var>$args</var></span>): static&lt;int, TTimesValue&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -361,7 +367,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>fromJson(<span>string <var>$json</var></span>, <span>int <var>$depth</var> = <span class="php-num">512</span></span>, <span>int <var>$flags</var> = <span class="php-num">0</span></span>): static&lt;TKey, TValue&gt;</code>
+				<code>fromJson(<span>string <var>$json</var></span>, <span>int <var>$depth</var> = <span class="php-num">512</span></span>, <span>int <var>$flags</var> = <span class="php-num">0</span></span>, <span>...<var>$args</var></span>): static&lt;TKey, TValue&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -660,6 +666,37 @@
 			<a href="#_firstWhere">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="hasMany" id="_hasMany">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>hasMany(<span>(callable(TValue, TKey):&nbsp;bool)|string|null <var>$key</var> = <span class="php-kw">null</span></span>, <span>mixed <var>$operator</var> = <span class="php-kw">null</span></span>, <span>mixed <var>$value</var> = <span class="php-kw">null</span></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Determine if the collection contains multiple items, optionally matching the given criteria.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Determine if the collection contains multiple items, optionally matching the given criteria.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_hasMany">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="value" id="_value">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -902,7 +939,9 @@
 			</td>
 
 			<td class="table-cell">
-				<code>min(<span>(callable(TValue):&nbsp;mixed)|string|null <var>$callback</var> = <span class="php-kw">null</span></span>): mixed</code>
+				<code>min&lt;<span title="">TMinResult</span> = mixed&gt;(
+	<span>(callable(TValue):&nbsp;TMinResult)|string|null <var>$callback</var> = <span class="php-kw">null</span></span>,
+): ($callback is callable&nbsp;?&nbsp;?TMinResult&nbsp;:&nbsp;($callback is null&nbsp;?&nbsp;?TValue&nbsp;:&nbsp;mixed))</code>
 
 
 	<div class="expandable-collapsedView">
@@ -933,7 +972,9 @@
 			</td>
 
 			<td class="table-cell">
-				<code>max(<span>(callable(TValue):&nbsp;mixed)|string|null <var>$callback</var> = <span class="php-kw">null</span></span>): mixed</code>
+				<code>max&lt;<span title="">TMaxResult</span> = mixed&gt;(
+	<span>(callable(TValue):&nbsp;TMaxResult)|string|null <var>$callback</var> = <span class="php-kw">null</span></span>,
+): ($callback is callable&nbsp;?&nbsp;?TMaxResult&nbsp;:&nbsp;($callback is null&nbsp;?&nbsp;?TValue&nbsp;:&nbsp;mixed))</code>
 
 
 	<div class="expandable-collapsedView">
@@ -997,8 +1038,8 @@
 			<td class="table-cell">
 				<code>partition(
 	<span>(callable(TValue, TKey):&nbsp;bool)|TValue|string <var>$key</var></span>,
-	<span>TValue|string|null <var>$operator</var> = <span class="php-kw">null</span></span>,
-	<span>TValue|null <var>$value</var> = <span class="php-kw">null</span></span>,
+	<span>mixed <var>$operator</var> = <span class="php-kw">null</span></span>,
+	<span>mixed <var>$value</var> = <span class="php-kw">null</span></span>,
 ): static&lt;int&lt;<span class="php-num">0</span>, <span class="php-num">1</span>&gt;, static&lt;TKey, TValue&gt;&gt;</code>
 
 
@@ -1062,7 +1103,7 @@
 
 			<td class="table-cell">
 				<code>sum&lt;<span title="">TReturnType</span>&gt;(
-	<span>(callable(TValue):&nbsp;TReturnType)|string|null <var>$callback</var> = <span class="php-kw">null</span></span>,
+	<span>(callable(TValue, TKey):&nbsp;TReturnType)|string|null <var>$callback</var> = <span class="php-kw">null</span></span>,
 ): ($callback is callable&nbsp;?&nbsp;TReturnType&nbsp;:&nbsp;mixed)</code>
 
 
@@ -1669,7 +1710,7 @@
 				<code>reduce&lt;<span title="">TReduceInitial</span>, <span title="">TReduceReturnType</span>&gt;(
 	<span>callable(TReduceInitial|TReduceReturnType, TValue, TKey):&nbsp;TReduceReturnType <var>$callback</var></span>,
 	<span>TReduceInitial <var>$initial</var> = <span class="php-kw">null</span></span>,
-): TReduceReturnType</code>
+): TReduceInitial|TReduceReturnType</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1741,7 +1782,7 @@
 				<code>reduceWithKeys&lt;<span title="">TReduceWithKeysInitial</span>, <span title="">TReduceWithKeysReturnType</span>&gt;(
 	<span>callable(TReduceWithKeysInitial|TReduceWithKeysReturnType, TValue, TKey):&nbsp;TReduceWithKeysReturnType <var>$callback</var></span>,
 	<span>TReduceWithKeysInitial <var>$initial</var> = <span class="php-kw">null</span></span>,
-): TReduceWithKeysReturnType</code>
+): TReduceWithKeysInitial|TReduceWithKeysReturnType</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2007,6 +2048,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_toJson">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="toPrettyJson" id="_toPrettyJson">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>toPrettyJson(<span>int <var>$options</var> = <span class="php-num">0</span></span>): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Get the collection of items as pretty print formatted JSON.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the collection of items as pretty print formatted JSON.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_toPrettyJson">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="getCachingIterator" id="_getCachingIterator">
@@ -2445,6 +2517,8 @@
 	<span class="php-str">'first'</span>,
 	<span class="php-str">'flatMap'</span>,
 	<span class="php-str">'groupBy'</span>,
+	<span class="php-str">'hasMany'</span>,
+	<span class="php-str">'hasSole'</span>,
 	<span class="php-str">'keyBy'</span>,
 	<span class="php-str">'last'</span>,
 	<span class="php-str">'map'</span>,
@@ -2713,6 +2787,54 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#$groupBy">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="hasMany" id="$hasMany">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	public
+					
+					readonly
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap"><a href="Illuminate.Support.HigherOrderCollectionProxy.html"><span title="Illuminate\Support\HigherOrderCollectionProxy">HigherOrderCollectionProxy</span></a>&lt;TKey, TValue&gt;</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$hasMany</var></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$hasMany">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="hasSole" id="$hasSole">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	public
+					
+					readonly
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap"><a href="Illuminate.Support.HigherOrderCollectionProxy.html"><span title="Illuminate\Support\HigherOrderCollectionProxy">HigherOrderCollectionProxy</span></a>&lt;TKey, TValue&gt;</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$hasSole</var></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$hasSole">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="keyBy" id="$keyBy">

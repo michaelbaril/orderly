@@ -207,6 +207,22 @@
 			<a href="Illuminate.Database.Eloquent.Relations.Concerns.SupportsInverseRelations.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\SupportsInverseRelations">SupportsInverseRelations</span></a>
 	<ul class="classTree">
 	<li>
+<a href="Illuminate.Database.Eloquent.Relations.HasMany.html"><span>Illuminate\Database\Eloquent\Relations\HasMany</span></a>
+
+
+	</li>
+	<li>
+<a href="Illuminate.Database.Eloquent.Relations.HasOne.html"><span>Illuminate\Database\Eloquent\Relations\HasOne</span></a>
+
+		implements
+			<a href="Illuminate.Contracts.Database.Eloquent.SupportsPartialRelations.html"><span title="Illuminate\Contracts\Database\Eloquent\SupportsPartialRelations">SupportsPartialRelations</span></a>
+
+		uses
+			<a href="Illuminate.Database.Eloquent.Relations.Concerns.ComparesRelatedModels.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\ComparesRelatedModels">ComparesRelatedModels</span></a>, 
+			<a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\CanBeOneOfMany">CanBeOneOfMany</span></a>, 
+			<a href="Illuminate.Database.Eloquent.Relations.Concerns.SupportsDefaultModels.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\SupportsDefaultModels">SupportsDefaultModels</span></a>
+	</li>
+	<li>
 <a href="Illuminate.Database.Eloquent.Relations.MorphOneOrMany.html"><span>Illuminate\Database\Eloquent\Relations\MorphOneOrMany</span></a>
 
 
@@ -228,22 +244,6 @@
 			<a href="Illuminate.Database.Eloquent.Relations.Concerns.SupportsDefaultModels.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\SupportsDefaultModels">SupportsDefaultModels</span></a>
 	</li>
 	</ul>
-	</li>
-	<li>
-<a href="Illuminate.Database.Eloquent.Relations.HasMany.html"><span>Illuminate\Database\Eloquent\Relations\HasMany</span></a>
-
-
-	</li>
-	<li>
-<a href="Illuminate.Database.Eloquent.Relations.HasOne.html"><span>Illuminate\Database\Eloquent\Relations\HasOne</span></a>
-
-		implements
-			<a href="Illuminate.Contracts.Database.Eloquent.SupportsPartialRelations.html"><span title="Illuminate\Contracts\Database\Eloquent\SupportsPartialRelations">SupportsPartialRelations</span></a>
-
-		uses
-			<a href="Illuminate.Database.Eloquent.Relations.Concerns.ComparesRelatedModels.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\ComparesRelatedModels">ComparesRelatedModels</span></a>, 
-			<a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\CanBeOneOfMany">CanBeOneOfMany</span></a>, 
-			<a href="Illuminate.Database.Eloquent.Relations.Concerns.SupportsDefaultModels.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\SupportsDefaultModels">SupportsDefaultModels</span></a>
 	</li>
 	</ul>
 	</li>
@@ -596,7 +596,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>buildDictionary(<span><a href="Illuminate.Database.Eloquent.Collection.html"><span title="Illuminate\Database\Eloquent\Collection">Collection</span></a>&lt;int, TRelatedModel&gt; <var>$results</var></span>): array&lt;array&lt;int, TRelatedModel&gt;&gt;</code>
+				<code>buildDictionary(<span><a href="Illuminate.Database.Eloquent.Collection.html"><span title="Illuminate\Database\Eloquent\Collection">Collection</span></a>&lt;int, TRelatedModel&gt; <var>$results</var></span>): array&lt;array&lt;array-key, TRelatedModel&gt;&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -661,7 +661,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>firstOrNew(<span>array <var>$attributes</var> = []</span>, <span>array <var>$values</var> = []</span>): TRelatedModel</code>
+				<code>firstOrNew(<span>array <var>$attributes</var> = []</span>, <span>(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;array)|array <var>$values</var> = []</span>): TRelatedModel</code>
 
 
 	<div class="expandable-collapsedView">
@@ -692,7 +692,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>firstOrCreate(<span>array <var>$attributes</var> = []</span>, <span>array <var>$values</var> = []</span>): TRelatedModel</code>
+				<code>firstOrCreate(<span>array <var>$attributes</var> = []</span>, <span>(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;array)|array <var>$values</var> = []</span>): TRelatedModel</code>
 
 
 	<div class="expandable-collapsedView">
@@ -723,7 +723,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>createOrFirst(<span>array <var>$attributes</var> = []</span>, <span>array <var>$values</var> = []</span>): TRelatedModel</code>
+				<code>createOrFirst(<span>array <var>$attributes</var> = []</span>, <span>(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;array)|array <var>$values</var> = []</span>): TRelatedModel</code>
 
 
 	<div class="expandable-collapsedView">
@@ -736,6 +736,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Illuminate.Database.UniqueConstraintViolationException.html"><span>Illuminate\Database\UniqueConstraintViolationException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
@@ -754,7 +761,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>updateOrCreate(<span>array <var>$attributes</var></span>, <span>array <var>$values</var> = []</span>): TRelatedModel</code>
+				<code>updateOrCreate(<span>array <var>$attributes</var></span>, <span>(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;array)|array <var>$values</var> = []</span>): TRelatedModel</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1257,9 +1264,9 @@
 		<h4>Overriden by</h4>
 		<ul>
 				<li>
-<a href="Illuminate.Database.Eloquent.Relations.MorphOneOrMany.html#_getRelationExistenceQuery">						<code>Illuminate\Database\Eloquent\Relations\MorphOneOrMany::getRelationExistenceQuery()</code></a>				</li>
-				<li>
 <a href="Illuminate.Database.Eloquent.Relations.HasOne.html#_getRelationExistenceQuery">						<code>Illuminate\Database\Eloquent\Relations\HasOne::getRelationExistenceQuery()</code></a>				</li>
+				<li>
+<a href="Illuminate.Database.Eloquent.Relations.MorphOneOrMany.html#_getRelationExistenceQuery">						<code>Illuminate\Database\Eloquent\Relations\MorphOneOrMany::getRelationExistenceQuery()</code></a>				</li>
 		</ul>
 	</div>
 			</td>
@@ -1281,7 +1288,7 @@
 				<code>getRelationExistenceQueryForSelfRelation(
 	<span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TRelatedModel&gt; <var>$query</var></span>,
 	<span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TDeclaringModel&gt; <var>$parentQuery</var></span>,
-	<span>array|mixed <var>$columns</var> = [<span class="php-str">'*'</span>]</span>,
+	<span>mixed <var>$columns</var> = [<span class="php-str">'*'</span>]</span>,
 ): <a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TRelatedModel&gt;</code>
 
 
@@ -1441,11 +1448,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Get the fully qualified parent key name.
+		Get the fully-qualified parent key name.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Get the fully qualified parent key name.</p>
+	<div class="description"><p>Get the fully-qualified parent key name.</p>
 </div>
 
 

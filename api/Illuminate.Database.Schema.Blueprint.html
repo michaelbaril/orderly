@@ -153,7 +153,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>__construct(<span><a href="Illuminate.Database.Connection.html"><span title="Illuminate\Database\Connection">Connection</span></a> <var>$connection</var></span>, <span>string <var>$table</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|null <var>$callback</var> = <span class="php-kw">null</span></span>)</code>
+				<code>__construct(<span><a href="Illuminate.Database.Connection.html"><span title="Illuminate\Database\Connection">Connection</span></a> <var>$connection</var></span>, <span>string <var>$table</var></span>, <span>(<a href="Closure.html"><span title="Closure">Closure</span></a>(<b><span class="active" title="Illuminate\Database\Schema\Blueprint">self</span></b>):&nbsp;void)|null <var>$callback</var> = <span class="php-kw">null</span></span>)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -723,7 +723,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>dropColumn(<span>array|mixed <var>$columns</var></span>): <a href="Illuminate.Support.Fluent.html"><span title="Illuminate\Support\Fluent">Fluent</span></a></code>
+				<code>dropColumn(<span>mixed <var>$columns</var></span>): <a href="Illuminate.Support.Fluent.html"><span title="Illuminate\Support\Fluent">Fluent</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -1436,7 +1436,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>spatialIndex(<span>string|array <var>$columns</var></span>, <span>string|null <var>$name</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Schema.IndexDefinition.html"><span title="Illuminate\Database\Schema\IndexDefinition">IndexDefinition</span></a></code>
+				<code>spatialIndex(<span>string|array <var>$columns</var></span>, <span>string|null <var>$name</var> = <span class="php-kw">null</span></span>, <span>string|null <var>$operatorClass</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Schema.IndexDefinition.html"><span title="Illuminate\Database\Schema\IndexDefinition">IndexDefinition</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -1454,6 +1454,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_spatialIndex">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="vectorIndex" id="_vectorIndex">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>vectorIndex(<span>string <var>$column</var></span>, <span>string|null <var>$name</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Schema.IndexDefinition.html"><span title="Illuminate\Database\Schema\IndexDefinition">IndexDefinition</span></a></code>
+
+
+	<div class="expandable-collapsedView">
+		Specify a vector index for the table.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Specify a vector index for the table.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_vectorIndex">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="rawIndex" id="_rawIndex">
@@ -1533,11 +1564,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new auto-incrementing big integer (8-byte) column on the table.
+		Create a new auto-incrementing big integer column on the table (8-byte, 0 to 18,446,744,073,709,551,615).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new auto-incrementing big integer (8-byte) column on the table.</p>
+	<div class="description"><p>Create a new auto-incrementing big integer column on the table (8-byte, 0 to 18,446,744,073,709,551,615).</p>
 </div>
 
 
@@ -1564,11 +1595,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new auto-incrementing integer (4-byte) column on the table.
+		Create a new auto-incrementing integer column on the table (4-byte, 0 to 4,294,967,295).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new auto-incrementing integer (4-byte) column on the table.</p>
+	<div class="description"><p>Create a new auto-incrementing integer column on the table (4-byte, 0 to 4,294,967,295).</p>
 </div>
 
 
@@ -1595,11 +1626,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new auto-incrementing integer (4-byte) column on the table.
+		Create a new auto-incrementing integer column on the table (4-byte, 0 to 4,294,967,295).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new auto-incrementing integer (4-byte) column on the table.</p>
+	<div class="description"><p>Create a new auto-incrementing integer column on the table (4-byte, 0 to 4,294,967,295).</p>
 </div>
 
 
@@ -1626,11 +1657,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new auto-incrementing tiny integer (1-byte) column on the table.
+		Create a new auto-incrementing tiny integer column on the table (1-byte, 0 to 255).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new auto-incrementing tiny integer (1-byte) column on the table.</p>
+	<div class="description"><p>Create a new auto-incrementing tiny integer column on the table (1-byte, 0 to 255).</p>
 </div>
 
 
@@ -1657,11 +1688,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new auto-incrementing small integer (2-byte) column on the table.
+		Create a new auto-incrementing small integer column on the table (2-byte, 0 to 65,535).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new auto-incrementing small integer (2-byte) column on the table.</p>
+	<div class="description"><p>Create a new auto-incrementing small integer column on the table (2-byte, 0 to 65,535).</p>
 </div>
 
 
@@ -1688,11 +1719,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new auto-incrementing medium integer (3-byte) column on the table.
+		Create a new auto-incrementing medium integer column on the table (3-byte, 0 to 16,777,215).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new auto-incrementing medium integer (3-byte) column on the table.</p>
+	<div class="description"><p>Create a new auto-incrementing medium integer column on the table (3-byte, 0 to 16,777,215).</p>
 </div>
 
 
@@ -1719,11 +1750,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new auto-incrementing big integer (8-byte) column on the table.
+		Create a new auto-incrementing big integer column on the table (8-byte, 0 to 18,446,744,073,709,551,615).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new auto-incrementing big integer (8-byte) column on the table.</p>
+	<div class="description"><p>Create a new auto-incrementing big integer column on the table (8-byte, 0 to 18,446,744,073,709,551,615).</p>
 </div>
 
 
@@ -1812,11 +1843,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new tiny text column on the table.
+		Create a new tiny text column on the table (up to 255 characters).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new tiny text column on the table.</p>
+	<div class="description"><p>Create a new tiny text column on the table (up to 255 characters).</p>
 </div>
 
 
@@ -1843,11 +1874,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new text column on the table.
+		Create a new text column on the table (up to 65,535 characters / ~64 KB).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new text column on the table.</p>
+	<div class="description"><p>Create a new text column on the table (up to 65,535 characters / ~64 KB).</p>
 </div>
 
 
@@ -1874,11 +1905,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new medium text column on the table.
+		Create a new medium text column on the table (up to 16,777,215 characters / ~16 MB).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new medium text column on the table.</p>
+	<div class="description"><p>Create a new medium text column on the table (up to 16,777,215 characters / ~16 MB).</p>
 </div>
 
 
@@ -1905,11 +1936,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new long text column on the table.
+		Create a new long text column on the table (up to 4,294,967,295 characters / ~4 GB).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new long text column on the table.</p>
+	<div class="description"><p>Create a new long text column on the table (up to 4,294,967,295 characters / ~4 GB).</p>
 </div>
 
 
@@ -1937,10 +1968,12 @@
 
 	<div class="expandable-collapsedView">
 		Create a new integer (4-byte) column on the table.
+Range: -2,147,483,648 to 2,147,483,647 (signed) or 0 to 4,294,967…
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new integer (4-byte) column on the table.</p>
+	<div class="description"><p>Create a new integer (4-byte) column on the table.
+Range: -2,147,483,648 to 2,147,483,647 (signed) or 0 to 4,294,967,295 (unsigned).</p>
 </div>
 
 
@@ -1968,10 +2001,12 @@
 
 	<div class="expandable-collapsedView">
 		Create a new tiny integer (1-byte) column on the table.
+Range: -128 to 127 (signed) or 0 to 255 (unsigned).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new tiny integer (1-byte) column on the table.</p>
+	<div class="description"><p>Create a new tiny integer (1-byte) column on the table.
+Range: -128 to 127 (signed) or 0 to 255 (unsigned).</p>
 </div>
 
 
@@ -1999,10 +2034,12 @@
 
 	<div class="expandable-collapsedView">
 		Create a new small integer (2-byte) column on the table.
+Range: -32,768 to 32,767 (signed) or 0 to 65,535 (unsigned).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new small integer (2-byte) column on the table.</p>
+	<div class="description"><p>Create a new small integer (2-byte) column on the table.
+Range: -32,768 to 32,767 (signed) or 0 to 65,535 (unsigned).</p>
 </div>
 
 
@@ -2030,10 +2067,12 @@
 
 	<div class="expandable-collapsedView">
 		Create a new medium integer (3-byte) column on the table.
+Range: -8,388,608 to 8,388,607 (signed) or 0 to 16,777,215 …
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new medium integer (3-byte) column on the table.</p>
+	<div class="description"><p>Create a new medium integer (3-byte) column on the table.
+Range: -8,388,608 to 8,388,607 (signed) or 0 to 16,777,215 (unsigned).</p>
 </div>
 
 
@@ -2061,10 +2100,12 @@
 
 	<div class="expandable-collapsedView">
 		Create a new big integer (8-byte) column on the table.
+Range: -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 …
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new big integer (8-byte) column on the table.</p>
+	<div class="description"><p>Create a new big integer (8-byte) column on the table.
+Range: -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 (signed) or 0 to 18,446,744,073,709,551,615 (unsigned).</p>
 </div>
 
 
@@ -2091,11 +2132,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new unsigned integer (4-byte) column on the table.
+		Create a new unsigned integer column on the table (4-byte, 0 to 4,294,967,295).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new unsigned integer (4-byte) column on the table.</p>
+	<div class="description"><p>Create a new unsigned integer column on the table (4-byte, 0 to 4,294,967,295).</p>
 </div>
 
 
@@ -2122,11 +2163,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new unsigned tiny integer (1-byte) column on the table.
+		Create a new unsigned tiny integer column on the table (1-byte, 0 to 255).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new unsigned tiny integer (1-byte) column on the table.</p>
+	<div class="description"><p>Create a new unsigned tiny integer column on the table (1-byte, 0 to 255).</p>
 </div>
 
 
@@ -2153,11 +2194,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new unsigned small integer (2-byte) column on the table.
+		Create a new unsigned small integer column on the table (2-byte, 0 to 65,535).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new unsigned small integer (2-byte) column on the table.</p>
+	<div class="description"><p>Create a new unsigned small integer column on the table (2-byte, 0 to 65,535).</p>
 </div>
 
 
@@ -2184,11 +2225,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new unsigned medium integer (3-byte) column on the table.
+		Create a new unsigned medium integer column on the table (3-byte, 0 to 16,777,215).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new unsigned medium integer (3-byte) column on the table.</p>
+	<div class="description"><p>Create a new unsigned medium integer column on the table (3-byte, 0 to 16,777,215).</p>
 </div>
 
 
@@ -2215,11 +2256,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new unsigned big integer (8-byte) column on the table.
+		Create a new unsigned big integer column on the table (8-byte, 0 to 18,446,744,073,709,551,615).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new unsigned big integer (8-byte) column on the table.</p>
+	<div class="description"><p>Create a new unsigned big integer column on the table (8-byte, 0 to 18,446,744,073,709,551,615).</p>
 </div>
 
 
@@ -2246,11 +2287,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create a new unsigned big integer (8-byte) column on the table.
+		Create a new unsigned big integer column on the table (8-byte, 0 to 18,446,744,073,709,551,615).
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create a new unsigned big integer (8-byte) column on the table.</p>
+	<div class="description"><p>Create a new unsigned big integer column on the table (8-byte, 0 to 18,446,744,073,709,551,615).</p>
 </div>
 
 
@@ -2291,6 +2332,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_foreignIdFor">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="foreignUuidFor" id="_foreignUuidFor">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>foreignUuidFor(<span><a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a>|string <var>$model</var></span>, <span>string|null <var>$column</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Schema.ForeignIdColumnDefinition.html"><span title="Illuminate\Database\Schema\ForeignIdColumnDefinition">ForeignIdColumnDefinition</span></a></code>
+
+
+	<div class="expandable-collapsedView">
+		Create a foreign UUID column for the given model.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Create a foreign UUID column for the given model.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_foreignUuidFor">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="float" id="_float">
@@ -2836,11 +2908,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add creation and update timestampTz columns to the table.
+		Add nullable creation and update timestampTz columns to the table.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add creation and update timestampTz columns to the table.</p>
+	<div class="description"><p>Add nullable creation and update timestampTz columns to the table.</p>
 </div>
 
 
@@ -2850,6 +2922,38 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_timestampsTz">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="nullableTimestampsTz" id="_nullableTimestampsTz">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>nullableTimestampsTz(<span>int|null <var>$precision</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Support.Collection.html"><span title="Illuminate\Support\Collection">Collection</span></a>&lt;int, <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a>&gt;</code>
+
+
+	<div class="expandable-collapsedView">
+		Add nullable creation and update timestampTz columns to the table.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add nullable creation and update timestampTz columns to the table.</p>
+<p>Alias for self::timestampsTz().</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_nullableTimestampsTz">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="datetimes" id="_datetimes">
@@ -3348,6 +3452,37 @@
 			<a href="#_vector">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="tsvector" id="_tsvector">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>tsvector(<span>string <var>$column</var></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
+
+
+	<div class="expandable-collapsedView">
+		Create a new tsvector column on the table.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Create a new tsvector column on the table.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_tsvector">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="morphs" id="_morphs">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -3359,7 +3494,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>morphs(<span>string <var>$name</var></span>, <span>string|null <var>$indexName</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>morphs(<span>string <var>$name</var></span>, <span>string|null <var>$indexName</var> = <span class="php-kw">null</span></span>, <span>string|null <var>$after</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3390,7 +3525,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>nullableMorphs(<span>string <var>$name</var></span>, <span>string|null <var>$indexName</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>nullableMorphs(<span>string <var>$name</var></span>, <span>string|null <var>$indexName</var> = <span class="php-kw">null</span></span>, <span>string|null <var>$after</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3421,7 +3556,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>numericMorphs(<span>string <var>$name</var></span>, <span>string|null <var>$indexName</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>numericMorphs(<span>string <var>$name</var></span>, <span>string|null <var>$indexName</var> = <span class="php-kw">null</span></span>, <span>string|null <var>$after</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3452,7 +3587,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>nullableNumericMorphs(<span>string <var>$name</var></span>, <span>string|null <var>$indexName</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>nullableNumericMorphs(<span>string <var>$name</var></span>, <span>string|null <var>$indexName</var> = <span class="php-kw">null</span></span>, <span>string|null <var>$after</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3483,7 +3618,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>uuidMorphs(<span>string <var>$name</var></span>, <span>string|null <var>$indexName</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>uuidMorphs(<span>string <var>$name</var></span>, <span>string|null <var>$indexName</var> = <span class="php-kw">null</span></span>, <span>string|null <var>$after</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3514,7 +3649,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>nullableUuidMorphs(<span>string <var>$name</var></span>, <span>string|null <var>$indexName</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>nullableUuidMorphs(<span>string <var>$name</var></span>, <span>string|null <var>$indexName</var> = <span class="php-kw">null</span></span>, <span>string|null <var>$after</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3545,7 +3680,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>ulidMorphs(<span>string <var>$name</var></span>, <span>string|null <var>$indexName</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>ulidMorphs(<span>string <var>$name</var></span>, <span>string|null <var>$indexName</var> = <span class="php-kw">null</span></span>, <span>string|null <var>$after</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3576,7 +3711,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>nullableUlidMorphs(<span>string <var>$name</var></span>, <span>string|null <var>$indexName</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>nullableUlidMorphs(<span>string <var>$name</var></span>, <span>string|null <var>$indexName</var> = <span class="php-kw">null</span></span>, <span>string|null <var>$after</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3700,15 +3835,21 @@
 			</td>
 
 			<td class="table-cell">
-				<code>indexCommand(<span>string <var>$type</var></span>, <span>string|array <var>$columns</var></span>, <span>string <var>$index</var></span>, <span>string|null <var>$algorithm</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Support.Fluent.html"><span title="Illuminate\Support\Fluent">Fluent</span></a></code>
+				<code>indexCommand(
+	<span>string <var>$type</var></span>,
+	<span>string|array <var>$columns</var></span>,
+	<span>string <var>$index</var></span>,
+	<span>string|null <var>$algorithm</var> = <span class="php-kw">null</span></span>,
+	<span>string|null <var>$operatorClass</var> = <span class="php-kw">null</span></span>,
+): <a href="Illuminate.Support.Fluent.html"><span title="Illuminate\Support\Fluent">Fluent</span></a></code>
 
 
 	<div class="expandable-collapsedView">
-		Add a new index command to the blueprint.
+		Create a new index command on the blueprint.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a new index command to the blueprint.</p>
+	<div class="description"><p>Create a new index command on the blueprint.</p>
 </div>
 
 
@@ -3855,7 +3996,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>after(<span>string <var>$column</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a> <var>$callback</var></span>): void</code>
+				<code>after(<span>string <var>$column</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>(<b><span class="active" title="Illuminate\Database\Schema\Blueprint">self</span></b>):&nbsp;void <var>$callback</var></span>): void</code>
 
 
 	<div class="expandable-collapsedView">

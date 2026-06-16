@@ -101,6 +101,11 @@
 						</a>
 					</li>
 					<li>
+						<a href="Carbon.OverflowMode.html">
+							OverflowMode
+						</a>
+					</li>
+					<li>
 						<a href="Carbon.Unit.html">
 							Unit
 						</a>
@@ -160,7 +165,7 @@
 		<tr>
 			<th><code>implements</code></th>
 			<td>
-<code><a href="Countable.html"><span title="Countable">Countable</span></a>, <a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a></code>			</td>
+<code><a href="Countable.html"><span title="Countable">Countable</span></a>, <a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>, <a href="Carbon.Constants.UnitValue.html"><span title="Carbon\Constants\UnitValue">UnitValue</span></a></code>			</td>
 		</tr>
 		<tr>
 			<th><code>uses</code></th>
@@ -186,7 +191,8 @@
 
 		implements
 			<a href="Countable.html"><span title="Countable">Countable</span></a>, 
-			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>
+			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>, 
+			<a href="Carbon.Constants.UnitValue.html"><span title="Carbon\Constants\UnitValue">UnitValue</span></a>
 
 		uses
 			<a href="Carbon.Traits.LocalFactory.html"><span title="Carbon\Traits\LocalFactory">LocalFactory</span></a>, 
@@ -416,6 +422,39 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_createFromISO8601String">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="monthly" id="_monthly">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>monthly(
+	<span><a href="DateTimeInterface.html"><span title="DateTimeInterface">DateTimeInterface</span></a>|string|int|null <var>$start</var> = <span class="php-kw">null</span></span>,
+	<span><a href="DateTimeInterface.html"><span title="DateTimeInterface">DateTimeInterface</span></a>|string|int|null <var>$end</var> = <span class="php-kw">null</span></span>,
+	<span>?int <var>$recurrences</var> = <span class="php-kw">null</span></span>,
+	<span>?int <var>$anchorDay</var> = <span class="php-kw">null</span></span>,
+	<span><a href="Carbon.OverflowMode.html"><span title="Carbon\OverflowMode">OverflowMode</span></a> <var>$mode</var> = <a href="Carbon.OverflowMode.html"><span title="Carbon\OverflowMode">OverflowMode</span></a>::<a href="Carbon.OverflowMode.html#AnchorDay">AnchorDay</a></span>,
+	<span>?int <var>$options</var> = <span class="php-kw">null</span></span>,
+): static</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_monthly">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="intervalHasTime" id="_intervalHasTime">
@@ -3926,6 +3965,37 @@ and should be automatically converted to a filter callback.</p>
 			</td>
 		<td class="table-anchor">
 			<a href="#_handleChangedParameters">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="syncNativePeriod" id="_syncNativePeriod">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>syncNativePeriod(): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Synchronize the native DatePeriod properties with the current state.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Synchronize the native DatePeriod properties with the current state.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_syncNativePeriod">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="validateCurrentDate" id="_validateCurrentDate">
@@ -8104,6 +8174,16 @@ if null given or parse the input if string given.</p>
 
 
 
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Constants inherited from <a href="Carbon.Constants.UnitValue.html"><span>Carbon\Constants\UnitValue</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Carbon.Constants.UnitValue.html#SUNDAY"><code>SUNDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#MONDAY"><code>MONDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#TUESDAY"><code>TUESDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#WEDNESDAY"><code>WEDNESDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#THURSDAY"><code>THURSDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#FRIDAY"><code>FRIDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#SATURDAY"><code>SATURDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#JANUARY"><code>JANUARY</code></a>, <a href="Carbon.Constants.UnitValue.html#FEBRUARY"><code>FEBRUARY</code></a>, <a href="Carbon.Constants.UnitValue.html#MARCH"><code>MARCH</code></a>, <a href="Carbon.Constants.UnitValue.html#APRIL"><code>APRIL</code></a>, <a href="Carbon.Constants.UnitValue.html#MAY"><code>MAY</code></a>, <a href="Carbon.Constants.UnitValue.html#JUNE"><code>JUNE</code></a>, <a href="Carbon.Constants.UnitValue.html#JULY"><code>JULY</code></a>, <a href="Carbon.Constants.UnitValue.html#AUGUST"><code>AUGUST</code></a>, <a href="Carbon.Constants.UnitValue.html#SEPTEMBER"><code>SEPTEMBER</code></a>, <a href="Carbon.Constants.UnitValue.html#OCTOBER"><code>OCTOBER</code></a>, <a href="Carbon.Constants.UnitValue.html#NOVEMBER"><code>NOVEMBER</code></a>, <a href="Carbon.Constants.UnitValue.html#DECEMBER"><code>DECEMBER</code></a>, <a href="Carbon.Constants.UnitValue.html#YEARS_PER_MILLENNIUM"><code>YEARS_PER_MILLENNIUM</code></a>, <a href="Carbon.Constants.UnitValue.html#YEARS_PER_CENTURY"><code>YEARS_PER_CENTURY</code></a>, <a href="Carbon.Constants.UnitValue.html#YEARS_PER_DECADE"><code>YEARS_PER_DECADE</code></a>, <a href="Carbon.Constants.UnitValue.html#MONTHS_PER_YEAR"><code>MONTHS_PER_YEAR</code></a>, <a href="Carbon.Constants.UnitValue.html#MONTHS_PER_QUARTER"><code>MONTHS_PER_QUARTER</code></a>, <a href="Carbon.Constants.UnitValue.html#QUARTERS_PER_YEAR"><code>QUARTERS_PER_YEAR</code></a>, <a href="Carbon.Constants.UnitValue.html#WEEKS_PER_YEAR"><code>WEEKS_PER_YEAR</code></a>, <a href="Carbon.Constants.UnitValue.html#WEEKS_PER_MONTH"><code>WEEKS_PER_MONTH</code></a>, <a href="Carbon.Constants.UnitValue.html#DAYS_PER_YEAR"><code>DAYS_PER_YEAR</code></a>, <a href="Carbon.Constants.UnitValue.html#DAYS_PER_WEEK"><code>DAYS_PER_WEEK</code></a>, <a href="Carbon.Constants.UnitValue.html#HOURS_PER_DAY"><code>HOURS_PER_DAY</code></a>, <a href="Carbon.Constants.UnitValue.html#MINUTES_PER_HOUR"><code>MINUTES_PER_HOUR</code></a>, <a href="Carbon.Constants.UnitValue.html#SECONDS_PER_MINUTE"><code>SECONDS_PER_MINUTE</code></a>, <a href="Carbon.Constants.UnitValue.html#MILLISECONDS_PER_SECOND"><code>MILLISECONDS_PER_SECOND</code></a>, <a href="Carbon.Constants.UnitValue.html#MICROSECONDS_PER_MILLISECOND"><code>MICROSECONDS_PER_MILLISECOND</code></a>, <a href="Carbon.Constants.UnitValue.html#MICROSECONDS_PER_SECOND"><code>MICROSECONDS_PER_SECOND</code></a></code>				</td>
+			</tr>
+		</table>
 
 
 

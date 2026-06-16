@@ -96,6 +96,16 @@
 			<h3>Exceptions</h3>
 			<ul>
 					<li>
+						<a href="Illuminate.Database.ClassMorphViolationException.html">
+							ClassMorphViolationException
+						</a>
+					</li>
+					<li>
+						<a href="Illuminate.Database.LazyLoadingViolationException.html">
+							LazyLoadingViolationException
+						</a>
+					</li>
+					<li>
 						<a href="Illuminate.Database.LostConnectionException.html">
 							LostConnectionException
 						</a>
@@ -123,6 +133,11 @@
 					<li>
 						<a href="Illuminate.Database.RecordsNotFoundException.html">
 							RecordsNotFoundException
+						</a>
+					</li>
+					<li>
+						<a href="Illuminate.Database.UniqueConstraintViolationException.html">
+							UniqueConstraintViolationException
 						</a>
 					</li>
 			</ul>
@@ -203,7 +218,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>__construct(<span><a href="PDO.html"><span title="PDO">PDO</span></a>|<a href="Closure.html"><span title="Closure">Closure</span></a> <var>$pdo</var></span>, <span>string <var>$database</var> = <span class="php-str">''</span></span>, <span>string <var>$tablePrefix</var> = <span class="php-str">''</span></span>, <span>array <var>$config</var> = []</span>)</code>
+				<code>__construct(<span><a href="PDO.html"><span title="PDO">PDO</span></a>|(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;<a href="PDO.html"><span title="PDO">PDO</span></a>) <var>$pdo</var></span>, <span>string <var>$database</var> = <span class="php-str">''</span></span>, <span>string <var>$tablePrefix</var> = <span class="php-str">''</span></span>, <span>array <var>$config</var> = []</span>)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -451,7 +466,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>table(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|<a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a>|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$table</var></span>, <span>string|null <var>$as</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a></code>
+				<code>table(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|<a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a>|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|<a href="UnitEnum.html"><span title="UnitEnum">UnitEnum</span></a>|string <var>$table</var></span>, <span>string|null <var>$as</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -628,7 +643,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>select(<span>string <var>$query</var></span>, <span>array <var>$bindings</var> = []</span>, <span>bool <var>$useReadPdo</var> = <span class="php-kw">true</span></span>): array</code>
+				<code>select(<span>string <var>$query</var></span>, <span>array <var>$bindings</var> = []</span>, <span>bool <var>$useReadPdo</var> = <span class="php-kw">true</span></span>, <span>array <var>$fetchUsing</var> = []</span>): array</code>
 
 
 	<div class="expandable-collapsedView">
@@ -664,7 +679,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>selectResultSets(<span>string <var>$query</var></span>, <span>array <var>$bindings</var> = []</span>, <span>bool <var>$useReadPdo</var> = <span class="php-kw">true</span></span>): array</code>
+				<code>selectResultSets(<span>string <var>$query</var></span>, <span>array <var>$bindings</var> = []</span>, <span>bool <var>$useReadPdo</var> = <span class="php-kw">true</span></span>, <span>array <var>$fetchUsing</var> = []</span>): array</code>
 
 
 	<div class="expandable-collapsedView">
@@ -695,7 +710,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>cursor(<span>string <var>$query</var></span>, <span>array <var>$bindings</var> = []</span>, <span>bool <var>$useReadPdo</var> = <span class="php-kw">true</span></span>): <a href="Generator.html"><span title="Generator">Generator</span></a>&lt;int, <a href="stdClass.html"><span title="stdClass">stdClass</span></a>&gt;</code>
+				<code>cursor(<span>string <var>$query</var></span>, <span>array <var>$bindings</var> = []</span>, <span>bool <var>$useReadPdo</var> = <span class="php-kw">true</span></span>, <span>array <var>$fetchUsing</var> = []</span>): <a href="Generator.html"><span title="Generator">Generator</span></a>&lt;int, <a href="stdClass.html"><span title="stdClass">stdClass</span></a>&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -973,7 +988,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>unprepared(<span>string <var>$query</var></span>): bool</code>
+				<code>unprepared(<span>literal-string <var>$query</var></span>): bool</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1040,7 +1055,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>pretend(<span><a href="Closure.html"><span title="Closure">Closure</span></a> <var>$callback</var></span>): array</code>
+				<code>pretend(<span><a href="Closure.html"><span title="Closure">Closure</span></a>(<b><span class="active" title="Illuminate\Database\Connection">Connection</span></b>):&nbsp;mixed <var>$callback</var></span>): array{query: string, bindings: array, time: (float|null)}[]</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1107,7 +1122,9 @@
 			</td>
 
 			<td class="table-cell">
-				<code>withFreshQueryLog(<span><a href="Closure.html"><span title="Closure">Closure</span></a> <var>$callback</var></span>): array</code>
+				<code>withFreshQueryLog(
+	<span><a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;array{query: string, bindings: array, time: (float|null)}[] <var>$callback</var></span>,
+): array{query: string, bindings: array, time: (float|null)}[]</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1301,6 +1318,37 @@
 			<a href="#_isUniqueConstraintError">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="parseUniqueConstraintViolation" id="_parseUniqueConstraintViolation">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>parseUniqueConstraintViolation(<span><a href="Exception.html"><span title="Exception">Exception</span></a> <var>$exception</var></span>): array{index: (string|null), columns: list&lt;string&gt;}</code>
+
+
+	<div class="expandable-collapsedView">
+		Extract the index and columns that caused a unique constraint violation.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Extract the index and columns that caused a unique constraint violation.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_parseUniqueConstraintViolation">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="logQuery" id="_logQuery">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1347,11 +1395,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Get the elapsed time since a given starting point.
+		Get the elapsed time in milliseconds since a given starting point.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Get the elapsed time since a given starting point.</p>
+	<div class="description"><p>Get the elapsed time in milliseconds since a given starting point.</p>
 </div>
 
 
@@ -1374,7 +1422,10 @@
 			</td>
 
 			<td class="table-cell">
-				<code>whenQueryingForLongerThan(<span><a href="DateTimeInterface.html"><span title="DateTimeInterface">DateTimeInterface</span></a>|<a href="Carbon.CarbonInterval.html"><span title="Carbon\CarbonInterval">CarbonInterval</span></a>|float|int <var>$threshold</var></span>, <span>callable <var>$handler</var></span>): void</code>
+				<code>whenQueryingForLongerThan(
+	<span><a href="DateTimeInterface.html"><span title="DateTimeInterface">DateTimeInterface</span></a>|<a href="Carbon.CarbonInterval.html"><span title="Carbon\CarbonInterval">CarbonInterval</span></a>|float|int <var>$threshold</var></span>,
+	<span>callable(<b><span class="active" title="Illuminate\Database\Connection">Connection</span></b>, <a href="Illuminate.Database.Events.QueryExecuted.html"><span title="Illuminate\Database\Events\QueryExecuted">QueryExecuted</span></a>):&nbsp;mixed <var>$handler</var></span>,
+): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1829,7 +1880,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>raw(<span>mixed <var>$value</var></span>): <a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a></code>
+				<code>raw(<span>literal-string|int|float <var>$value</var></span>): <a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -1878,6 +1929,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="RuntimeException.html"><span>RuntimeException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
@@ -1971,6 +2029,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="RuntimeException.html"><span>RuntimeException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
@@ -2319,6 +2384,37 @@
 			<a href="#_setReadPdo">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="setReadPdoConfig" id="_setReadPdoConfig">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>setReadPdoConfig(<span>array <var>$config</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Set the read PDO connection configuration.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Set the read PDO connection configuration.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_setReadPdoConfig">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="setReconnector" id="_setReconnector">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -2330,7 +2426,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>setReconnector(<span>callable <var>$reconnector</var></span>): $this</code>
+				<code>setReconnector(<span>callable(<b><span class="active" title="Illuminate\Database\Connection">Connection</span></b>):&nbsp;mixed <var>$reconnector</var></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2396,11 +2492,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Get the database connection full name.
+		Get the database connection with its read / write type.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Get the database connection full name.</p>
+	<div class="description"><p>Get the database connection with its read / write type.</p>
 </div>
 
 
@@ -2441,6 +2537,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_getConfig">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="getConnectionDetails" id="_getConnectionDetails">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getConnectionDetails(): array</code>
+
+
+	<div class="expandable-collapsedView">
+		Get the basic connection information as an array for debugging.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the basic connection information as an array for debugging.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getConnectionDetails">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="getDriverName" id="_getDriverName">
@@ -2702,7 +2829,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getEventDispatcher(): <a href="Illuminate.Contracts.Events.Dispatcher.html"><span title="Illuminate\Contracts\Events\Dispatcher">Dispatcher</span></a></code>
+				<code>getEventDispatcher(): <a href="Illuminate.Contracts.Events.Dispatcher.html"><span title="Illuminate\Contracts\Events\Dispatcher">Dispatcher</span></a>|null</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2782,6 +2909,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_unsetEventDispatcher">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="executeBeginTransactionStatement" id="_executeBeginTransactionStatement">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>executeBeginTransactionStatement(): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Run the statement to start a new transaction.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Run the statement to start a new transaction.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_executeBeginTransactionStatement">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="setTransactionManager" id="_setTransactionManager">
@@ -2888,7 +3046,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getQueryLog(): array</code>
+				<code>getQueryLog(): array{query: string, bindings: array, time: (float|null)}[]</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3161,6 +3319,37 @@
 			<a href="#_setReadWriteType">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="latestReadWriteTypeUsed" id="_latestReadWriteTypeUsed">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>latestReadWriteTypeUsed(): <span class="php-str">'read'</span>|<span class="php-str">'write'</span>|null</code>
+
+
+	<div class="expandable-collapsedView">
+		Retrieve the latest read / write type used.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Retrieve the latest read / write type used.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_latestReadWriteTypeUsed">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="getTablePrefix" id="_getTablePrefix">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -3347,6 +3536,37 @@
 			<a href="#_getResolver">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="__clone" id="___clone">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>__clone(): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Prepare the instance for cloning.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Prepare the instance for cloning.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#___clone">#</a>
+		</td>
+	</tr>
 		</table>
 
 		<table class="table">
@@ -3375,7 +3595,7 @@
 			</tr>
 			<tr>
 				<td class="table-cell">
-<code><a href="Illuminate.Database.Concerns.ManagesTransactions.html#_transaction">transaction()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_handleTransactionException">handleTransactionException()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_beginTransaction">beginTransaction()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_createTransaction">createTransaction()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_createSavepoint">createSavepoint()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_handleBeginTransactionException">handleBeginTransactionException()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_commit">commit()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_handleCommitTransactionException">handleCommitTransactionException()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_rollBack">rollBack()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_performRollBack">performRollBack()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_handleRollBackException">handleRollBackException()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_transactionLevel">transactionLevel()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_afterCommit">afterCommit()</a></code>				</td>
+<code><a href="Illuminate.Database.Concerns.ManagesTransactions.html#_transaction">transaction()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_handleTransactionException">handleTransactionException()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_beginTransaction">beginTransaction()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_createTransaction">createTransaction()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_createSavepoint">createSavepoint()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_handleBeginTransactionException">handleBeginTransactionException()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_commit">commit()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_handleCommitTransactionException">handleCommitTransactionException()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_rollBack">rollBack()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_performRollBack">performRollBack()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_handleRollBackException">handleRollBackException()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_transactionLevel">transactionLevel()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_afterCommit">afterCommit()</a>, <a href="Illuminate.Database.Concerns.ManagesTransactions.html#_afterRollBack">afterRollBack()</a></code>				</td>
 			</tr>
 		</table>
 
@@ -3420,7 +3640,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap"><a href="PDO.html"><span title="PDO">PDO</span></a>|<a href="Closure.html"><span title="Closure">Closure</span></a></code>
+				<code class="nowrap"><a href="PDO.html"><span title="PDO">PDO</span></a>|(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;<a href="PDO.html"><span title="PDO">PDO</span></a>)</code>
 			</td>
 
 			<td class="table-cell">
@@ -3444,7 +3664,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap"><a href="PDO.html"><span title="PDO">PDO</span></a>|<a href="Closure.html"><span title="Closure">Closure</span></a></code>
+				<code class="nowrap"><a href="PDO.html"><span title="PDO">PDO</span></a>|(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;<a href="PDO.html"><span title="PDO">PDO</span></a>)</code>
 			</td>
 
 			<td class="table-cell">
@@ -3456,6 +3676,30 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#$readPdo">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="readPdoConfig" id="$readPdoConfig">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">array</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$readPdoConfig</var> = []</code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$readPdoConfig">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="database" id="$database">
@@ -3564,7 +3808,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap">callable</code>
+				<code class="nowrap">callable(<b><span class="active" title="Illuminate\Database\Connection">Connection</span></b>):&nbsp;mixed</code>
 			</td>
 
 			<td class="table-cell">
@@ -3804,7 +4048,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap">array</code>
+				<code class="nowrap">array{query: string, bindings: array, time: (float|null)}[]</code>
 			</td>
 
 			<td class="table-cell">
@@ -3876,7 +4120,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap">array</code>
+				<code class="nowrap">array{has_run: bool, handler: (callable(<b><span class="active" title="Illuminate\Database\Connection">Connection</span></b>, class-string&lt;<a href="Illuminate.Database.Events.QueryExecuted.html"><span title="Illuminate\Database\Events\QueryExecuted">QueryExecuted</span></a>&gt;):&nbsp;mixed)}[]</code>
 			</td>
 
 			<td class="table-cell">
@@ -3948,7 +4192,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap"><a href="Closure.html"><span title="Closure">Closure</span></a>[]</code>
+				<code class="nowrap">(<a href="Closure.html"><span title="Closure">Closure</span></a>(string, array, <b><span class="active" title="Illuminate\Database\Connection">Connection</span></b>):&nbsp;mixed)[]</code>
 			</td>
 
 			<td class="table-cell">
@@ -3984,6 +4228,30 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#$resolvers">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="latestPdoTypeRetrieved" id="$latestPdoTypeRetrieved">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">null|<span class="php-str">'read'</span>|<span class="php-str">'write'</span></code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$latestPdoTypeRetrieved</var> = <span class="php-kw">null</span></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$latestPdoTypeRetrieved">#</a>
 		</td>
 	</tr>
 		</table>

@@ -256,6 +256,16 @@
 			</ul>
 		</div>
 		<div class="menu-section">
+			<h3>Enums</h3>
+			<ul>
+					<li>
+						<a href="SortDirection.html">
+							SortDirection
+						</a>
+					</li>
+			</ul>
+		</div>
+		<div class="menu-section">
 			<h3>Exceptions</h3>
 			<ul>
 					<li>
@@ -284,6 +294,11 @@
 						</a>
 					</li>
 					<li>
+						<a href="JsonException.html">
+							JsonException
+						</a>
+					</li>
+					<li>
 						<a href="LogicException.html">
 							LogicException
 						</a>
@@ -291,11 +306,6 @@
 					<li>
 						<a href="OutOfBoundsException.html">
 							OutOfBoundsException
-						</a>
-					</li>
-					<li>
-						<a href="OutOfRangeException.html">
-							OutOfRangeException
 						</a>
 					</li>
 					<li>
@@ -319,13 +329,13 @@
 						</a>
 					</li>
 					<li>
-						<a href="UnderflowException.html">
-							UnderflowException
+						<a href="UnexpectedValueException.html">
+							UnexpectedValueException
 						</a>
 					</li>
 					<li>
-						<a href="UnexpectedValueException.html">
-							UnexpectedValueException
+						<a href="ValueError.html">
+							ValueError
 						</a>
 					</li>
 			</ul>
@@ -398,27 +408,16 @@
 
 	</li>
 	<li>
-<a href="PDOStatement.html"><span>PDOStatement</span></a>
+<a href="Illuminate.Pagination.CursorPaginator.html"><span>Illuminate\Pagination\CursorPaginator</span></a>
 
 		implements
-			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>
-
-	</li>
-	<li>
-<a href="WeakMap.html"><span>WeakMap</span></a>
-
-		implements
-			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>, 
+			<a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>&lt;TKey, TValue&gt;, 
+			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>&lt;TKey, TValue&gt;, 
 			<a href="Countable.html"><span title="Countable">Countable</span></a>, 
-			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>
-
-	</li>
-	<li>
-<a href="Symfony.Component.Console.Helper.TreeNode.html"><span>Symfony\Component\Console\Helper\TreeNode</span></a>
-
-		implements
-			<a href="Countable.html"><span title="Countable">Countable</span></a>, 
-			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>&lt;<a href="Symfony.Component.Console.Helper.TreeNode.html"><span title="Symfony\Component\Console\Helper\TreeNode">TreeNode</span></a>&gt;
+			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>&lt;TKey, TValue&gt;, 
+			<a href="Illuminate.Contracts.Support.Jsonable.html"><span title="Illuminate\Contracts\Support\Jsonable">Jsonable</span></a>, 
+			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>, 
+			<a href="Illuminate.Contracts.Pagination.CursorPaginator.html"><span title="Illuminate\Contracts\Pagination\CursorPaginator">CursorPaginator</span></a>&lt;TKey, TValue&gt;
 
 	</li>
 	<li>
@@ -432,26 +431,6 @@
 			<a href="Illuminate.Contracts.Support.Jsonable.html"><span title="Illuminate\Contracts\Support\Jsonable">Jsonable</span></a>, 
 			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>, 
 			<a href="Illuminate.Contracts.Pagination.Paginator.html"><span title="Illuminate\Contracts\Pagination\Paginator">Paginator</span></a>&lt;TKey, TValue&gt;
-
-	</li>
-	<li>
-<a href="Symfony.Component.Console.Helper.HelperSet.html"><span>Symfony\Component\Console\Helper\HelperSet</span></a>
-
-		implements
-			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>&lt;string, <a href="Symfony.Component.Console.Helper.HelperInterface.html"><span title="Symfony\Component\Console\Helper\HelperInterface">HelperInterface</span></a>&gt;
-
-	</li>
-	<li>
-<a href="Illuminate.Pagination.CursorPaginator.html"><span>Illuminate\Pagination\CursorPaginator</span></a>
-
-		implements
-			<a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>&lt;TKey, TValue&gt;, 
-			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>&lt;TKey, TValue&gt;, 
-			<a href="Countable.html"><span title="Countable">Countable</span></a>, 
-			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>&lt;TKey, TValue&gt;, 
-			<a href="Illuminate.Contracts.Support.Jsonable.html"><span title="Illuminate\Contracts\Support\Jsonable">Jsonable</span></a>, 
-			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>, 
-			<a href="Illuminate.Contracts.Pagination.CursorPaginator.html"><span title="Illuminate\Contracts\Pagination\CursorPaginator">CursorPaginator</span></a>&lt;TKey, TValue&gt;
 
 	</li>
 	<li>
@@ -472,10 +451,80 @@
 	</ul>
 	</li>
 	<li>
+<a href="Symfony.Component.Console.Helper.HelperSet.html"><span>Symfony\Component\Console\Helper\HelperSet</span></a>
+
+		implements
+			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>&lt;string, <a href="Symfony.Component.Console.Helper.HelperInterface.html"><span title="Symfony\Component\Console\Helper\HelperInterface">HelperInterface</span></a>&gt;
+
+	</li>
+	<li>
 <a href="DatePeriod.html"><span>DatePeriod</span></a>
 
 		implements
 			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>
+
+	</li>
+	<li>
+<a href="Illuminate.Support.Fluent.html"><span>Illuminate\Support\Fluent</span></a>
+
+		implements
+			<a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>&lt;TKey, TValue&gt;, 
+			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>&lt;TKey, TValue&gt;, 
+			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>, 
+			<a href="Illuminate.Contracts.Support.Jsonable.html"><span title="Illuminate\Contracts\Support\Jsonable">Jsonable</span></a>, 
+			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>
+
+		uses
+			<a href="Illuminate.Support.Traits.Conditionable.html"><span title="Illuminate\Support\Traits\Conditionable">Conditionable</span></a>, 
+			<a href="Illuminate.Support.Traits.InteractsWithData.html"><span title="Illuminate\Support\Traits\InteractsWithData">InteractsWithData</span></a>, 
+			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>
+	<ul class="classTree">
+	<li>
+<a href="Illuminate.Database.Schema.ColumnDefinition.html"><span>Illuminate\Database\Schema\ColumnDefinition</span></a>
+
+
+	<ul class="classTree">
+	<li>
+<a href="Illuminate.Database.Schema.ForeignIdColumnDefinition.html"><span>Illuminate\Database\Schema\ForeignIdColumnDefinition</span></a>
+
+
+	</li>
+	</ul>
+	</li>
+	<li>
+<a href="Illuminate.Database.Schema.ForeignKeyDefinition.html"><span>Illuminate\Database\Schema\ForeignKeyDefinition</span></a>
+
+
+	</li>
+	<li>
+<a href="Illuminate.Database.Schema.IndexDefinition.html"><span>Illuminate\Database\Schema\IndexDefinition</span></a>
+
+
+	</li>
+	</ul>
+	</li>
+	<li>
+<a href="WeakMap.html"><span>WeakMap</span></a>
+
+		implements
+			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>, 
+			<a href="Countable.html"><span title="Countable">Countable</span></a>, 
+			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>
+
+	</li>
+	<li>
+<a href="PDOStatement.html"><span>PDOStatement</span></a>
+
+		implements
+			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>
+
+	</li>
+	<li>
+<a href="Symfony.Component.Console.Helper.TreeNode.html"><span>Symfony\Component\Console\Helper\TreeNode</span></a>
+
+		implements
+			<a href="Countable.html"><span title="Countable">Countable</span></a>, 
+			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>&lt;<a href="Symfony.Component.Console.Helper.TreeNode.html"><span title="Symfony\Component\Console\Helper\TreeNode">TreeNode</span></a>&gt;
 
 	</li>
 	<li>
@@ -503,12 +552,12 @@
 
 	<ul class="classTree">
 	<li>
-<a href="Symfony.Component.HttpFoundation.InputBag.html"><span>Symfony\Component\HttpFoundation\InputBag</span></a>
+<a href="Symfony.Component.HttpFoundation.ServerBag.html"><span>Symfony\Component\HttpFoundation\ServerBag</span></a>
 
 
 	</li>
 	<li>
-<a href="Symfony.Component.HttpFoundation.ServerBag.html"><span>Symfony\Component\HttpFoundation\ServerBag</span></a>
+<a href="Symfony.Component.HttpFoundation.InputBag.html"><span>Symfony\Component\HttpFoundation\InputBag</span></a>
 
 
 	</li>
@@ -518,6 +567,14 @@
 
 	</li>
 	</ul>
+	</li>
+	<li>
+<a href="Symfony.Component.Routing.RouteCollection.html"><span>Symfony\Component\Routing\RouteCollection</span></a>
+
+		implements
+			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>&lt;string, <a href="Symfony.Component.Routing.Route.html"><span title="Symfony\Component\Routing\Route">Route</span></a>&gt;, 
+			<a href="Countable.html"><span title="Countable">Countable</span></a>
+
 	</li>
 	<li>
 <a href="Illuminate.Routing.AbstractRouteCollection.html"><span>Illuminate\Routing\AbstractRouteCollection</span></a>
@@ -541,14 +598,6 @@
 	</ul>
 	</li>
 	<li>
-<a href="Symfony.Component.Routing.RouteCollection.html"><span>Symfony\Component\Routing\RouteCollection</span></a>
-
-		implements
-			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>&lt;string, <a href="Symfony.Component.Routing.Route.html"><span title="Symfony\Component\Routing\Route">Route</span></a>&gt;, 
-			<a href="Countable.html"><span title="Countable">Countable</span></a>
-
-	</li>
-	<li>
 <a href="Illuminate.Support.Enumerable.html"><span>Illuminate\Support\Enumerable</span></a>
 		extends
 			<a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>&lt;TKey, TValue&gt;, 
@@ -559,17 +608,6 @@
 
 
 	<ul class="classTree">
-	<li>
-<a href="Illuminate.Support.LazyCollection.html"><span>Illuminate\Support\LazyCollection</span></a>
-
-		implements
-			<a href="Illuminate.Contracts.Support.CanBeEscapedWhenCastToString.html"><span title="Illuminate\Contracts\Support\CanBeEscapedWhenCastToString">CanBeEscapedWhenCastToString</span></a>, 
-			<a href="Illuminate.Support.Enumerable.html"><span title="Illuminate\Support\Enumerable">Enumerable</span></a>&lt;TKey, TValue&gt;
-
-		uses
-			<a href="Illuminate.Support.Traits.EnumeratesValues.html"><span title="Illuminate\Support\Traits\EnumeratesValues">EnumeratesValues</span></a>, 
-			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>
-	</li>
 	<li>
 <a href="Illuminate.Support.Collection.html"><span>Illuminate\Support\Collection</span></a>
 
@@ -601,6 +639,17 @@
 	</li>
 	</ul>
 	</li>
+	<li>
+<a href="Illuminate.Support.LazyCollection.html"><span>Illuminate\Support\LazyCollection</span></a>
+
+		implements
+			<a href="Illuminate.Contracts.Support.CanBeEscapedWhenCastToString.html"><span title="Illuminate\Contracts\Support\CanBeEscapedWhenCastToString">CanBeEscapedWhenCastToString</span></a>, 
+			<a href="Illuminate.Support.Enumerable.html"><span title="Illuminate\Support\Enumerable">Enumerable</span></a>&lt;TKey, TValue&gt;
+
+		uses
+			<a href="Illuminate.Support.Traits.EnumeratesValues.html"><span title="Illuminate\Support\Traits\EnumeratesValues">EnumeratesValues</span></a>, 
+			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>
+	</li>
 	</ul>
 	</li>
 	<li>
@@ -619,76 +668,8 @@
 			<a href="Illuminate.Contracts.Support.ValidatedData.html"><span title="Illuminate\Contracts\Support\ValidatedData">ValidatedData</span></a>
 
 		uses
+			<a href="Illuminate.Support.Traits.Dumpable.html"><span title="Illuminate\Support\Traits\Dumpable">Dumpable</span></a>, 
 			<a href="Illuminate.Support.Traits.InteractsWithData.html"><span title="Illuminate\Support\Traits\InteractsWithData">InteractsWithData</span></a>
-	</li>
-	</ul>
-	</li>
-	<li>
-<a href="Ds.Collection.html"><span>Ds\Collection</span></a>
-		extends
-			<a href="Countable.html"><span title="Countable">Countable</span></a>, 
-			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>, 
-			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>
-
-
-	<ul class="classTree">
-	<li>
-<a href="Ds.Map.html"><span>Ds\Map</span></a>
-
-		implements
-			<a href="Ds.Collection.html"><span title="Ds\Collection">Collection</span></a>
-
-	</li>
-	<li>
-<a href="Ds.Set.html"><span>Ds\Set</span></a>
-
-		implements
-			<a href="Ds.Collection.html"><span title="Ds\Collection">Collection</span></a>
-
-	</li>
-	<li>
-<a href="Ds.Stack.html"><span>Ds\Stack</span></a>
-
-		implements
-			<a href="Ds.Collection.html"><span title="Ds\Collection">Collection</span></a>
-
-	</li>
-	<li>
-<a href="Ds.Queue.html"><span>Ds\Queue</span></a>
-
-		implements
-			<a href="Ds.Collection.html"><span title="Ds\Collection">Collection</span></a>
-
-	</li>
-	<li>
-<a href="Ds.PriorityQueue.html"><span>Ds\PriorityQueue</span></a>
-
-		implements
-			<a href="Ds.Collection.html"><span title="Ds\Collection">Collection</span></a>
-
-	</li>
-	<li>
-<a href="Ds.Sequence.html"><span>Ds\Sequence</span></a>
-		extends
-			<a href="Ds.Collection.html"><span title="Ds\Collection">Collection</span></a>
-
-
-	<ul class="classTree">
-	<li>
-<a href="Ds.Vector.html"><span>Ds\Vector</span></a>
-
-		implements
-			<a href="Ds.Sequence.html"><span title="Ds\Sequence">Sequence</span></a>
-
-	</li>
-	<li>
-<a href="Ds.Deque.html"><span>Ds\Deque</span></a>
-
-		implements
-			<a href="Ds.Sequence.html"><span title="Ds\Sequence">Sequence</span></a>
-
-	</li>
-	</ul>
 	</li>
 	</ul>
 	</li>
@@ -709,30 +690,6 @@
 
 	</li>
 	<li>
-<a href="RecursiveIterator.html"><span>RecursiveIterator</span></a>
-		extends
-			<a href="Iterator.html"><span title="Iterator">Iterator</span></a>
-
-
-	<ul class="classTree">
-	<li>
-<a href="Symfony.Component.Console.Helper.TreeHelper.html"><span>Symfony\Component\Console\Helper\TreeHelper</span></a>
-
-		implements
-			<a href="RecursiveIterator.html"><span title="RecursiveIterator">RecursiveIterator</span></a>&lt;int, <a href="Symfony.Component.Console.Helper.TreeNode.html"><span title="Symfony\Component\Console\Helper\TreeNode">TreeNode</span></a>&gt;
-
-	</li>
-	<li>
-<a href="SplFileObject.html"><span>SplFileObject</span></a>
-
-		implements
-			<a href="RecursiveIterator.html"><span title="RecursiveIterator">RecursiveIterator</span></a>, 
-			<a href="SeekableIterator.html"><span title="SeekableIterator">SeekableIterator</span></a>
-
-	</li>
-	</ul>
-	</li>
-	<li>
 <a href="SeekableIterator.html"><span>SeekableIterator</span></a>
 		extends
 			<a href="Iterator.html"><span title="Iterator">Iterator</span></a>
@@ -747,6 +704,30 @@
 			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>, 
 			<a href="Serializable.html"><span title="Serializable">Serializable</span></a>, 
 			<a href="Countable.html"><span title="Countable">Countable</span></a>
+
+	</li>
+	<li>
+<a href="SplFileObject.html"><span>SplFileObject</span></a>
+
+		implements
+			<a href="RecursiveIterator.html"><span title="RecursiveIterator">RecursiveIterator</span></a>, 
+			<a href="SeekableIterator.html"><span title="SeekableIterator">SeekableIterator</span></a>
+
+	</li>
+	</ul>
+	</li>
+	<li>
+<a href="RecursiveIterator.html"><span>RecursiveIterator</span></a>
+		extends
+			<a href="Iterator.html"><span title="Iterator">Iterator</span></a>
+
+
+	<ul class="classTree">
+	<li>
+<a href="Symfony.Component.Console.Helper.TreeHelper.html"><span>Symfony\Component\Console\Helper\TreeHelper</span></a>
+
+		implements
+			<a href="RecursiveIterator.html"><span title="RecursiveIterator">RecursiveIterator</span></a>&lt;int, <a href="Symfony.Component.Console.Helper.TreeNode.html"><span title="Symfony\Component\Console\Helper\TreeNode">TreeNode</span></a>&gt;
 
 	</li>
 	<li>

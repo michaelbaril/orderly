@@ -776,6 +776,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Illuminate.Database.LazyLoadingViolationException.html"><span>Illuminate\Database\LazyLoadingViolationException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
@@ -1093,6 +1100,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="InvalidArgumentException.html"><span>InvalidArgumentException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
@@ -1700,7 +1714,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getEnumCaseFromValue(<span>string <var>$enumClass</var></span>, <span>string|int <var>$value</var></span>): <a href="UnitEnum.html"><span title="UnitEnum">UnitEnum</span></a>|<a href="BackedEnum.html"><span title="BackedEnum">BackedEnum</span></a></code>
+				<code>getEnumCaseFromValue(<span>string <var>$enumClass</var></span>, <span>string|int <var>$value</var></span>): <a href="UnitEnum.html"><span title="UnitEnum">UnitEnum</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -1731,7 +1745,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getStorableEnumValue(<span>string <var>$expectedEnum</var></span>, <span><a href="UnitEnum.html"><span title="UnitEnum">UnitEnum</span></a>|<a href="BackedEnum.html"><span title="BackedEnum">BackedEnum</span></a> <var>$value</var></span>): string|int</code>
+				<code>getStorableEnumValue(<span>string <var>$expectedEnum</var></span>, <span><a href="UnitEnum.html"><span title="UnitEnum">UnitEnum</span></a> <var>$value</var></span>): string|int</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1744,6 +1758,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="ValueError.html"><span>ValueError</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
@@ -1762,7 +1783,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getArrayAttributeWithValue(<span>string <var>$path</var></span>, <span>string <var>$key</var></span>, <span>mixed <var>$value</var></span>): $this</code>
+				<code>getArrayAttributeWithValue(<span>string <var>$path</var></span>, <span>string <var>$key</var></span>, <span>mixed <var>$value</var></span>): array</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1837,6 +1858,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Illuminate.Database.Eloquent.JsonEncodingException.html"><span>Illuminate\Database\Eloquent\JsonEncodingException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
@@ -2034,7 +2062,7 @@
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
 					
-	protected
+	public
 					static
 					
 				</code>
@@ -2072,7 +2100,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>castAttributeAsHashedString(<span>string <var>$key</var></span>, <span>mixed <var>$value</var></span>): string</code>
+				<code>castAttributeAsHashedString(<span>string <var>$key</var></span>, <span>mixed <var>$value</var></span>): string|null</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2085,6 +2113,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="RuntimeException.html"><span>RuntimeException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
@@ -2147,6 +2182,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Illuminate.Support.Exceptions.MathException.html"><span>Illuminate\Support\Exceptions\MathException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
@@ -2351,7 +2393,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getDates(): array</code>
+				<code>getDates(): array&lt;int, string|null&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2506,7 +2548,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>casts(): array&lt;string, string&gt;</code>
+				<code>casts(): array&lt;string, <a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2919,6 +2961,37 @@
 			<a href="#_mergeAttributesFromCachedCasts">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="mergeAttributeFromCachedCasts" id="_mergeAttributeFromCachedCasts">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>mergeAttributeFromCachedCasts(<span>string <var>$key</var></span>): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Merge the cast class and attribute cast attribute back into the model.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Merge the cast class and attribute cast attribute back into the model.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_mergeAttributeFromCachedCasts">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="mergeAttributesFromClassCasts" id="_mergeAttributesFromClassCasts">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -2950,6 +3023,37 @@
 			<a href="#_mergeAttributesFromClassCasts">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="mergeAttributeFromClassCasts" id="_mergeAttributeFromClassCasts">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>mergeAttributeFromClassCasts(<span>string <var>$key</var></span>): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Merge the cast class attribute back into the model.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Merge the cast class attribute back into the model.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_mergeAttributeFromClassCasts">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="mergeAttributesFromAttributeCasts" id="_mergeAttributesFromAttributeCasts">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -2979,6 +3083,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_mergeAttributesFromAttributeCasts">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="mergeAttributeFromAttributeCasts" id="_mergeAttributeFromAttributeCasts">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>mergeAttributeFromAttributeCasts(<span>string <var>$key</var></span>): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Merge the cast class attribute back into the model.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Merge the cast class attribute back into the model.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_mergeAttributeFromAttributeCasts">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="normalizeCastClassResponse" id="_normalizeCastClassResponse">
@@ -3821,6 +3956,37 @@
 			<a href="#_setAppends">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="mergeAppends" id="_mergeAppends">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>mergeAppends(<span>array&lt;string&gt; <var>$appends</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Merge new appended attributes with existing appended attributes on the model.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Merge new appended attributes with existing appended attributes on the model.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_mergeAppends">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="hasAppended" id="_hasAppended">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -3850,6 +4016,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_hasAppended">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="withoutAppends" id="_withoutAppends">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>withoutAppends(): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Remove all appended properties from the model.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Remove all appended properties from the model.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_withoutAppends">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="getMutatedAttributes" id="_getMutatedAttributes">

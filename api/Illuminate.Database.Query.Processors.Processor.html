@@ -249,7 +249,7 @@
 			<td class="table-cell">
 				<code>processViews(
 	<span>list&lt;array&lt;string, mixed&gt;&gt; <var>$results</var></span>,
-): list&lt;array{name: string, schema: string, schema_qualified_name: string, definition: string}&gt;</code>
+): list&lt;array{name: string, schema: (string|null), schema_qualified_name: string, definition: string}&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -282,7 +282,7 @@
 			<td class="table-cell">
 				<code>processTypes(
 	<span>list&lt;array&lt;string, mixed&gt;&gt; <var>$results</var></span>,
-): list&lt;array{name: string, schema: string, type: string, type: string, category: string, implicit: bool}&gt;</code>
+): list&lt;array{name: string, schema: string, schema_qualified_name: string, type: string, category: string, implicit: bool}&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -315,7 +315,7 @@
 			<td class="table-cell">
 				<code>processColumns(
 	<span>list&lt;array&lt;string, mixed&gt;&gt; <var>$results</var></span>,
-): list&lt;array{name: string, type: string, type_name: string, nullable: bool, default: mixed, auto_increment: bool, comment: (string|null), generation: (array{type: string, expression: (string|null)}|null)}&gt;</code>
+): list&lt;array{name: string, type: string, type_name: string, collation: (string|null), nullable: bool, default: mixed, auto_increment: bool, comment: (string|null), generation: (array{type: (string|null), expression: (string|null)}|null)}&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -348,7 +348,7 @@
 			<td class="table-cell">
 				<code>processIndexes(
 	<span>list&lt;array&lt;string, mixed&gt;&gt; <var>$results</var></span>,
-): list&lt;array{name: string, columns: list&lt;string&gt;, type: string, unique: bool, primary: bool}&gt;</code>
+): list&lt;array{name: string, columns: list&lt;string&gt;, type: (string|null), unique: bool, primary: bool}&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -381,7 +381,7 @@
 			<td class="table-cell">
 				<code>processForeignKeys(
 	<span>list&lt;array&lt;string, mixed&gt;&gt; <var>$results</var></span>,
-): list&lt;array{name: string, columns: list&lt;string&gt;, foreign_schema: string, foreign_table: string, foreign_columns: list&lt;string&gt;, on_update: string, on_delete: string}&gt;</code>
+): list&lt;array{name: (string|null), columns: list&lt;string&gt;, foreign_schema: (string|null), foreign_table: string, foreign_columns: list&lt;string&gt;, on_update: (string|null), on_delete: (string|null)}&gt;</code>
 
 
 	<div class="expandable-collapsedView">

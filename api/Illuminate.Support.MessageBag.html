@@ -419,7 +419,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>has(<span>array|string|null <var>$key</var></span>): bool</code>
+				<code>has(<span>array&lt;string&gt;|string|null <var>$key</var></span>): bool</code>
 
 
 	<div class="expandable-collapsedView">
@@ -455,7 +455,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>hasAny(<span>array|string|null <var>$keys</var> = []</span>): bool</code>
+				<code>hasAny(<span>array&lt;string&gt;|string|null <var>$keys</var> = []</span>): bool</code>
 
 
 	<div class="expandable-collapsedView">
@@ -486,7 +486,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>missing(<span>array|string|null <var>$key</var></span>): bool</code>
+				<code>missing(<span>array&lt;string&gt;|string|null <var>$key</var></span>): bool</code>
 
 
 	<div class="expandable-collapsedView">
@@ -656,7 +656,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>unique(<span>string|null <var>$format</var> = <span class="php-kw">null</span></span>): array</code>
+				<code>unique(<span>string|null <var>$format</var> = <span class="php-kw">null</span></span>): array&lt;string&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1099,7 +1099,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>toArray(): array</code>
+				<code>toArray(): array&lt;string, array&lt;string&gt;&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1135,7 +1135,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>jsonSerialize(): array</code>
+				<code>jsonSerialize(): array&lt;string, array&lt;string&gt;&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1194,6 +1194,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_toJson">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="toPrettyJson" id="_toPrettyJson">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>toPrettyJson(<span>int <var>$options</var> = <span class="php-num">0</span></span>): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Convert the object to pretty print formatted JSON.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Convert the object to pretty print formatted JSON.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_toPrettyJson">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="__toString" id="___toString">

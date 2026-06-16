@@ -364,6 +364,44 @@
 			<a href="#_compileJoinLateral">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="supportsStraightJoins" id="_supportsStraightJoins">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>supportsStraightJoins(): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Determine if the grammar supports straight joins.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Determine if the grammar supports straight joins.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="RuntimeException.html"><span>RuntimeException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_supportsStraightJoins">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="compileWheres" id="_compileWheres">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -574,11 +612,49 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="RuntimeException.html"><span>RuntimeException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
 		<td class="table-anchor">
 			<a href="#_whereLike">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="whereNullSafeEquals" id="_whereNullSafeEquals">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>whereNullSafeEquals(<span><a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a> <var>$query</var></span>, <span>array <var>$where</var></span>): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Compile a "where null safe equals" clause.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Compile a &quot;where null safe equals&quot; clause.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_whereNullSafeEquals">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="whereIn" id="_whereIn">
@@ -829,6 +905,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_whereBetweenColumns">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="whereValueBetween" id="_whereValueBetween">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>whereValueBetween(<span><a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a> <var>$query</var></span>, <span>array <var>$where</var></span>): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Compile a "value between" where clause.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Compile a &quot;value between&quot; where clause.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_whereValueBetween">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="whereDate" id="_whereDate">
@@ -1596,6 +1703,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="RuntimeException.html"><span>RuntimeException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
@@ -2006,6 +2120,37 @@
 			<a href="#_compileOrdersToArray">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="compileInOrderOf" id="_compileInOrderOf">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>compileInOrderOf(<span>array <var>$order</var></span>): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Compile an "in order of" clause.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Compile an &quot;in order of&quot; clause.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_compileInOrderOf">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="compileRandom" id="_compileRandom">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -2383,6 +2528,44 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_compileInsertOrIgnore">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="compileInsertOrIgnoreReturning" id="_compileInsertOrIgnoreReturning">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>compileInsertOrIgnoreReturning(<span><a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a> <var>$query</var></span>, <span>array <var>$values</var></span>, <span>array <var>$returning</var></span>, <span>array|null <var>$uniqueBy</var></span>): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Compile an insert or ignore statement with a returning clause into SQL.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Compile an insert or ignore statement with a returning clause into SQL.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="RuntimeException.html"><span>RuntimeException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_compileInsertOrIgnoreReturning">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="compileInsertGetId" id="_compileInsertGetId">

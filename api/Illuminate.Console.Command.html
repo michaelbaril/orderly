@@ -75,6 +75,11 @@
 							ManuallyFailedException
 						</a>
 					</li>
+					<li>
+						<a href="Illuminate.Console.PromptValidationException.html">
+							PromptValidationException
+						</a>
+					</li>
 			</ul>
 		</div>
 	</div>
@@ -209,6 +214,68 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#___construct">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="configureFromAttributes" id="_configureFromAttributes">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>configureFromAttributes(): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Configure the command from class attributes.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Configure the command from class attributes.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_configureFromAttributes">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="configureUsageFromAttribute" id="_configureUsageFromAttribute">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>configureUsageFromAttribute(): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Configure usage examples for the command from class attributes.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Configure usage examples for the command from class attributes.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_configureUsageFromAttribute">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="configureUsingFluentDefinition" id="_configureUsingFluentDefinition">
@@ -603,7 +670,7 @@
 			</tr>
 			<tr>
 				<td class="table-cell">
-<code><a href="Symfony.Component.Console.Command.Command.html#_getDefaultName" class="deprecated">getDefaultName()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getDefaultDescription" class="deprecated">getDefaultDescription()</a>, <a href="Symfony.Component.Console.Command.Command.html#_ignoreValidationErrors">ignoreValidationErrors()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setApplication">setApplication()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setHelperSet">setHelperSet()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getHelperSet">getHelperSet()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getApplication">getApplication()</a>, <a href="Symfony.Component.Console.Command.Command.html#_isEnabled">isEnabled()</a>, <a href="Symfony.Component.Console.Command.Command.html#_configure">configure()</a>, <a href="Symfony.Component.Console.Command.Command.html#_interact">interact()</a>, <a href="Symfony.Component.Console.Command.Command.html#_initialize">initialize()</a>, <a href="Symfony.Component.Console.Command.Command.html#_complete">complete()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setCode">setCode()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setDefinition">setDefinition()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getDefinition">getDefinition()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getNativeDefinition">getNativeDefinition()</a>, <a href="Symfony.Component.Console.Command.Command.html#_addArgument">addArgument()</a>, <a href="Symfony.Component.Console.Command.Command.html#_addOption">addOption()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setName">setName()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setProcessTitle">setProcessTitle()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getName">getName()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setDescription">setDescription()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getDescription">getDescription()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setHelp">setHelp()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getHelp">getHelp()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getProcessedHelp">getProcessedHelp()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setAliases">setAliases()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getAliases">getAliases()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getSynopsis">getSynopsis()</a>, <a href="Symfony.Component.Console.Command.Command.html#_addUsage">addUsage()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getUsages">getUsages()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getHelper">getHelper()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getSubscribedSignals">getSubscribedSignals()</a>, <a href="Symfony.Component.Console.Command.Command.html#_handleSignal">handleSignal()</a></code>				</td>
+<code><a href="Symfony.Component.Console.Command.Command.html#_getDefaultName" class="deprecated">getDefaultName()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getDefaultDescription" class="deprecated">getDefaultDescription()</a>, <a href="Symfony.Component.Console.Command.Command.html#_ignoreValidationErrors">ignoreValidationErrors()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setApplication">setApplication()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setHelperSet">setHelperSet()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getHelperSet">getHelperSet()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getApplication">getApplication()</a>, <a href="Symfony.Component.Console.Command.Command.html#_isEnabled">isEnabled()</a>, <a href="Symfony.Component.Console.Command.Command.html#_configure">configure()</a>, <a href="Symfony.Component.Console.Command.Command.html#_interact">interact()</a>, <a href="Symfony.Component.Console.Command.Command.html#_initialize">initialize()</a>, <a href="Symfony.Component.Console.Command.Command.html#_complete">complete()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getCode">getCode()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setCode">setCode()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setDefinition">setDefinition()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getDefinition">getDefinition()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getNativeDefinition">getNativeDefinition()</a>, <a href="Symfony.Component.Console.Command.Command.html#_addArgument">addArgument()</a>, <a href="Symfony.Component.Console.Command.Command.html#_addOption">addOption()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setName">setName()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setProcessTitle">setProcessTitle()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getName">getName()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setDescription">setDescription()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getDescription">getDescription()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setHelp">setHelp()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getHelp">getHelp()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getProcessedHelp">getProcessedHelp()</a>, <a href="Symfony.Component.Console.Command.Command.html#_setAliases">setAliases()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getAliases">getAliases()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getSynopsis">getSynopsis()</a>, <a href="Symfony.Component.Console.Command.Command.html#_addUsage">addUsage()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getUsages">getUsages()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getHelper">getHelper()</a>, <a href="Symfony.Component.Console.Command.Command.html#_getSubscribedSignals">getSubscribedSignals()</a>, <a href="Symfony.Component.Console.Command.Command.html#_handleSignal">handleSignal()</a></code>				</td>
 			</tr>
 		</table>
 
@@ -786,11 +853,11 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap">string|null</code>
+				<code class="nowrap">string</code>
 			</td>
 
 			<td class="table-cell">
-<code><var>$description</var></code>
+<code><var>$description</var> = <span class="php-str">''</span></code>
 				
 
 	<div class="expandable-expandedView">
@@ -814,7 +881,7 @@
 			</td>
 
 			<td class="table-cell">
-<code><var>$help</var></code>
+<code><var>$help</var> = <span class="php-str">''</span></code>
 				
 
 	<div class="expandable-expandedView">
@@ -882,7 +949,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap">int</code>
+				<code class="nowrap"><b><span class="active" title="Illuminate\Console\Command">self</span></b>::SUCCESS|<b><span class="active" title="Illuminate\Console\Command">self</span></b>::FAILURE|<b><span class="active" title="Illuminate\Console\Command">self</span></b>::INVALID</code>
 			</td>
 
 			<td class="table-cell">
@@ -906,7 +973,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap">array</code>
+				<code class="nowrap">string[]</code>
 			</td>
 
 			<td class="table-cell">
