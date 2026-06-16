@@ -36,7 +36,7 @@ class Builder
                 } else {
                     $rownum = 0;
                     return $this->cursor()->map(function ($row) use ($column, &$rownum) {
-                        return $this->clone()->where((array) $row)->limit(1)->update([
+                        return (clone $this)->where((array) $row)->limit(1)->update([
                             $column => ++$rownum,
                         ]);
                     })->sum();

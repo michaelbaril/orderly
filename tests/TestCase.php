@@ -85,7 +85,10 @@ class TestCase extends OrchestraTestCase
 
     protected function getPackageProviders($app)
     {
-        return [ OrderlyServiceProvider::class ];
+        return [
+            OrderlyServiceProvider::class,
+            TestServiceProvider::class,
+        ];
     }
 
     protected function setUp(): void
