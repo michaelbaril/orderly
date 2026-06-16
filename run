@@ -120,7 +120,7 @@ docker compose up --no-recreate -d
 # Reinstall packages if needed
 if [ $# -gt 1 ]; then
     docker compose exec php rm -f /app/composer.lock
-    docker compose exec php composer update --with laravel/framework:$laravel_version --prefer-$dependency_version --prefer-dist --no-interaction
+    docker compose exec php composer update --with laravel/framework:$laravel_version --prefer-$dependency_version --prefer-dist --no-interaction --no-security-blocking
 fi
 
 # Run tests
